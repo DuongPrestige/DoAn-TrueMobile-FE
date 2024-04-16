@@ -36,7 +36,7 @@ const LoginWebPage = () => {
 
 
             localStorage.setItem("userData", JSON.stringify(res.user))
-            localStorage.setItem("token", JSON.stringify(res.accessToken))
+            localStorage.setItem("token", JSON.stringify("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJleGFtcGxlQGV4YW1wbGUuY29tIiwicm9sZUlkIjoiUjEiLCJpYXQiOjE3MTMxMTEzMTYsImV4cCI6MTcxMzU0MzMxNn0._4E32F_vInyCg0kGkZD0pd4PraVMllOL2OLaAS6vNmY"))
             console.log('res :', res);
             window.location.href = "/admin"
 

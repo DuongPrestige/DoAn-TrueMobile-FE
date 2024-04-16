@@ -40,19 +40,21 @@ function App() {
       <Switch>
         <div className="App">
           <Route exact path="/">
-            sdsdsdsd
             <Header />
             <HomePage />
             <Footer />
           </Route>
-          <Route path="/admin/" render={() => {
+          <Route exact path="/admin">
+            <HomePageAdmin />
+          </Route>
+          {/* <Route path="/admin/" render={() => {
             if (JSON.parse(localStorage.getItem("userData")) && (JSON.parse(localStorage.getItem("userData")).roleId === "R1" || JSON.parse(localStorage.getItem("userData")).roleId === "R4")) {
               return <HomePageAdmin />
               return 
             } else return <Redirect to={"/login"} />
 
           }}>
-          </Route>
+          </Route> */}
           {/* <Route path="/shop">
             <Header />
             <ShopPage />

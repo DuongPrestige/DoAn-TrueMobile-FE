@@ -3,8 +3,8 @@ import Footer from './Footer';
 import Header from './Header';
 import SideBar from './SideBar';
 import Home from './Home';
-// import ManageUser from './User/ManageUser';
-// import Adduser from './User/Adduser';
+import ManageUser from './User/ManageUser';
+// import Adduser from './User/EditUser';
 import {
     BrowserRouter as Router,
     Switch,
@@ -50,9 +50,11 @@ import {
 
 function HomePageAdmin(props) {
     return (
-
+<>
+ssssssssssssssss
         <Router>
-
+        <>
+        
             <Switch>
                 <div className="sb-nav-fixed">
                     {/* <Header /> */}
@@ -63,6 +65,12 @@ function HomePageAdmin(props) {
                                 <Route exact path="/admin/">
                                     <Home />
                                 </Route>
+                                <Route exact path="/admin/list-user">
+                                    <ManageUser />
+                                </Route>
+                                {/* <Route exact path="/admin/edit-user/:id">
+                                    <Adduser />
+                                </Route> */}
                                 {/* <Route exact path="/admin/list-user">
                                     <ManageUser />
                                 </Route>
@@ -214,8 +222,10 @@ function HomePageAdmin(props) {
 
                 </div>
             </Switch>
+        </>
 
         </Router>
+</>
 
     );
 }

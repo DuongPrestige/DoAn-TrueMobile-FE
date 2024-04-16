@@ -11,7 +11,14 @@ const SideBar = () => {
     const [user, setUser] = useState({})
 
     useEffect(() => {
-        const userData = JSON.parse(localStorage.getItem('userData'));
+        // const userData = JSON.parse(localStorage.getItem('userData'));
+        const userData = {
+            email: "tranthanhtung23092000@gmail.com",
+            roleId: "R1",
+            firstName: null,
+            lastName: "Tran Tùng",
+            id: 42
+        }
         setUser(userData)
     }, [])
     return (

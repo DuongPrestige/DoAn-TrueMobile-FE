@@ -20,6 +20,26 @@ export const getAllCategoryBlogService = (type) => {
 
 }
 
+//==================USER==========================//
+export const getAllUsers = (data) => {
+    return axios.get(`/api/v1/user/get-all-user?limit=${data.limit}&offset=${data.offset}&keyword=${data.keyword}`)
+
+}
+
+export const UpdateUserService = (data) => {
+    return axios.put(`/api/update-user`, data)
+
+}
+export const getDetailUserByEmail = (email) => {
+    return axios.get(`/api/get-detail-user-by-email?email=${email}`)
+
+}
+
+export const getDetailUserById = (id) => {
+    return axios.get(`/api/get-detail-user-by-id?id=${id}`)
+
+}
+
 //======================MESSSAGE==========================//
 export const listRoomOfUser = (userId) => {
     return axios.get(`/api/listRoomOfUser?userId=${userId}`)
