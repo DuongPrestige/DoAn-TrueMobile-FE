@@ -4,7 +4,7 @@ import Header from './Header';
 import SideBar from './SideBar';
 import Home from './Home';
 import ManageUser from './User/ManageUser';
-// import Adduser from './User/EditUser';
+import Adduser from './User/AddUser';
 import {
     BrowserRouter as Router,
     Switch,
@@ -51,7 +51,6 @@ import {
 function HomePageAdmin(props) {
     return (
 <>
-ssssssssssssssss
         <Router>
         <>
         
@@ -68,15 +67,16 @@ ssssssssssssssss
                                 <Route exact path="/admin/list-user">
                                     <ManageUser />
                                 </Route>
-                                {/* <Route exact path="/admin/edit-user/:id">
+                                <Route exact path="/admin/edit-user/:id">
                                     <Adduser />
-                                </Route> */}
-                                {/* <Route exact path="/admin/list-user">
-                                    <ManageUser />
-                                </Route>
+                                </Route> 
                                 <Route exact path="/admin/add-user">
                                     <Adduser />
                                 </Route>
+                                {/* <Route exact path="/admin/list-user">
+                                    <ManageUser />
+                                </Route>
+                               
                                 <Route exact path="/admin/edit-user/:id">
                                     <Adduser />
                                 </Route>

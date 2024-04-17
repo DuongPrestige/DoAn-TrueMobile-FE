@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { getAllUsers, DeleteUserService } from '../../../services/userService';
+import { getAllUsers, deleteUserService } from '../../../services/userService';
 import moment from 'moment';
 import { toast } from 'react-toastify';
 import { PAGINATION } from '../../../utils/constant';
@@ -46,9 +46,8 @@ const ManageUser = () => {
     let handleBanUser = async (event, id) => {
         event.preventDefault();
 
-        // let res = await DeleteUserService(id)
-         let res 
-        if (res && res.errCode === 0) {
+        let res = await deleteUserService(id)
+        if (res && res.err === 0) {
             toast.success("Xóa người dùng thành công")
             let user = await getAllUsers({
                 limit: PAGINATION.pagerow,

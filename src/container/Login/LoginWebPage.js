@@ -40,7 +40,7 @@ const LoginWebPage = () => {
             console.log('res :', res);
             window.location.href = "/admin"
 
-            // pending BE chưa xử lý
+           
             // if (res.user.roleId === "R1" || res.user.roleId === "R4") {
             
             //     window.location.href = "/admin"

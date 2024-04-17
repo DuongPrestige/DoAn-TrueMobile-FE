@@ -19,15 +19,27 @@ export const getAllCategoryBlogService = (type) => {
     return axios.get(`/api/get-all-category-blog?type=${type}`)
 
 }
+export const getAllCodeService = (type) => {
+    return axios.get(`/api/v1/all-code/get-list-allcode?type=${type}`)
+
+}
 
 //==================USER==========================//
 export const getAllUsers = (data) => {
     return axios.get(`/api/v1/user/get-all-user?limit=${data.limit}&offset=${data.offset}&keyword=${data.keyword}`)
 
 }
+export const deleteUserService = (userId) => {
+    return axios.delete(`/api/v1/user/delete-user`, {
+        data: {
+            id: userId
+        }
+    })
+
+}
 
 export const UpdateUserService = (data) => {
-    return axios.put(`/api/update-user`, data)
+    return axios.put(`/api/v1/user/update-user`, data)
 
 }
 export const getDetailUserByEmail = (email) => {
@@ -36,7 +48,7 @@ export const getDetailUserByEmail = (email) => {
 }
 
 export const getDetailUserById = (id) => {
-    return axios.get(`/api/get-detail-user-by-id?id=${id}`)
+    return axios.get(`/api/v1/user/get-user-by-id?id=${id}`)
 
 }
 
