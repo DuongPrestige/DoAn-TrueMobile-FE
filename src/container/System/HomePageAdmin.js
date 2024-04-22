@@ -1,16 +1,18 @@
-import React from 'react';
-import Footer from './Footer';
-import Header from './Header';
-import SideBar from './SideBar';
-import Home from './Home';
-import ManageUser from './User/ManageUser';
-import Adduser from './User/AddUser';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
+import React from "react";
+import Footer from "./Footer";
+import Header from "./Header";
+import SideBar from "./SideBar";
+import Home from "./Home";
+import ManageUser from "./User/ManageUser";
+import Adduser from "./User/AddUser";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ManageCategory from "./Category/ManageCategory";
+import AddCategory from "./Category/AddCategory";
+import ManageBrand from "./Brand/ManageBrand";
+import AddBrand from "./Brand/AddBrand";
+import AddBanner from "./Banner/AddBanner";
+import ManageBanner from "./Banner/ManageBanner";
 
-} from "react-router-dom";
 // import ManageCategory from './Category/ManageCategory';
 // import AddCategory from './Category/AddCategory';
 // import ManageBrand from './Brand/ManageBrand';
@@ -25,7 +27,6 @@ import {
 // import AddProductDetail from './Product/ProductDetail/AddProductDetail';
 // import EditProductDetail from './Product/ProductDetail/EditProductDetail';
 // import AddBanner from './Banner/AddBanner';
-// import ManageBanner from './Banner/ManageBanner';
 // import AddBlog from './Blog/AddBlog';
 // import ManageBlog from './Blog/ManageBlog';
 // import ManageSubject from './Subject/ManageSubject';
@@ -49,31 +50,63 @@ import {
 // import StockProduct from './Statistic/StockProduct';
 
 function HomePageAdmin(props) {
-    return (
-<>
-        <Router>
+  return (
+    <>
+      <Router>
         <>
-        
-            <Switch>
-                <div className="sb-nav-fixed">
-                    {/* <Header /> */}
-                    <div id="layoutSidenav">
-                        <SideBar />
-                        <div id="layoutSidenav_content">
-                            <main>
-                                <Route exact path="/admin/">
-                                    <Home />
-                                </Route>
-                                <Route exact path="/admin/list-user">
-                                    <ManageUser />
-                                </Route>
-                                <Route exact path="/admin/edit-user/:id">
-                                    <Adduser />
-                                </Route> 
-                                <Route exact path="/admin/add-user">
-                                    <Adduser />
-                                </Route>
-                                {/* <Route exact path="/admin/list-user">
+          <Switch>
+            <div className="sb-nav-fixed">
+              {/* <Header /> */}
+              <div id="layoutSidenav">
+                <SideBar />
+                <div id="layoutSidenav_content">
+                  <main>
+                    <Route exact path="/admin/">
+                      <Home />
+                    </Route>
+                    {/* quản lý user */}
+                    <Route exact path="/admin/list-user">
+                      <ManageUser />
+                    </Route>
+                    <Route exact path="/admin/edit-user/:id">
+                      <Adduser />
+                    </Route>
+                    <Route exact path="/admin/add-user">
+                      <Adduser />
+                    </Route>
+
+                    {/* quản lý danh mục */}
+                    <Route exact path="/admin/list-category">
+                      <ManageCategory />
+                    </Route>
+                    <Route exact path="/admin/add-category">
+                      <AddCategory />
+                    </Route>
+                    <Route exact path="/admin/edit-category/:id">
+                      <AddCategory />
+                    </Route>
+                    {/* quản lý nhãn hàng */}
+                    <Route exact path="/admin/list-brand">
+                      <ManageBrand />
+                    </Route>
+                    <Route exact path="/admin/add-brand">
+                      <AddBrand />
+                    </Route>
+                    <Route exact path="/admin/edit-brand/:id">
+                      <AddBrand />
+                    </Route>
+                    {/* quản lý banner */}
+                    <Route exact path="/admin/add-banner">
+                      <AddBanner />
+                    </Route>
+                    <Route exact path="/admin/edit-banner/:id">
+                      <AddBanner />
+                    </Route>
+                    <Route exact path="/admin/list-banner">
+                      <ManageBanner />
+                    </Route>
+
+                    {/* <Route exact path="/admin/list-user">
                                     <ManageUser />
                                 </Route>
                                
@@ -215,19 +248,16 @@ function HomePageAdmin(props) {
                                 <Route exact path="/admin/stock-product">
                                     <StockProduct />
                                 </Route> */}
-                            </main>
-                            <Footer />
-                        </div>
-                    </div>
-
+                  </main>
+                  <Footer />
                 </div>
-            </Switch>
+              </div>
+            </div>
+          </Switch>
         </>
-
-        </Router>
-</>
-
-    );
+      </Router>
+    </>
+  );
 }
 
 export default HomePageAdmin;
