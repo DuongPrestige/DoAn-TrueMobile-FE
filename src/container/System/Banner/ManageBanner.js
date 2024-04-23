@@ -56,7 +56,7 @@ const ManageBanner = () => {
             }
         })
         if (response && response.errCode === 0) {
-            toast.success("Xóa băng rôn thành công !")
+            toast.success("Xóa banner thành công !")
             let arrData = await getAllBanner({
 
 
@@ -69,7 +69,7 @@ const ManageBanner = () => {
                 setCount(Math.ceil(arrData.count / PAGINATION.pagerow))
             }
         } else {
-            toast.error("Xóa băng rôn thất bại")
+            toast.error("Xóa banner thất bại")
         }
     }
     let handleChangePage = async (number) => {
@@ -108,25 +108,25 @@ const ManageBanner = () => {
                 element.image = ""
             })
            
-           await CommonUtils.exportExcel(res.data,"Danh sách băng rôn","ListBanner")
+           await CommonUtils.exportExcel(res.data,"Danh sách banner","ListBanner")
         }
        
     }
     return (
         <div className="container-fluid px-4">
-            <h1 className="mt-4">Quản lý băng rôn</h1>
+            <h1 className="mt-4">Quản lý banner</h1>
 
 
             <div className="card mb-4">
                 <div className="card-header">
                     <i className="fas fa-table me-1" />
-                    Danh sách băng rôn
+                    Danh sách banner
                 </div>
                 <div className="card-body">
                 
                     <div className='row'>
                     <div  className='col-4'>
-                    <FormSearch title={"tên băng rôn"} handleOnchange={handleOnchangeSearch} handleSearch={handleSearchBanner} />
+                    <FormSearch title={"tên banner"} handleOnchange={handleOnchangeSearch} handleSearch={handleSearchBanner} />
                     </div>
                     <div className='col-8'>
                     <button  style={{float:'right'}} onClick={() => handleOnClickExport()} className="btn btn-success" >Xuất excel <i class="fa-solid fa-file-excel"></i></button>
@@ -137,7 +137,7 @@ const ManageBanner = () => {
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên băng rôn</th>
+                                    <th>Tên banner</th>
                                     <th>Hình ảnh</th>
                                     <th>Thao tác</th>
                                 </tr>

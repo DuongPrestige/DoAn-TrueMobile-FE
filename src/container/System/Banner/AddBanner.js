@@ -78,7 +78,7 @@ const AddBanner = (props) => {
         image: inputValues.image,
       });
       if (res && res.errCode === 0) {
-        toast.success("Tạo mới băng rôn thành công !");
+        toast.success("Tạo mới banner thành công !");
         setInputValues({
           ...inputValues,
           ["name"]: "",
@@ -97,7 +97,7 @@ const AddBanner = (props) => {
         id: id,
       });
       if (res && res.errCode === 0) {
-        toast.success("Cập nhật băng rôn thành công !");
+        toast.success("Cập nhật banner thành công !");
       } else {
         toast.error(res.errMessage);
       }
@@ -105,20 +105,20 @@ const AddBanner = (props) => {
   };
   return (
     <div className="container-fluid px-4">
-      <h1 className="mt-4">Quản lý băng rôn</h1>
+      <h1 className="mt-4">Quản lý banner</h1>
 
       <div className="card mb-4">
         <div className="card-header">
           <i className="fas fa-table me-1" />
           {inputValues.isActionADD === true
-            ? "Thêm mới băng rôn"
-            : "Cập nhật thông tin băng rôn"}
+            ? "Thêm mới banner"
+            : "Cập nhật thông tin banner"}
         </div>
         <div className="card-body">
           <form>
             <div className="form-row">
               <div className="form-group col-md-4">
-                <label htmlFor="inputEmail4">Tên băng rôn</label>
+                <label htmlFor="inputEmail4">Tên banner</label>
                 <input
                   type="text"
                   value={inputValues.name}
