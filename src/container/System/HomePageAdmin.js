@@ -12,6 +12,10 @@ import ManageBrand from "./Brand/ManageBrand";
 import AddBrand from "./Brand/AddBrand";
 import AddBanner from "./Banner/AddBanner";
 import ManageBanner from "./Banner/ManageBanner";
+import ManageProduct from './Product/ManageProduct';
+import EditProduct from './Product/EditProduct';
+import ManageProductDetail from './Product/ProductDetail/ManageProductDetail';
+import ManageProductImage from './Product/ProductImage/ManageProductImage';
 
 // import ManageCategory from './Category/ManageCategory';
 // import AddCategory from './Category/AddCategory';
@@ -21,9 +25,6 @@ import ManageBanner from "./Banner/ManageBanner";
 // import ChangePassword from './User/ChangePassword';
 // import AddProduct from './Product/AddProduct';
 // import ManageProduct from './Product/ManageProduct';
-// import EditProduct from './Product/EditProduct';
-// import ManageProductDetail from './Product/ProductDetail/ManageProductDetail';
-// import ManageProductImage from './Product/ProductImage/ManageProductImage';
 // import AddProductDetail from './Product/ProductDetail/AddProductDetail';
 // import EditProductDetail from './Product/ProductDetail/EditProductDetail';
 // import AddBanner from './Banner/AddBanner';
@@ -105,7 +106,19 @@ function HomePageAdmin(props) {
                     <Route exact path="/admin/list-banner">
                       <ManageBanner />
                     </Route>
-
+                    {/* quản lý sản phẩm */}
+                    <Route exact path="/admin/list-product">
+                        <ManageProduct />
+                    </Route>
+                    <Route exact path="/admin/edit-product/:id">
+                        <EditProduct />
+                    </Route>
+                    <Route exact path="/admin/list-product-detail/:id">
+                        <ManageProductDetail />
+                    </Route>
+                    <Route exact path="/admin/list-product-detail-image/:id">
+                        <ManageProductImage />
+                    </Route>
                     {/* <Route exact path="/admin/list-user">
                                     <ManageUser />
                                 </Route>

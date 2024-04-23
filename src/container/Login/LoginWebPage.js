@@ -46,22 +46,25 @@ const LoginWebPage = () => {
 
     if (res && res.err === 0) {
       localStorage.setItem("userData", JSON.stringify(res.user));
-      localStorage.setItem(
-        "token",
-        JSON.stringify(
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJleGFtcGxlQGV4YW1wbGUuY29tIiwicm9sZUlkIjoiUjEiLCJpYXQiOjE3MTM4MDExMzQsImV4cCI6MTcxNDIzMzEzNH0.iJJ6n6FzPHRet9voD1TvFItsAzheynaPTSZyhe2JBXQ"
-        )
-      );
-      console.log("res :", res);
-      window.location.href = "/admin";
+      console.log('res :', res);
+      localStorage.setItem("token", JSON.stringify(res.access_token))
 
-      // if (res.user.roleId === "R1" || res.user.roleId === "R4") {
+    //   localStorage.setItem(
+    //     "token",
+    //     JSON.stringify(
+    //       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJleGFtcGxlQGV4YW1wbGUuY29tIiwicm9sZUlkIjoiUjEiLCJpYXQiOjE3MTM4MDExMzQsImV4cCI6MTcxNDIzMzEzNH0.iJJ6n6FzPHRet9voD1TvFItsAzheynaPTSZyhe2JBXQ"
+    //     )
+    //   );
+    //   console.log("res :", res);
+    //   window.location.href = "/admin";
 
-      //     window.location.href = "/admin"
-      // }
-      // else {
-      //     window.location.href = "/"
-      // }
+      if (res.user.roleId === "R1" || res.user.roleId === "R4") {
+
+          window.location.href = "/admin"
+      }
+      else {
+          window.location.href = "/"
+      }
     } else {
       toast.error(res.errMessage);
     }
@@ -117,10 +120,9 @@ const LoginWebPage = () => {
       if (res && res.err === 0) {
         console.log("2", inputValues);
         toast.success("Tạo tài khoản thành công");
-        // handleLogin(inputValues.email, inputValues.password)
-        window.location.href = "/admin";
+        handleLogin(inputValues.email, inputValues.password)
+        // window.location.href = "/admin";
       } else {
-        console.log("333");
         toast.error(res.errMessage);
       }
     };
@@ -289,27 +291,26 @@ const LoginWebPage = () => {
                   {/* Signup Form */}
                   <div className="signup form-peice switched">
                     <form className="signup-form">
-                      {/* <div className="form-group">
-                                                <label htmlFor="name">Họ và tên</label>
-                                                <input type="text" name="lastName" onChange={(event) => handleOnChange(event)} id="name" className="name" />
-                                                <span className="error" />
-                                            </div> */}
-
                       <div className="form-group">
-                        <label htmlFor="email">Địa chỉ email</label>
-                        <input
-                          type="email"
-                          name="email"
-                          onChange={(event) => handleOnChange(event)}
-                          id="email"
-                          className="email"
-                        />
+                        <label htmlFor="name">Họ và tên</label>
+                        <input type="text" name="lastName" onChange={(event) => handleOnChange(event)} id="name" className="name" />
                         <span className="error" />
-                      </div>
-                      {/* <div className="form-group">
-                                                <label htmlFor="phone">Số điện thoại</label>
-                                                <input type="text" name="phonenumber" onChange={(event) => handleOnChange(event)} id="phone" />
-                                            </div> */}
+                    </div>
+                    <div className="form-group">
+                    <label htmlFor="email">Địa chỉ email</label>
+                    <input
+                        type="email"
+                        name="email"
+                        onChange={(event) => handleOnChange(event)}
+                        id="email"
+                        className="email"
+                    />
+                    <span className="error" />
+                    </div>
+                      <div className="form-group">
+                        <label htmlFor="phone">Số điện thoại</label>
+                        <input type="text" name="phonenumber" onChange={(event) => handleOnChange(event)} id="phone" />
+                        </div>
                       <div className="form-group">
                         <label htmlFor="password">Mật khẩu</label>
                         <input

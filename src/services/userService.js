@@ -100,20 +100,86 @@ export const getAllcommentByBlogIdService = (id) => {
 };
 
 //==================PRODUCT======================//
+export const CreateNewProduct = (data) => {
+  return axios.post(`/api/create-new-product`, data)
+}
+export const getAllProductUser = (data) => {
+  return axios.get(`/api/get-all-product-user?limit=${data.limit}&offset=${data.offset}&sortPrice=${data.sortPrice}&sortName=${data.sortName}&categoryId=${data.categoryId}&brandId=${data.brandId}&keyword=${data.keyword}`)
+
+}
+export const getAllProductAdmin = (data) => {
+  return axios.get(`/api/v1/product/get-all-product-admin?limit=${data.limit}&offset=${data.offset}&sortPrice=${data.sortPrice}&sortName=${data.sortName}&categoryId=${data.categoryId}&brandId=${data.brandId}&keyword=${data.keyword}`)
+
+}
+export const handleInActiveProductService = (data) => {
+  return axios.post(`/api/v1/product/unactive-product`, data)
+}
+export const handleActiveProductService = (data) => {
+  return axios.post(`/api/v1/product/active-product`, data)
+}
 export const getDetailProductByIdService = (id) => {
-  return axios.get(`/api/get-detail-product-by-id?id=${id}`);
-};
-export const getProductRecommendService = (data) => {
-  return axios.get(
-    `/api/get-product-recommend?userId=${data.userId}&limit=${data.limit}`
-  );
-};
+  return axios.get(`/api/get-detail-product-by-id?id=${id}`)
+}
+export const UpdateProductService = (data) => {
+  return axios.put(`/api/update-product`, data)
+}
+export const getAllProductDetailByIdService = (data) => {
+  return axios.get(`/api/v1/product/get-product-detail-by-id?id=${data.id}&limit=${data.limit}&offset=${data.offset}`)
+}
+export const getAllProductDetailImageByIdService = (data) => {
+  return axios.get(`/api/v1/product/get-product-detail-image-by-id?id=${data.id}&limit=${data.limit}&offset=${data.offset}`)
+}
+export const getAllProductDetailSizeByIdService = (data) => {
+  return axios.get(`/api/get-all-product-detail-size-by-id?id=${data.id}&limit=${data.limit}&offset=${data.offset}`)
+}
+export const CreateNewProductDetailService = (data) => {
+  return axios.post(`/api/create-new-product-detail`, data)
+}
+export const getProductDetailByIdService = (id) => {
+  return axios.get(`/api/get-product-detail-by-id?id=${id}`)
+}
+export const UpdateProductDetailService = (data) => {
+  return axios.put(`/api/update-product-detail`, data)
+}
+export const createNewProductImageService = (data) => {
+  return axios.post(`/api/create-product-detail-image`, data)
+}
+export const getProductDetailImageByIdService = (id) => {
+  return axios.get(`/api/get-product-detail-image-by-id?id=${id}`)
+}
+export const UpdateProductDetailImageService = (data) => {
+  return axios.put(`/api/update-product-detail-image`, data)
+}
+export const DeleteProductDetailImageService = (data) => {
+  return axios.delete(`/api/delete-product-detail-image`, data)
+}
+export const DeleteProductDetailService = (data) => {
+  return axios.delete(`/api/v1/product/delete-product-detail`, data)
+}
+export const createNewProductSizeService = (data) => {
+  return axios.post(`/api/create-product-detail-size`, data)
+}
+export const getProductDetailSizeByIdService = (id) => {
+  return axios.get(`/api/get-detail-product-detail-size-by-id?id=${id}`)
+}
+export const UpdateProductDetailSizeService = (data) => {
+  return axios.put(`/api/update-product-detail-size`, data)
+}
+export const DeleteProductDetailSizeService = (data) => {
+  return axios.delete(`/api/delete-product-detail-size`, data)
+}
 export const getProductFeatureService = (limit) => {
-  return axios.get(`/api/get-product-feature?limit=${limit}`);
-};
+  return axios.get(`/api/get-product-feature?limit=${limit}`)
+}
 export const getProductNewService = (limit) => {
-  return axios.get(`/api/get-product-new?limit=${limit}`);
-};
+  return axios.get(`/api/get-product-new?limit=${limit}`)
+}
+export const getProductShopcartService = (data) => {
+  return axios.get(`/api/get-product-shopcart?userId=${data.userId}&limit=${data.limit}`)
+}
+export const getProductRecommendService = (data) => {
+  return axios.get(`/api/get-product-recommend?userId=${data.userId}&limit=${data.limit}`)
+}
 
 //========================SHOPCART===================//
 export const addShopCartService = (data) => {
