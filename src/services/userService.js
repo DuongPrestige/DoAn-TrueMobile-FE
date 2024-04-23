@@ -156,6 +156,11 @@ export const getAllcommentByBlogIdService = (id) => {
 };
 
 //==================PRODUCT======================//
+export const getProductRecommendService = (data) => {
+  return axios.get(
+    `/api/get-product-recommend?userId=${data.userId}&limit=${data.limit}`
+  );
+};
 export const CreateNewProduct = (data) => {
   return axios.post(`/api/create-new-product`, data);
 };
