@@ -20,7 +20,17 @@ export const getAllCategoryBlogService = (type) => {
 export const getAllCodeService = (type) => {
   return axios.get(`/api/v1/all-code/get-list-allcode?type=${type}`);
 };
+export const getAllCodeServiceSubject = () => {
+  return axios.get(
+    `/api/v1/all-code/get-list-allcode?limit=100&page=0&keyword=&type=SUBJECT`
+  );
+};
 
+export const getAllCodeServiceDiscount = () => {
+  return axios.get(
+    `/api/v1/all-code/get-list-allcode?limit=100&page=0&keyword=&type=DISCOUNT`
+  );
+};
 //==================USER==========================//
 export const getAllUsers = (data) => {
   return axios.get(
@@ -75,22 +85,68 @@ export const getDetailAllcodeById = (id) => {
 export const listRoomOfUser = (userId) => {
   return axios.get(`/api/listRoomOfUser?userId=${userId}`);
 };
+
 //=================BLOG=========================//
-export const getAllBlog = (data) => {
-  return axios.get(
-    `/api/get-all-blog?limit=${data.limit}&offset=${data.offset}&subjectId=${data.subjectId}&keyword=${data.keyword}`
-  );
+export const createNewBlogrService = (data) => {
+  return axios.post(`/api/v1/blog/create-new-blog`, data);
+};
+export const updateBlogService = (data) => {
+  return axios.put(`/api/v1/blog/update-blog`, data);
+};
+export const deleteBlogService = (data) => {
+  return axios.delete(`/api/v1/blog/delete-blog`, data);
 };
 export const getDetailBlogByIdService = (id) => {
-  return axios.get(`/api/get-detail-blog?id=${id}`);
+  return axios.get(`/api/v1/blog/get-detail-blog?id=${id}`);
+};
+export const getAllBlog = (data) => {
+  return axios.get(
+    `/api/v1/blog/get-all-blog?limit=${data.limit}&offset=${data.offset}&subjectId=${data.subjectId}&keyword=${data.keyword}`
+  );
 };
 export const getFeatureBlog = (limit) => {
-  return axios.get(`/api/get-feature-blog?limit=${limit}`);
+  return axios.get(`/api/v1/blog/get-feature-blog?limit=${limit}`);
 };
 export const getNewBlog = (limit) => {
-  return axios.get(`/api/get-new-blog?limit=${limit}`);
+  return axios.get(`/api/v1/blog/get-new-blog?limit=${limit}`);
 };
 
+//===================TYPESHIP=====================//
+export const createNewTypeShipService = (data) => {
+  return axios.post(`/api/v1/typeship/create-new-typeship`, data);
+};
+export const updateTypeShipService = (data) => {
+  return axios.put(`/api/v1/typeship/update-typeship`, data);
+};
+export const deleteTypeShipService = (data) => {
+  return axios.delete(`/api/v1/typeship/delete-typeship`, data);
+};
+export const getDetailTypeShipByIdService = (id) => {
+  return axios.get(`/api/v1/typeship/get-detail-typeship?id=${id}`);
+};
+export const getAllTypeShip = (data) => {
+  return axios.get(
+    `/api/v1/typeship/get-all-typeship?limit=${data.limit}&offset=${data.offset}&keyword=${data.keyword}`
+  );
+};
+//=======================SUPPLIER==========================//
+export const createNewSupplierService = (data) => {
+  return axios.post(`/api/v1/supplier/create-new-supplier`, data);
+};
+export const updateSupplierService = (data) => {
+  return axios.put(`/api/v1/supplier/update-supplier`, data);
+};
+export const deleteSupplierService = (data) => {
+  return axios.delete(`/api/v1/supplier/delete-supplier`, data);
+};
+export const getDetailSupplierByIdService = (id) => {
+  return axios.get(`/api/v1/supplier/get-detail-supplier-byId?id=${id}`);
+};
+export const getAllSupplier = (data) => {
+  return axios.get(
+    `/api/v1/supplier/get-all-supplier?limit=${data.limit}&offset=${data.offset}&keyword=${data.keyword}`
+  );
+};
 //========================COMMENT=======================
 export const createNewcommentService = (data) => {
   return axios.post(`/api/create-new-comment`, data);
@@ -113,6 +169,53 @@ export const getProductFeatureService = (limit) => {
 };
 export const getProductNewService = (limit) => {
   return axios.get(`/api/get-product-new?limit=${limit}`);
+};
+//===================TYPE VOUCHER===============//
+export const createNewTypeVoucherService = (data) => {
+  return axios.post(`/api/v1/typevoucher/create-new-typevoucher`, data);
+};
+export const updateTypeVoucherService = (data) => {
+  return axios.put(`/api/v1/typevoucher/update-typevoucher`, data);
+};
+export const deleteTypeVoucherService = (data) => {
+  return axios.delete(`/api/v1/typevoucher/delete-typevoucher`, data);
+};
+export const getDetailTypeVoucherByIdService = (id) => {
+  return axios.get(`/api/v1/typevoucher/get-detail-typevoucher?id=${id}`);
+};
+export const getAllTypeVoucher = (data) => {
+  return axios.get(
+    `/api/v1/typevoucher/get-all-typevoucher?limit=${data.limit}&offset=${data.offset}`
+  );
+};
+export const getSelectTypeVoucher = () => {
+  return axios.get(`/api/v1/typevoucher/get-select-typevoucher`);
+};
+//=====================VOUCHER===================//
+export const createNewVoucherService = (data) => {
+  return axios.post(`/api/v1/voucher/create-new-voucher`, data);
+};
+export const updateVoucherService = (data) => {
+  return axios.put(`/api/v1/voucher/update-voucher`, data);
+};
+export const deleteVoucherService = (data) => {
+  return axios.delete(`/api/v1/voucher/delete-voucher`, data);
+};
+export const getDetailVoucherByIdService = (id) => {
+  return axios.get(`/api/v1/voucher/get-detail-voucher?id=${id}`);
+};
+export const getAllVoucher = (data) => {
+  return axios.get(
+    `/api/v1/voucher/get-all-voucher?limit=${data.limit}&offset=${data.offset}`
+  );
+};
+export const saveUserVoucherService = (data) => {
+  return axios.post(`/api/v1/voucher/save-user-voucher`, data);
+};
+export const getAllVoucherByUserIdService = (data) => {
+  return axios.get(
+    `/api/v1/voucher/get-all-voucher-by-userid?limit=${data.limit}&offset=${data.offset}&id=${data.id}`
+  );
 };
 
 //========================SHOPCART===================//
