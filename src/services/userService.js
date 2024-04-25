@@ -20,6 +20,9 @@ export const getAllCategoryBlogService = (type) => {
 export const getAllCodeService = (type) => {
   return axios.get(`/api/v1/all-code/get-list-allcode?type=${type}`);
 };
+export const getAllCodeServiceByType = (type) => {
+  return axios.get(`/api/v1/all-code/get-all-category-blog?type=${type}`);
+};
 export const getAllCodeServiceSubject = () => {
   return axios.get(
     `/api/v1/all-code/get-list-allcode?limit=100&page=0&keyword=&type=SUBJECT`
