@@ -58,6 +58,7 @@ const ManageProductImage = () => {
 
         })
         if (arrData && arrData.errCode === 0) {
+            console.log('22222222222222',arrData.data);
             setdataProductDetailImage(arrData.data)
             setCount(Math.ceil(arrData.count / PAGINATION.pagerow))
         }
@@ -165,6 +166,7 @@ const ManageProductImage = () => {
         }
     }
     let handleEditProductImage = (id) => {
+        console.log('id :',id);
         setproductImageId(id)
         setisOpenModal(true)
     }

@@ -84,7 +84,7 @@ const AddProductDetail = (props) => {
     }
     return (
         <div className="container-fluid px-4">
-            <h1 className="mt-4">Quản lý chi tiết sản phẩm</h1>
+            <h1 className="mt-4">Quản lý chi tiết sản phẩm 1</h1>
 
 
             <div className="card mb-4">
@@ -99,14 +99,14 @@ const AddProductDetail = (props) => {
                                 <label htmlFor="inputEmail4">Tên loại sản phẩm</label>
                                 <input type="text" value={inputValues.nameDetail} name="nameDetail" onChange={(event) => handleOnChange(event)} className="form-control" id="inputEmail4" />
                             </div>
-                            <div className="form-group col-md-4">
+                            {/* <div className="form-group col-md-4">
                                 <label htmlFor="inputEmail4">Chiều rộng</label>
                                 <input type="text" value={inputValues.width} name="width" onChange={(event) => handleOnChange(event)} className="form-control" id="inputEmail4" />
-                            </div>
-                            <div className="form-group col-md-4">
+                            </div> */}
+                            {/* <div className="form-group col-md-4">
                                 <label htmlFor="inputPassword4">chiều dài</label>
                                 <input type="text" value={inputValues.height} name="height" onChange={(event) => handleOnChange(event)} className="form-control" id="inputPassword4" />
-                            </div>
+                            </div> */}
                             <div className="form-group col-md-3">
                                 <label htmlFor="inputEmail4">Giá gốc</label>
                                 <input type="number" value={inputValues.originalPrice} name="originalPrice" onChange={(event) => handleOnChange(event)} className="form-control" id="inputEmail4" />
@@ -115,10 +115,10 @@ const AddProductDetail = (props) => {
                                 <label htmlFor="inputPassword4">Giá khuyến mãi</label>
                                 <input type="number" value={inputValues.discountPrice} name="discountPrice" onChange={(event) => handleOnChange(event)} className="form-control" id="inputPassword4" />
                             </div>
-                            <div className="form-group col-md-4">
+                            {/* <div className="form-group col-md-4">
                                 <label htmlFor="inputPassword4">Khối lượng</label>
                                 <input type="text" value={inputValues.weight} name="weight" onChange={(event) => handleOnChange(event)} className="form-control" id="inputPassword4" />
-                            </div>
+                            </div> */}
                           
                             
                         </div>
@@ -128,7 +128,7 @@ const AddProductDetail = (props) => {
                         </div>
                         <div className="form-row">
                             
-                        <div className="form-group col-md-4">
+                            {/* <div className="form-group col-md-4">
                                 <label htmlFor="inputPassword4">Kích thước</label>
                                 <select value={inputValues.sizeId} name="sizeId" onChange={(event) => handleOnChange(event)} id="inputState" className="form-control">
                                     {dataSize && dataSize.length > 0 &&
@@ -139,7 +139,7 @@ const AddProductDetail = (props) => {
                                         })
                                     }
                                 </select>
-                            </div>
+                            </div> */}
                             <div className="form-group col-md-3">
                                 <label htmlFor="inputPassword4">Chọn hình ảnh</label>
                                 <input type="file" id="previewImg" accept=".jpg,.png"
