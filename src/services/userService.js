@@ -165,7 +165,7 @@ export const getProductRecommendService = (data) => {
   );
 };
 export const CreateNewProduct = (data) => {
-  return axios.post(`/api/create-new-product`, data);
+  return axios.post(`/api/v1/product/create-new-product`, data);
 };
 export const getAllProductUser = (data) => {
   return axios.get(
@@ -184,10 +184,10 @@ export const handleActiveProductService = (data) => {
   return axios.post(`/api/v1/product/active-product`, data);
 };
 export const getDetailProductByIdService = (id) => {
-  return axios.get(`/api/get-detail-product-by-id?id=${id}`);
+  return axios.get(`/api/v1/product/get-detail-product-by-id?id=${id}`);
 };
 export const UpdateProductService = (data) => {
-  return axios.put(`/api/update-product`, data);
+  return axios.put(`/api/v1/product/update-product`, data);
 };
 export const getAllProductDetailByIdService = (data) => {
   return axios.get(
@@ -199,9 +199,9 @@ export const getAllProductDetailImageByIdService = (data) => {
     `/api/v1/product/get-all-product-detail-image-by-id?id=${data.id}&limit=${data.limit}&offset=${data.offset}`
   );
 };
-export const getAllProductDetailSizeByIdService = (data) => {
+export const getAllProductDetailConfigByIdService = (data) => {
   return axios.get(
-    `/api/get-all-product-detail-size-by-id?id=${data.id}&limit=${data.limit}&offset=${data.offset}`
+    `/api/v1/product/get-all-product-detail-config-by-id?id=${data.id}&limit=${data.limit}&offset=${data.offset}`
   );
 };
 
@@ -233,7 +233,7 @@ export const createNewProductSizeService = (data) => {
   return axios.post(`/api/create-product-detail-size`, data);
 };
 export const getProductDetailSizeByIdService = (id) => {
-  return axios.get(`/api/get-detail-product-detail-size-by-id?id=${id}`);
+  return axios.get(`/api/v1/product/get-detail-product-detail-config-by-id?id=${id}`);
 };
 export const UpdateProductDetailSizeService = (data) => {
   return axios.put(`/api/update-product-detail-size`, data);
