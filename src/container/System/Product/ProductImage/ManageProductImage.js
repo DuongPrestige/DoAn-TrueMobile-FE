@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import {
     getAllProductDetailImageByIdService, createNewProductImageService, UpdateProductDetailImageService,
-    DeleteProductDetailImageService, getAllProductDetailSizeByIdService, createNewProductSizeService,
+    DeleteProductDetailImageService, getAllProductDetailConfigByIdService, createNewProductSizeService,
     UpdateProductDetailSizeService, DeleteProductDetailSizeService
 } from '../../../../services/userService';
 import moment from 'moment';
@@ -64,11 +64,12 @@ const ManageProductImage = () => {
         }
     }
     let loadProductDetailSize = async () => {
-        let arrSize = await getAllProductDetailSizeByIdService({
+        let arrSize = await getAllProductDetailConfigByIdService({
             id: id,
             limit: PAGINATION.pagerow,
             offset: 0
         })
+        console.log('22 L',arrSize);
         if (arrSize && arrSize.errCode === 0) {
             setdataProductDetailSize(arrSize.data)
             setcountSizes(Math.ceil(arrSize.count / PAGINATION.pagerow))
@@ -206,7 +207,7 @@ const ManageProductImage = () => {
         })
         if (response && response.errCode === 0) {
             toast.success("Xóa kích thước thành công !")
-            let arrData = await getAllProductDetailSizeByIdService({
+            let arrData = await getAllProductDetailConfigByIdService({
 
                 id: id,
                 limit: PAGINATION.pagerow,
@@ -237,7 +238,7 @@ const ManageProductImage = () => {
     }
     let handleChangePageProductSize = async (number) => {
         setnumberPage(number.selected)
-        let arrSize = await getAllProductDetailSizeByIdService({
+        let arrSize = await getAllProductDetailConfigByIdService({
             id: id,
             limit: PAGINATION.pagerow,
             offset: number.selected * PAGINATION.pagerow
@@ -329,13 +330,14 @@ const ManageProductImage = () => {
                     onPageChange={handleChangePage}
                 />
             </div>
+            {console.log('xxccc :',dataProductDetailSize)}
 
             <div>
                 <div className="card mb-4">
                     <div className="card-header">
                         <i className="fas fa-table me-1" />
                         Danh sách kích thước chi tiết sản phẩm
-                        <div onClick={() => handleOpenModalSize()} className="float-right"><i style={{ fontSize: '35px', cursor: 'pointer', color: '#0D6EFD' }} className="fas fa-plus-square"></i></div>
+                        {/* <div onClick={() => handleOpenModalSize()} className="float-right"><i style={{ fontSize: '35px', cursor: 'pointer', color: '#0D6EFD' }} className="fas fa-plus-square"></i></div> */}
                     </div>
                     <div className="card-body">
                         <div className="table-responsive">
@@ -343,12 +345,11 @@ const ManageProductImage = () => {
                                 <thead>
                                     <tr>
                                         <th>STT</th>
+                                        <th>Màu sắc</th>
                                         <th>Kích thước</th>
-                                        <th>Chiều rộng</th>
-                                        <th>Chiều dài</th>
-                                        <th>Khối lượng</th>
+                                        <th>Hệ điều hành</th>
                                         <th>Số lượng tồn</th>
-                                        <th>Thao tác</th>
+                                        {/* <th>Thao tác</th> */}
                                     </tr>
                                 </thead>
 
@@ -358,18 +359,17 @@ const ManageProductImage = () => {
                                             return (
                                                 <tr key={index}>
                                                     <td>{index + 1}</td>
-                                                    <td>{item.sizeData.value}</td>
-                                                    <td>{item.width}</td>
-                                                    <td>{item.height}</td>
-                                                    <td>{item.weight}</td>
+                                                    <td>{item.colorData.value}</td>
+                                                    <td>{item.romData.value}</td>
+                                                    <td>{item.os}</td>
                                                     <td>{item.stock}</td>
-                                                    <td>
+                                                    {/* <td>
 
                                                         <span onClick={() => handleEditProductSize(item.id)} style={{ color: '#0E6DFE', cursor: 'pointer' }}   >Edit</span>
                                                         &nbsp; &nbsp;
                                                         <span onClick={() => handleDeleteProductSize(item.id)} style={{ color: '#0E6DFE', cursor: 'pointer' }}   >Delete</span>
 
-                                                    </td>
+                                                    </td> */}
                                                 </tr>
                                             )
                                         })

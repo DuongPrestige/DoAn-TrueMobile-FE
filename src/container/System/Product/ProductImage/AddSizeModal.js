@@ -20,7 +20,8 @@ import {
 
 
 const AddSizeModal = (props) => {
-    const { data: dataSize } = useFetchAllcode('SIZE')
+    // const { data: dataRom } = useFetchAllcode('SIZE')
+    const { data: dataRom } = useFetchAllcode('ROM')
     const [inputValues, setInputValues] = useState({
         sizeId: '', width: '', height: '', isActionUpdate: false, id: '', weight: ''
     });
@@ -29,9 +30,9 @@ const AddSizeModal = (props) => {
         setInputValues({ ...inputValues, [name]: value });
 
     };
-    if (dataSize && dataSize.length > 0 && inputValues.sizeId === '') {
+    if (dataRom && dataRom.length > 0 && inputValues.sizeId === '') {
 
-        setInputValues({ ...inputValues, ["sizeId"]: dataSize[0].code })
+        setInputValues({ ...inputValues, ["sizeId"]: dataRom[0].code })
     }
     useEffect(() => {
         let id = props.productSizeId
@@ -81,8 +82,8 @@ const AddSizeModal = (props) => {
                         <div className="col-12 form-group">
                             <label>Kích thước</label>
                             <select value={inputValues.sizeId} name="sizeId" onChange={(event) => handleOnChange(event)} id="inputState" className="form-control">
-                                {dataSize && dataSize.length > 0 &&
-                                    dataSize.map((item, index) => {
+                                {dataRom && dataRom.length > 0 &&
+                                    dataRom.map((item, index) => {
                                         return (
                                             <option key={index} value={item.code}>{item.value}</option>
                                         )
