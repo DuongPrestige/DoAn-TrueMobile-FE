@@ -191,12 +191,12 @@ export const UpdateProductService = (data) => {
 };
 export const getAllProductDetailByIdService = (data) => {
   return axios.get(
-    `/api/v1/product/get-product-detail-by-id?id=${data.id}&limit=${data.limit}&offset=${data.offset}`
+    `/api/v1/product/get-all-product-detail-by-id?id=${data.id}&limit=${data.limit}&offset=${data.offset}`
   );
 };
 export const getAllProductDetailImageByIdService = (data) => {
   return axios.get(
-    `/api/v1/product/get-product-detail-image-by-id?id=${data.id}&limit=${data.limit}&offset=${data.offset}`
+    `/api/v1/product/get-all-product-detail-image-by-id?id=${data.id}&limit=${data.limit}&offset=${data.offset}`
   );
 };
 export const getAllProductDetailSizeByIdService = (data) => {
@@ -204,26 +204,27 @@ export const getAllProductDetailSizeByIdService = (data) => {
     `/api/get-all-product-detail-size-by-id?id=${data.id}&limit=${data.limit}&offset=${data.offset}`
   );
 };
+
 export const CreateNewProductDetailService = (data) => {
-  return axios.post(`/api/create-new-product-detail`, data);
+  return axios.post(`/api/v1/product/create-new-product-detail`, data);
 };
 export const getProductDetailByIdService = (id) => {
-  return axios.get(`/api/get-product-detail-by-id?id=${id}`);
+  return axios.get(`/api/v1/product/get-product-detail-by-id?id=${id}`);
 };
 export const UpdateProductDetailService = (data) => {
-  return axios.put(`/api/update-product-detail`, data);
+  return axios.put(`/api/v1/product/update-product-detail`, data);
 };
 export const createNewProductImageService = (data) => {
-  return axios.post(`/api/create-product-detail-image`, data);
+  return axios.post(`api/v1/product/create-product-detail-image`, data);
 };
 export const getProductDetailImageByIdService = (id) => {
-  return axios.get(`/api/get-product-detail-image-by-id?id=${id}`);
+  return axios.get(`/api/v1/product/get-product-detail-image-by-id?id=${id}`);
 };
 export const UpdateProductDetailImageService = (data) => {
-  return axios.put(`/api/update-product-detail-image`, data);
+  return axios.put(`/api/v1/product/update-product-detail-image`, data);
 };
 export const DeleteProductDetailImageService = (data) => {
-  return axios.delete(`/api/delete-product-detail-image`, data);
+  return axios.delete(`/api/v1/product/delete-product-detail-image`, data);
 };
 export const DeleteProductDetailService = (data) => {
   return axios.delete(`/api/v1/product/delete-product-detail`, data);
