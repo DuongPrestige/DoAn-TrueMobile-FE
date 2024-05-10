@@ -20,19 +20,23 @@ import {
 
 
 const AddSizeModal = (props) => {
-    // const { data: dataRom } = useFetchAllcode('SIZE')
     const { data: dataRom } = useFetchAllcode('ROM')
+    const { data: dataColor } = useFetchAllcode('COLOR')
     const [inputValues, setInputValues] = useState({
-        sizeId: '', width: '', height: '', isActionUpdate: false, id: '', weight: ''
+        colorId:'',romId:'', screen: '', os: '', isActionUpdate: false, id: '', backcam: '',frontcam:'', cpu: '', ram:'', sim: '', battery:''
     });
     const handleOnChange = event => {
         const { name, value } = event.target;
         setInputValues({ ...inputValues, [name]: value });
 
     };
-    if (dataRom && dataRom.length > 0 && inputValues.sizeId === '') {
+    if (dataRom && dataRom.length > 0 && inputValues.romId === '') {
 
-        setInputValues({ ...inputValues, ["sizeId"]: dataRom[0].code })
+        setInputValues({ ...inputValues, ["romId"]: dataRom[0].code })
+    }
+    if (dataColor && dataColor.length > 0 && inputValues.colorId === '') {
+
+        setInputValues({ ...inputValues, ["colorId"]: dataColor[0].code })
     }
     useEffect(() => {
         let id = props.productSizeId
@@ -42,7 +46,7 @@ const AddSizeModal = (props) => {
                 let res = await getProductDetailSizeByIdService(id)
                 if (res && res.errCode === 0) {
                     setInputValues({
-                        ...inputValues, ["isActionUpdate"]: true, ["sizeId"]: res.data.sizeId, ["width"]: res.data.width,
+                        ...inputValues, ["isActionUpdate"]: true, ["romId"]: res.data.romId, ["width"]: res.data.width,
                         ["height"]: res.data.height,  ["weight"]: res.data.weight
                     })
 
@@ -53,19 +57,24 @@ const AddSizeModal = (props) => {
     }, [props.isOpenModal])
     let handleSaveInfor = () => {
         props.sendDataFromModalSize({
-            sizeId: inputValues.sizeId,
-         
-            width: inputValues.width,
-            height: inputValues.height,
+            romId: inputValues.romId,
+            colorId: inputValues.colorId,
+            screen: inputValues.screen,
+            os: inputValues.os,
             isActionUpdate: inputValues.isActionUpdate,
             id: props.productSizeId,
-            weight: inputValues.weight
+            backcam: inputValues.backcam,
+            frontcam: inputValues.frontcam,
+            cpu: inputValues.cpu,
+            ram: inputValues.ram,
+            sim: inputValues.sim,
+            battery: inputValues.battery,
         })
-        setInputValues({ ...inputValues, ["sizeId"]: '',  ["width"]: '', ["height"]: '', ["weight"]: '', ["isActionUpdate"]: false })
+        setInputValues({ ...inputValues,["colorId"]: '', ["romId"]: '',  ["screen"]: '', ["os"]: '', ["backcam"]: '', ["frontcam"]: '', ["cpu"]: '', ["ram"]: '',["sim"]: '', ["battery"]: '', ["isActionUpdate"]: false })
     }
     let handleCloseModal = () => {
         props.closeModal()
-        setInputValues({ ...inputValues, ["sizeId"]: '', ["width"]: '', ["height"]: '', ["weight"]: '', ["isActionUpdate"]: false })
+        setInputValues({ ...inputValues, ["colorId"]: '',["romId"]: '',  ["screen"]: '', ["os"]: '', ["backcam"]: '', ["frontcam"]: '', ["cpu"]: '', ["ram"]: '',["sim"]: '', ["battery"]: '', ["isActionUpdate"]: false })
 
     }
     return (
@@ -80,8 +89,22 @@ const AddSizeModal = (props) => {
                 <ModalBody>
                     <div className="row">
                         <div className="col-12 form-group">
-                            <label>Kích thước</label>
-                            <select value={inputValues.sizeId} name="sizeId" onChange={(event) => handleOnChange(event)} id="inputState" className="form-control">
+                            <label>Màu sắc</label>
+                            
+                            <select value={inputValues.colorId} name="colorId" onChange={(event) => handleOnChange(event)} id="inputState" className="form-control">
+                                {dataColor && dataColor.length > 0 &&
+                                    dataColor.map((item, index) => {
+                                        return (
+                                            <option key={index} value={item.code}>{item.value}</option>
+                                        )
+                                    })
+                                }
+                            </select>
+                        </div>
+                        <div className="col-12 form-group">
+                            <label>Bộ nhớ</label>
+                            
+                            <select value={inputValues.romId} name="romId" onChange={(event) => handleOnChange(event)} id="inputState" className="form-control">
                                 {dataRom && dataRom.length > 0 &&
                                     dataRom.map((item, index) => {
                                         return (
@@ -92,18 +115,52 @@ const AddSizeModal = (props) => {
                             </select>
                         </div>
                         <div className="col-12 form-group">
-                            <label>Chiều rộng</label>
-                            <input value={inputValues.width} name="width" onChange={(event) => handleOnChange(event)} type="text" className="form-control"
+                            <label>Màn hình</label>
+                            <input value={inputValues.screen} name="screen" onChange={(event) => handleOnChange(event)} type="text" className="form-control" /> 
+                            
+                            {/* <select value={inputValues.romId} name="romId" onChange={(event) => handleOnChange(event)} id="inputState" className="form-control">
+                                {dataRom && dataRom.length > 0 &&
+                                    dataRom.map((item, index) => {
+                                        return (
+                                            <option key={index} value={item.code}>{item.value}</option>
+                                        )
+                                    })
+                                }
+                            </select> */}
+                        </div>
+                        <div className="col-12 form-group">
+                            <label>Hệ điều hành</label>
+                            <input value={inputValues.os} name="os" onChange={(event) => handleOnChange(event)} type="text" className="form-control"
                             />
                         </div>
                         <div className="col-12 form-group">
-                            <label>Chiều dài</label>
-                            <input value={inputValues.height} name="height" onChange={(event) => handleOnChange(event)} type="text" className="form-control"
+                            <label>Camera sau</label>
+                            <input value={inputValues.backcam} name="backcam" onChange={(event) => handleOnChange(event)} type="text" className="form-control"
                             />
                         </div>
                         <div className="col-12 form-group">
-                            <label>Khối lượng</label>
-                            <input value={inputValues.weight} name="weight" onChange={(event) => handleOnChange(event)} type="text" className="form-control"
+                            <label>Camera trước</label>
+                            <input value={inputValues.frontcam} name="frontcam" onChange={(event) => handleOnChange(event)} type="text" className="form-control"
+                            />
+                        </div>
+                        <div className="col-12 form-group">
+                            <label>CPU</label>
+                            <input value={inputValues.cpu} name="cpu" onChange={(event) => handleOnChange(event)} type="text" className="form-control"
+                            />
+                        </div>
+                        <div className="col-12 form-group">
+                            <label>Ram</label>
+                            <input value={inputValues.ram} name="ram" onChange={(event) => handleOnChange(event)} type="text" className="form-control"
+                            />
+                        </div>
+                        <div className="col-12 form-group">
+                            <label>Sim</label>
+                            <input value={inputValues.sim} name="sim" onChange={(event) => handleOnChange(event)} type="text" className="form-control"
+                            />
+                        </div>
+                        <div className="col-12 form-group">
+                            <label>Pin</label>
+                            <input value={inputValues.battery} name="battery" onChange={(event) => handleOnChange(event)} type="text" className="form-control"
                             />
                         </div>
                         

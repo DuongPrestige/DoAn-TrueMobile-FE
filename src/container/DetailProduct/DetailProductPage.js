@@ -36,6 +36,7 @@ function DetailProductPage(props) {
     let fetchDetailProduct = async () => {
         let res = await getDetailProductByIdService(id)
         if (res && res.errCode === 0) {
+            console.log('res 2222:', res);
             setDataProduct(res.data)
         }
     }

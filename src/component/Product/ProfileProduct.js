@@ -2,48 +2,73 @@ import React from 'react';
 
 function ProfileProduct(props) {
     let data = props.data
+    console.log('props:',props);
     return (
         <div className="table-responsive">
             <table className="table">
                 <tbody>
                     <tr>
                         <td>
-                            <h5>Chiều rộng</h5>
+                            <h5>Màn hình</h5>
                         </td>
                         <td>
-                            <h5>{data.width}</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>Chiều dài</h5>
-                        </td>
-                        <td>
-                            <h5>{data.height}</h5>
+                            <h5>{data.screen}</h5>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <h5>Khối lượng</h5>
+                            <h5>Hệ điều hành</h5>
                         </td>
                         <td>
-                            <h5>{data.weight}</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>Kiểm tra chất lượng</h5>
-                        </td>
-                        <td>
-                            <h5>có</h5>
+                            <h5>{data.os}</h5>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <h5>Bảo hành</h5>
+                            <h5>Camera sau</h5>
                         </td>
                         <td>
-                            <h5>có</h5>
+                            <h5>{data.backcam}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>Camera trước</h5>
+                        </td>
+                        <td>
+                            <h5>{data.frontcam}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>CPU</h5>
+                        </td>
+                        <td>
+                            <h5>{data.cpu}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>RAM</h5>
+                        </td>
+                        <td>
+                            <h5>{data.ram}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>Sim</h5>
+                        </td>
+                        <td>
+                            <h5>{data.sim}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>Pin</h5>
+                        </td>
+                        <td>
+                            <h5>{data.battery}</h5>
                         </td>
                     </tr>
                 </tbody>

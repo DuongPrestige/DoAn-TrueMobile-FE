@@ -132,11 +132,16 @@ const ManageProductImage = () => {
         if (data.isActionUpdate === false) {
             let response = await createNewProductSizeService({
                 productdetailId: id,
-                sizeId: data.sizeId,
-                width: data.width,
-                height: data.height,
-                stock: data.stock,
-                weight: data.weight
+                romId: data.romId,
+                screen: data.screen,
+                os: data.os,
+                backcam: data.backcam,
+                frontcam: data.frontcam,
+                colorId: data.colorId,
+                cpu: data.cpu,
+                ram: data.ram,
+                sim: data.sim,
+                battery: data.battery,
             })
             if (response && response.errCode === 0) {
                 toast.success("Thêm kích thước thành công !")
@@ -337,7 +342,7 @@ const ManageProductImage = () => {
                     <div className="card-header">
                         <i className="fas fa-table me-1" />
                         Danh sách kích thước chi tiết sản phẩm
-                        {/* <div onClick={() => handleOpenModalSize()} className="float-right"><i style={{ fontSize: '35px', cursor: 'pointer', color: '#0D6EFD' }} className="fas fa-plus-square"></i></div> */}
+                        <div onClick={() => handleOpenModalSize()} className="float-right"><i style={{ fontSize: '35px', cursor: 'pointer', color: '#0D6EFD' }} className="fas fa-plus-square"></i></div>
                     </div>
                     <div className="card-body">
                         <div className="table-responsive">
@@ -345,11 +350,16 @@ const ManageProductImage = () => {
                                 <thead>
                                     <tr>
                                         <th>STT</th>
-                                        <th>Màu sắc</th>
-                                        <th>Kích thước</th>
+                                        <th>Rom</th>
+                                        <th>Màn hình</th>
                                         <th>Hệ điều hành</th>
+                                        <th>Camera sau</th>
+                                        <th>Camera trước</th>
+                                        <th>Ram</th>
+                                        <th>Sim</th>
+                                        <th>Pin</th>
                                         <th>Số lượng tồn</th>
-                                        {/* <th>Thao tác</th> */}
+                                        <th>Thao tác</th>
                                     </tr>
                                 </thead>
 
@@ -359,17 +369,22 @@ const ManageProductImage = () => {
                                             return (
                                                 <tr key={index}>
                                                     <td>{index + 1}</td>
-                                                    <td>{item.colorData.value}</td>
                                                     <td>{item.romData.value}</td>
+                                                    <td>{item.screen}</td>
                                                     <td>{item.os}</td>
+                                                    <td>{item.backcam}</td>
+                                                    <td>{item.frontcam}</td>
+                                                    <td>{item.ram}</td>
+                                                    <td>{item.sim}</td>
+                                                    <td>{item.battery}</td>
                                                     <td>{item.stock}</td>
-                                                    {/* <td>
+                                                    <td>
 
                                                         <span onClick={() => handleEditProductSize(item.id)} style={{ color: '#0E6DFE', cursor: 'pointer' }}   >Edit</span>
                                                         &nbsp; &nbsp;
                                                         <span onClick={() => handleDeleteProductSize(item.id)} style={{ color: '#0E6DFE', cursor: 'pointer' }}   >Delete</span>
 
-                                                    </td> */}
+                                                    </td>
                                                 </tr>
                                             )
                                         })

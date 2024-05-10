@@ -230,7 +230,7 @@ export const DeleteProductDetailService = (data) => {
   return axios.delete(`/api/v1/product/delete-product-detail`, data);
 };
 export const createNewProductSizeService = (data) => {
-  return axios.post(`/api/create-product-detail-size`, data);
+  return axios.post(`/api/v1/product/create-product-detail-config`, data);
 };
 export const getProductDetailSizeByIdService = (id) => {
   return axios.get(`/api/v1/product/get-detail-product-detail-config-by-id?id=${id}`);
@@ -239,13 +239,13 @@ export const UpdateProductDetailSizeService = (data) => {
   return axios.put(`/api/update-product-detail-size`, data);
 };
 export const DeleteProductDetailSizeService = (data) => {
-  return axios.delete(`/api/delete-product-detail-size`, data);
+  return axios.delete(`/api/v1/product/delete-product-detail-config`, data);
 };
 export const getProductFeatureService = (limit) => {
   return axios.get(`/api/get-product-feature?limit=${limit}`);
 };
 export const getProductNewService = (limit) => {
-  return axios.get(`/api/get-product-new?limit=${limit}`);
+  return axios.get(`/api/v1/product/get-product-new?limit=${limit}`);
 };
 //===================TYPE VOUCHER===============//
 export const createNewTypeVoucherService = (data) => {
@@ -323,3 +323,16 @@ export const getAllBanner = (data) => {
     `/api/v1/banner/get-all-banner?limit=${data.limit}&offset=${data.offset}&keyword=${data.keyword}`
   );
 };
+//========================REVIEW======================//
+export const createNewReviewService = (data) => {
+  return axios.post(`/api/v1/review/create-new-review`, data)
+}
+export const getAllReviewByProductIdService = (id) => {
+  return axios.get(`/api/v1/review/get-all-review-by-productId?id=${id}`)
+}
+export const ReplyReviewService = (data) => {
+  return axios.post(`/api/v1/review/reply-review`, data)
+}
+export const deleteReviewService = (data) => {
+  return axios.delete(`/api/v1/review/delete-review`, data)
+}

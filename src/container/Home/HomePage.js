@@ -26,6 +26,7 @@ function HomePage(props) {
     }
 
     useEffect(() => {
+        fetchProductNew()
         const userData = JSON.parse(localStorage.getItem('userData'));
         if (userData) {
             fetchProductRecommend(userData.id)
@@ -33,8 +34,6 @@ function HomePage(props) {
         }
         fetchBlogFeature()
         fetchDataBrand()
-        fetchProductFeature()
-        fetchProductNew()
 
         window.scrollTo(0, 0);
     }, [])
@@ -70,7 +69,7 @@ function HomePage(props) {
         }
     }
     let fetchProductNew = async () => {
-        let res = await getProductNewService(8)
+        let res = await getProductNewService(4)
         if (res && res.errCode === 0) {
             setNewProductFeature(res.data)
         }
@@ -78,7 +77,7 @@ function HomePage(props) {
     return (
         <div>
             sdsdsdsds
-            <Slider {...settings}>
+             <Slider {...settings}>
                 {dataBanner && dataBanner.length > 0 &&
                     dataBanner.map((item, index) => {
                         return (
@@ -92,10 +91,11 @@ function HomePage(props) {
 
 
             <MainFeature></MainFeature>
-            <ProductFeature title={"Gợi ý sản phẩm"} data={dataProductRecommend}></ProductFeature>
-            <ProductFeature title={"Sản phẩm đặc trưng"} data={dataProductFeature}></ProductFeature>
+            {/* <ProductFeature title={"Gợi ý sản phẩm"} data={dataProductRecommend}></ProductFeature> */}
+            {/* <ProductFeature title={"Sản phẩm đặc trưng"} data={dataProductFeature}></ProductFeature> */}
+            {console.log('xxxxxxxxxxxxx',dataNewProductFeature)}
             <NewProductFeature title="Sản phẩm mới" description="Những sản phẩm vừa ra mắt mới lạ cuốn hút người xem" data={dataNewProductFeature}></NewProductFeature>
-            <HomeBlog data={dataNewBlog} />
+            {/* <HomeBlog data={dataNewBlog} />  */}
         </div>
     );
 }
