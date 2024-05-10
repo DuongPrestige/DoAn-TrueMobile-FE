@@ -233,7 +233,9 @@ export const createNewProductSizeService = (data) => {
   return axios.post(`/api/v1/product/create-product-detail-config`, data);
 };
 export const getProductDetailSizeByIdService = (id) => {
-  return axios.get(`/api/v1/product/get-detail-product-detail-config-by-id?id=${id}`);
+  return axios.get(
+    `/api/v1/product/get-detail-product-detail-config-by-id?id=${id}`
+  );
 };
 export const UpdateProductDetailSizeService = (data) => {
   return axios.put(`/api/update-product-detail-size`, data);
@@ -336,3 +338,25 @@ export const ReplyReviewService = (data) => {
 export const deleteReviewService = (data) => {
   return axios.delete(`/api/v1/review/delete-review`, data)
 }
+
+//=======================RECEIPT==========================//
+export const createNewReceiptService = (data) => {
+  return axios.post(`/api/v1/receipt/create-new-receipt`, data);
+};
+export const updateReceiptService = (data) => {
+  return axios.put(`/api/v1/receipt/update-receipt`, data);
+};
+export const deleteReceiptService = (data) => {
+  return axios.delete(`/api/v1/receipt/delete-receipt`, data);
+};
+export const getDetailReceiptByIdService = (id) => {
+  return axios.get(`/api/v1/receipt/get-detail-receipt?id=${id}`);
+};
+export const getAllReceipt = (data) => {
+  return axios.get(
+    `/api/v1/receipt/get-all-receipt?limit=${data.limit}&offset=${data.offset}`
+  );
+};
+export const createNewReceiptDetailService = (data) => {
+  return axios.post(`/api/v1/receipt/create-new-detail-receipt`, data);
+};

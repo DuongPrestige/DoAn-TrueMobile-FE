@@ -28,9 +28,13 @@ import ManageProduct from "./Product/ManageProduct";
 import EditProduct from "./Product/EditProduct";
 import ManageProductDetail from "./Product/ProductDetail/ManageProductDetail";
 import ManageProductImage from "./Product/ProductImage/ManageProductImage";
-import AddProductDetail from './Product/ProductDetail/AddProductDetail';
-import EditProductDetail from './Product/ProductDetail/EditProductDetail';
-import AddProduct from './Product/AddProduct';
+import AddProductDetail from "./Product/ProductDetail/AddProductDetail";
+import EditProductDetail from "./Product/ProductDetail/EditProductDetail";
+import AddProduct from "./Product/AddProduct";
+
+import AddReceipt from "./Receipt/AddReceipt";
+import ManageReceipt from "./Receipt/ManageReceipt";
+import DetailReceipt from "./Receipt/DetailReceipt";
 
 // import ManageCategory from './Category/ManageCategory';
 // import AddCategory from './Category/AddCategory';
@@ -45,9 +49,6 @@ import AddProduct from './Product/AddProduct';
 // import DetailOrder from './Order/DetailOrder';
 // import Message from './Message/Message';
 
-// import AddReceipt from './Receipt/AddReceipt';
-// import ManageReceipt from './Receipt/ManageReceipt';
-// import DetailReceipt from './Receipt/DetailReceipt';
 // import Turnover from './Statistic/Turnover';
 // import Profit from './Statistic/Profit';
 // import StockProduct from './Statistic/StockProduct';
@@ -181,13 +182,24 @@ function HomePageAdmin(props) {
                       <ManageProductImage />
                     </Route>
                     <Route exact path="/admin/add-product-detail/:id">
-                        <AddProductDetail />
+                      <AddProductDetail />
                     </Route>
                     <Route exact path="/admin/update-product-detail/:id">
-                        <EditProductDetail />
+                      <EditProductDetail />
                     </Route>
                     <Route exact path="/admin/add-product">
-                        <AddProduct />
+                      <AddProduct />
+                    </Route>
+
+                    {/*Quản lý hóa đơn - reciept*/}
+                    <Route exact path="/admin/add-receipt">
+                      <AddReceipt />
+                    </Route>
+                    <Route exact path="/admin/list-receipt">
+                      <ManageReceipt />
+                    </Route>
+                    <Route exact path="/admin/detail-receipt/:id">
+                      <DetailReceipt />
                     </Route>
                     {/* <Route exact path="/admin/list-user">
                                     <ManageUser />
