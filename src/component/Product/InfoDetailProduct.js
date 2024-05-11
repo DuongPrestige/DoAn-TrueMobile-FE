@@ -14,16 +14,19 @@ function InfoDetailProduct(props) {
     const [isOpen, setisOpen] = useState(false)
     const [imgPreview, setimgPreview] = useState('')
     const [activeLinkId, setactiveLinkId] = useState('')
+    const [activeLinkColor, setactiveLinkColor] = useState('')
     const [quantity, setquantity] = useState('')
     const [quantityProduct, setquantityProduct] = useState(1)
     useEffect(() => {
 
         let { productDetail } = dataProduct ? dataProduct : []
         if (productDetail) {
+            console.log('productDetail :',productDetail[0]);
             setproductDetail(productDetail)
             setarrDetail(productDetail[0])
             setNewPrice(productDetail[0].discountPrice + Number(productDetail[0].productDetailConfig[0].design))
             setactiveLinkId(productDetail[0].productDetailConfig[0].id)
+            setactiveLinkColor(productDetail[0].id)
             setquantity(productDetail[0].productDetailConfig[0].stock)
 
             props.sendDataFromInforDetail(productDetail[0].productDetailConfig[0])
@@ -41,7 +44,14 @@ function InfoDetailProduct(props) {
     }
     let handleClickColor = (event,index) => {
         console.log('event', event);
+        console.log('index', index);
+        console.log('2233333333333', productDetail[index]);
+        setarrDetail(productDetail[index])
         setactiveLinkId(productDetail[index].productDetailConfig[0].id)
+        setactiveLinkColor(productDetail[index].id)
+        setquantity(productDetail[index].productDetailConfig[0].stock)
+        props.sendDataFromInforDetail(productDetail[index].productDetailConfig[0])
+
 
     }
     let openPreviewImage = (url) => {
@@ -147,12 +157,12 @@ function InfoDetailProduct(props) {
                         <li>
                             <div className="box-size">
                                 <a href="#"> <span>Màu sắc</span></a>
-                                {console.log('23 :',arrDetail)}
                                 {dataProduct && productDetail && productDetail.length > 0 &&
                                     productDetail.map((item, index) => {
-
+                                        {console.log(item, "item")}
+                                        console.log('activeLinkColor :',activeLinkColor);
                                         return (
-                                            <div onClick={(event) => handleClickColor(event,index)} key={index} className={item.id === activeLinkId ? 'product-size active' : 'product-size'}>
+                                            <div onClick={(event) => handleClickColor(event,index)} key={index} className={item.id === activeLinkColor ? 'product-size active' : 'product-size'}>
                                                 {item.nameDetail}
                                             </div>
                                         )
@@ -169,7 +179,6 @@ function InfoDetailProduct(props) {
                                 <a href="#"> <span>Bộ nhớ</span></a>
                                 {arrDetail && arrDetail.productDetailConfig && arrDetail.productDetailConfig.length > 0 &&
                                     arrDetail.productDetailConfig.map((item, index) => {
-
                                         return (
                                             <div onClick={() => handleClickBoxSize(item)} key={index} className={item.id === activeLinkId ? 'product-size active' : 'product-size'}>
                                                 {item.romData.value}
