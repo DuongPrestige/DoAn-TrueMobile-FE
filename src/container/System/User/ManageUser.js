@@ -27,7 +27,6 @@ const ManageUser = () => {
 
   // Call API get-all-user
   let fetchAllUser = async (keyword) => {
-    console.log("keyword :", keyword);
     let res = await getAllUsers({
       limit: PAGINATION.pagerow,
       offset: 0,
@@ -35,10 +34,8 @@ const ManageUser = () => {
     });
     if (res && res.errCode === 0) {
       setdataUser(res.data);
-      console.log("res :::", res.data);
       setCount(Math.ceil(res.count / PAGINATION.pagerow));
     }
-    console.log("333 :", dataUser);
   };
 
   // xóa user

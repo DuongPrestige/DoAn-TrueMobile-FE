@@ -25,13 +25,10 @@ const AddImageModal = (props) => {
 
     useEffect(() => {
         let id = props.productImageId
-        console.log("check id", id)
         if (id) {
             let fetchProductImage = async () => {
                 let res = await getProductDetailImageByIdService(id)
-                console.log('22222222222222 sss 2',res);
                 if (res && res.errCode === 0) {
-                    console.log('xxxxxxxxxxxxxxxxx');
                     setInputValues({
                         ...inputValues, ["isActionUpdate"]: true, ["caption"]: res.data.caption, ["image"]: res.data.image,
                         ["imageReview"]: res.data.image
@@ -98,7 +95,6 @@ const AddImageModal = (props) => {
                     <div className="row">
                         <div className="col-12 form-group">
                             <label>Tên hình ảnh</label>
-                            <>{console.log("ssdsd ",inputValues)}</>
                             <input value={inputValues.caption} name="caption" onChange={(event) => handleOnChange(event)} type="text" className="form-control"
                             />
                         </div>

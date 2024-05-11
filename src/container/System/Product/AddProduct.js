@@ -20,15 +20,16 @@ const AddProduct = (props) => {
     const { data: dataBrand } = useFetchAllcode('BRAND');
     const { data: dataCategory } = useFetchAllcode('CATEGORY')
     const { data: dataRom } = useFetchAllcode('ROM')
+    const { data: dataColor } = useFetchAllcode('COLOR')
     const [inputValues, setInputValues] = useState({
         brandId: '', categoryId: '', name: '', shortdescription: '', description: '',
         madeby: '', material: '', width: '', height: '', romId: '',  originalPrice: '', discountPrice: '',
-        image: '', imageReview: '', isOpen: false, nameDetail: '', contentHTML: '', contentMarkdown: '', weight: '', rom: ''
+        image: '', imageReview: '', isOpen: false, nameDetail: '', contentHTML: '', contentMarkdown: '', weight: '', rom: '',colorId: ''
     });
 
-    if (dataBrand && dataBrand.length > 0 && inputValues.brandId === '' && dataCategory && dataCategory.length > 0 && inputValues.categoryId === '' && dataRom && dataRom.length > 0 && inputValues.romId === '') {
+    if (dataBrand && dataBrand.length > 0 && inputValues.brandId === '' && dataCategory && dataCategory.length > 0 && inputValues.categoryId === '' && dataRom && dataRom.length > 0 && inputValues.romId === '' && inputValues.colorId === '') {
 
-        setInputValues({ ...inputValues, ["brandId"]: dataBrand[0].code, ["categoryId"]: dataCategory[0].code, ["romId"]: dataRom[0].code })
+        setInputValues({ ...inputValues, ["brandId"]: dataBrand[0].code, ["categoryId"]: dataCategory[0].code,  ["colorId"]: dataColor[0].code })
     }
     const handleOnChange = event => {
         const { name, value } = event.target;
@@ -67,7 +68,7 @@ const AddProduct = (props) => {
             width: inputValues.width,
             height: inputValues.height,
             romId: inputValues.romId,
- 
+            color: inputValues.colorId,
             originalPrice: inputValues.originalPrice,
             discountPrice: inputValues.discountPrice,
             image: inputValues.image,
@@ -89,6 +90,7 @@ const AddProduct = (props) => {
                 ["height"]: '',
                 ["width"]: '',
                 ["romId"]: '',
+                ["colorId"]: '',
              
                 ["originalPrice"]: '',
                 ["discountPrice"]: '',
@@ -175,7 +177,7 @@ const AddProduct = (props) => {
 
                         <div className="form-row">
                             <div className="form-group col-md-4">
-                                <label htmlFor="inputEmail4">Màu sắc / Mã</label>
+                                <label htmlFor="inputEmail4">Bộ nhớ / Mã</label>
                                 <input type="text" value={inputValues.nameDetail} name="nameDetail" onChange={(event) => handleOnChange(event)} className="form-control" id="inputEmail4" />
                             </div>
                             {/* <div className="form-group col-md-4">
@@ -194,11 +196,23 @@ const AddProduct = (props) => {
                                 <label htmlFor="inputPassword4">Giá khuyến mãi</label>
                                 <input type="number" value={inputValues.discountPrice} name="discountPrice" onChange={(event) => handleOnChange(event)} className="form-control" id="inputPassword4" />
                             </div>
-                            <div className="form-group col-md-4">
+                            {/* <div className="form-group col-md-4">
                                 <label htmlFor="inputEmail4">Bộ nhớ</label>
                                 <select value={inputValues.romId} name="romId" onChange={(event) => handleOnChange(event)} id="inputState" className="form-control">
                                     {dataRom && dataRom.length > 0 &&
                                         dataRom.map((item, index) => {
+                                            return (
+                                                <option key={index} value={item.code}>{item.value}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </div> */}
+                            <div className="form-group col-md-4">
+                                <label htmlFor="inputEmail4">Màu sắc</label>
+                                <select value={inputValues.colorId} name="colorId" onChange={(event) => handleOnChange(event)} id="inputState" className="form-control">
+                                    {dataColor && dataColor.length > 0 &&
+                                        dataColor.map((item, index) => {
                                             return (
                                                 <option key={index} value={item.code}>{item.value}</option>
                                             )

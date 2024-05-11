@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import ItemProduct from '../Product/ItemProduct';
 import HeaderContent from '../Content/HeaderContent';
 function NewProductFeature(props) {
-    console.log('props:',props.data);
     const [dataProduct, setDataProduct] = useState([])
     useEffect(() => {
         setDataProduct(props.data)
-        console.log('2222',props.data);
     }, [props])
     return (
         <section className="new_product_area section_gap_top section_gap_bottom_custom">

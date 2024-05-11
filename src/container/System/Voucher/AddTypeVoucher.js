@@ -68,7 +68,6 @@ const AddTypeVoucher = (props) => {
   const handleOnChange = (event) => {
     const { name, value } = event.target;
     setInputValues({ ...inputValues, [name]: value });
-    console.log("sss :", inputValues);
   };
   let handleSaveTypeVoucher = async () => {
     if (isActionADD === true) {

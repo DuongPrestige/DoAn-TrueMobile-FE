@@ -17,7 +17,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Redirect } from "react-router";
 // import VerifyEmail from './container/System/Email/VerifyEmail';
 import LoginWebPage from "./container/Login/LoginWebPage";
-// import UserHomePage from './container/User/UseHomePage';
+import UserHomePage from './container/User/UseHomePage';
 // import CustomScrollbars from './component/input/CustomScrollbars';
 import VoucherHomePage from "./container/Voucher/VoucherHomePage";
 // import OrderHomePage from './container/Order/OrderHomePage';
@@ -67,6 +67,15 @@ function App() {
             <Header />
             <DetailProductPage />
             <Footer />
+          </Route>
+          <Route path="/user/" render={() => {
+          
+            return JSON.parse(localStorage.getItem("userData")) && JSON.parse(localStorage.getItem("userData")) ? <div>
+              <Header />
+              <UserHomePage />
+              <Footer />
+            </div> : <Redirect to={"/login"} />
+          }}>
           </Route>
           {/* <Route
             path="/admin/"

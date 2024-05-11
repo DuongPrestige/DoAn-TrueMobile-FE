@@ -602,6 +602,10 @@ progress {
   max-width: 100%;
   height: auto;
 }
+.img-custom {
+  width: 500px;
+  height: 300px;
+}
 
 .img-thumbnail {
   padding: 0.25rem;

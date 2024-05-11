@@ -13,7 +13,7 @@ function ItemProduct(props) {
             <div style={{ cursor: 'pointer' }} className="single-product">
                 <Link to={`/detail-product/${props.id}`}>
                     <div style={{ width: props.width, height: props.height }} className="product-img">
-                        <img className="img-fluid w-100" src={props.img} alt="" />
+                        <img className="img-fluid w-100 img-custom" src={props.img} alt="" />
                         <div className="p_icon">
                             <a >
                                 <i className="ti-eye" />

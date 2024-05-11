@@ -23,7 +23,6 @@ const DetailReceipt = (props) => {
     price: "",
     productId: "",
   });
-  console.log("dataProduct", dataProduct);
 
   useEffect(() => {
     loadProduct();
@@ -31,18 +30,11 @@ const DetailReceipt = (props) => {
   }, []);
   useEffect(() => {
     if (dataProduct && dataProduct.length > 0 && inputValues.productId === "") {
-      console.log("1");
       setInputValues({ ...inputValues, ["productId"]: dataProduct[0].id });
-      console.log("2");
       setproductDetailSizeId(
         dataProduct[0].productDetail[0].productdetailconfig[0].id
       );
-      console.log("3");
       setdataProductDetail(dataProduct[0].productDetail);
-      console.log(
-        "123123",
-        dataProduct[0].productDetail[0].productdetailconfig
-      );
       setdataProductDetailSize(
         dataProduct[0].productDetail[0].productdetailconfig
       );
@@ -50,7 +42,6 @@ const DetailReceipt = (props) => {
   }, [dataProduct]);
   let loadReceiptDetail = async (id) => {
     let res = await getDetailReceiptByIdService(id);
-    console.log("res", res);
     if (res && res.errCode == 0) {
       setdataReceiptDetail(res.data.receiptDetail);
     }
@@ -65,7 +56,6 @@ const DetailReceipt = (props) => {
       offset: "",
       keyword: "",
     });
-    console.log("arrData", arrData);
     if (arrData && arrData.errCode === 0) {
       setdataProduct(arrData.data);
     }

@@ -58,7 +58,6 @@ const ManageProductImage = () => {
 
         })
         if (arrData && arrData.errCode === 0) {
-            console.log('22222222222222',arrData.data);
             setdataProductDetailImage(arrData.data)
             setCount(Math.ceil(arrData.count / PAGINATION.pagerow))
         }
@@ -69,7 +68,6 @@ const ManageProductImage = () => {
             limit: PAGINATION.pagerow,
             offset: 0
         })
-        console.log('22 L',arrSize);
         if (arrSize && arrSize.errCode === 0) {
             setdataProductDetailSize(arrSize.data)
             setcountSizes(Math.ceil(arrSize.count / PAGINATION.pagerow))
@@ -172,7 +170,6 @@ const ManageProductImage = () => {
         }
     }
     let handleEditProductImage = (id) => {
-        console.log('id :',id);
         setproductImageId(id)
         setisOpenModal(true)
     }
@@ -335,7 +332,6 @@ const ManageProductImage = () => {
                     onPageChange={handleChangePage}
                 />
             </div>
-            {console.log('xxccc :',dataProductDetailSize)}
 
             <div>
                 <div className="card mb-4">
@@ -350,7 +346,7 @@ const ManageProductImage = () => {
                                 <thead>
                                     <tr>
                                         <th>STT</th>
-                                        <th>Rom</th>
+                                        <th>Màu sắc</th>
                                         <th>Màn hình</th>
                                         <th>Hệ điều hành</th>
                                         <th>Camera sau</th>
@@ -369,7 +365,7 @@ const ManageProductImage = () => {
                                             return (
                                                 <tr key={index}>
                                                     <td>{index + 1}</td>
-                                                    <td>{item.romData.value}</td>
+                                                    <td>{item.colorData.value}</td>
                                                     <td>{item.screen}</td>
                                                     <td>{item.os}</td>
                                                     <td>{item.backcam}</td>

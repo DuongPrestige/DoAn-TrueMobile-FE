@@ -19,7 +19,7 @@ function InfoDetailProduct(props) {
 
         let { productDetail } = dataProduct ? dataProduct : []
         if (productDetail) {
-            console.log('232 :',productDetail);
+            console.log('23232 :',dataProduct);
             setproductDetail(productDetail)
             setarrDetail(productDetail[0])
             setactiveLinkId(productDetail[0].productDetailConfig[0].id)
@@ -139,14 +139,13 @@ function InfoDetailProduct(props) {
                         </li>
                         <li>
                             <div className="box-size">
-                                <a href="#"> <span>Bộ nhớ</span></a>
-                                {console.log('23 :',arrDetail)}
+                                <a href="#"> <span>Màu sắc</span></a>
                                 {arrDetail && arrDetail.productDetailConfig && arrDetail.productDetailConfig.length > 0 &&
                                     arrDetail.productDetailConfig.map((item, index) => {
 
                                         return (
                                             <div onClick={() => handleClickBoxSize(item)} key={index} className={item.id === activeLinkId ? 'product-size active' : 'product-size'}>
-                                                {item.romData.value}
+                                                {item.colorData.value}
                                             </div>
                                         )
 

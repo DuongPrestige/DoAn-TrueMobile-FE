@@ -2,7 +2,6 @@ import React from 'react';
 
 function ProfileProduct(props) {
     let data = props.data
-    console.log('props:',props);
     return (
         <div className="table-responsive">
             <table className="table">

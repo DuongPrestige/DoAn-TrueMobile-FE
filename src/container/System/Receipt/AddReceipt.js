@@ -33,17 +33,14 @@ const AddReceipt = (props) => {
     inputValues.productId === ""
   ) {
     setInputValues({ ...inputValues, ["supplierId"]: dataSupplier[0].id });
-    console.log("1");
     setdataProductDetail(dataProduct[0].productDetail);
     setdataProductDetailSize(
       dataProduct[0].productDetail[0].productdetailconfig
     );
-    console.log("3", dataProduct);
 
     setproductDetailSizeId(
       dataProduct[0].productDetail[0].productdetailconfig[0].id
     );
-    console.log("ascasc", dataProduct);
   }
   useEffect(() => {
     loadDataSupplier();

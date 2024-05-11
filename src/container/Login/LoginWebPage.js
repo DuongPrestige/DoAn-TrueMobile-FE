@@ -44,19 +44,10 @@ const LoginWebPage = () => {
       password: inputValues.password,
     });
 
-    if (res && res.err === 0) {
+    console.log("res :", res);
+    if (res && res.errCode === 0) {
       localStorage.setItem("userData", JSON.stringify(res.user));
-      console.log("res :", res);
-      localStorage.setItem("token", JSON.stringify(res.access_token));
-
-      //   localStorage.setItem(
-      //     "token",
-      //     JSON.stringify(
-      //       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJleGFtcGxlQGV4YW1wbGUuY29tIiwicm9sZUlkIjoiUjEiLCJpYXQiOjE3MTM4MDExMzQsImV4cCI6MTcxNDIzMzEzNH0.iJJ6n6FzPHRet9voD1TvFItsAzheynaPTSZyhe2JBXQ"
-      //     )
-      //   );
-      //   console.log("res :", res);
-      //   window.location.href = "/admin";
+      localStorage.setItem("token", JSON.stringify(res.accessToken));
 
       if (res.user.roleId === "R1" || res.user.roleId === "R4") {
         window.location.href = "/admin";
@@ -76,8 +67,8 @@ const LoginWebPage = () => {
       email: email,
       password: inputValues.password,
     });
-
-    if (res && res.err === 0) {
+console.log('res :::', res);
+    if (res && res.errCode === 0) {
       localStorage.setItem("userData", JSON.stringify(res.user));
       localStorage.setItem("token", JSON.stringify(res.accessToken));
       if (res.user.roleId === "R1" || res.user.roleId === "R4") {
@@ -116,10 +107,8 @@ const LoginWebPage = () => {
         roleId: inputValues.roleId,
       });
       if (res && res.err === 0) {
-        console.log("2", inputValues);
         toast.success("Tạo tài khoản thành công");
         handleLogin(inputValues.email, inputValues.password);
-        // window.location.href = "/admin";
       } else {
         toast.error(res.errMessage);
       }
@@ -189,7 +178,7 @@ const LoginWebPage = () => {
           roleId: "R2",
           password: inputValues.password,
         });
-        if (res && res.err === 0) {
+        if (res && res.errCode === 0) {
           toast.success("Tạo tài khoản thành công");
           handleLoginSocial(re.user.providerData[0].email);
         } else {
