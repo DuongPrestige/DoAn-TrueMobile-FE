@@ -10,6 +10,7 @@ function InfoDetailProduct(props) {
     let { dataProduct } = props
     let [arrDetail, setarrDetail] = useState([])
     const [productDetail, setproductDetail] = useState([])
+    const [newPrice, setNewPrice] = useState(0)
     const [isOpen, setisOpen] = useState(false)
     const [imgPreview, setimgPreview] = useState('')
     const [activeLinkId, setactiveLinkId] = useState('')
@@ -19,9 +20,9 @@ function InfoDetailProduct(props) {
 
         let { productDetail } = dataProduct ? dataProduct : []
         if (productDetail) {
-            console.log('23232 :',dataProduct);
             setproductDetail(productDetail)
             setarrDetail(productDetail[0])
+            setNewPrice(productDetail[0].discountPrice + Number(productDetail[0].productDetailConfig[0].design))
             setactiveLinkId(productDetail[0].productDetailConfig[0].id)
             setquantity(productDetail[0].productDetailConfig[0].stock)
 
@@ -38,6 +39,11 @@ function InfoDetailProduct(props) {
         }
 
     }
+    let handleClickColor = (event,index) => {
+        console.log('event', event);
+        setactiveLinkId(productDetail[index].productDetailConfig[0].id)
+
+    }
     let openPreviewImage = (url) => {
 
 
@@ -46,6 +52,7 @@ function InfoDetailProduct(props) {
 
     }
     let handleClickBoxSize = (data) => {
+        setNewPrice(productDetail[0].discountPrice + Number(data.design))
 
         setactiveLinkId(data.id)
         setquantity(data.stock)
@@ -128,7 +135,7 @@ function InfoDetailProduct(props) {
             <div className="col-lg-5 offset-lg-1">
                 <div className="s_product_text">
                     <h3>{dataProduct.name}</h3>
-                    <h2>{CommonUtils.formatter.format(arrDetail.discountPrice)}</h2>
+                    <h2>{CommonUtils.formatter.format(newPrice)}</h2>
                     <ul className="list">
                         <li>
                             <a className="active" href="#">
@@ -140,12 +147,13 @@ function InfoDetailProduct(props) {
                         <li>
                             <div className="box-size">
                                 <a href="#"> <span>Màu sắc</span></a>
-                                {arrDetail && arrDetail.productDetailConfig && arrDetail.productDetailConfig.length > 0 &&
-                                    arrDetail.productDetailConfig.map((item, index) => {
+                                {console.log('23 :',arrDetail)}
+                                {dataProduct && productDetail && productDetail.length > 0 &&
+                                    productDetail.map((item, index) => {
 
                                         return (
-                                            <div onClick={() => handleClickBoxSize(item)} key={index} className={item.id === activeLinkId ? 'product-size active' : 'product-size'}>
-                                                {item.colorData.value}
+                                            <div onClick={(event) => handleClickColor(event,index)} key={index} className={item.id === activeLinkId ? 'product-size active' : 'product-size'}>
+                                                {item.nameDetail}
                                             </div>
                                         )
 
@@ -156,6 +164,26 @@ function InfoDetailProduct(props) {
 
                             </div>
                         </li>
+                        <li>
+                            <div className="box-size">
+                                <a href="#"> <span>Bộ nhớ</span></a>
+                                {arrDetail && arrDetail.productDetailConfig && arrDetail.productDetailConfig.length > 0 &&
+                                    arrDetail.productDetailConfig.map((item, index) => {
+
+                                        return (
+                                            <div onClick={() => handleClickBoxSize(item)} key={index} className={item.id === activeLinkId ? 'product-size active' : 'product-size'}>
+                                                {item.romData.value}
+                                            </div>
+                                        )
+
+
+                                    })
+                                }
+
+
+                            </div>
+                        </li>
+                        
                         <li>
                             <a href="#">{quantity} sản phẩm có sẵn</a>
                         </li>

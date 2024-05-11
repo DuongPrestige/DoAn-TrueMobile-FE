@@ -11,16 +11,17 @@ import { useFetchAllcode } from '../../../customize/fetch';
 import { CreateNewProductDetailService, } from '../../../../services/userService';
 const AddProductDetail = (props) => {
     const { data: dataSize } = useFetchAllcode('SIZE')
+    const { data: dataRom } = useFetchAllcode('ROM')
     const { id } = useParams()
     const [inputValues, setInputValues] = useState({
 
         width: '', height: '', sizeId: '', originalPrice: '', discountPrice: '',
-        image: '', imageReview: '', isOpen: false, nameDetail: '', description: '', weight: ''
+        image: '', imageReview: '', isOpen: false, nameDetail: '', description: '', weight: '',romId: '',
     });
 
-    if (dataSize && dataSize.length > 0 && inputValues.sizeId === '') {
+    if (dataRom && dataRom.length > 0 && inputValues.romId === '') {
 
-        setInputValues({ ...inputValues, ["sizeId"]: dataSize[0].code })
+        setInputValues({ ...inputValues, ["romId"]: dataRom[0].code })
     }
     const handleOnChange = event => {
         const { name, value } = event.target;
@@ -54,7 +55,7 @@ const AddProductDetail = (props) => {
             height: inputValues.height,
             description: inputValues.description,
             sizeId: inputValues.sizeId,
-           
+            rom:inputValues.romId,
             originalPrice: inputValues.originalPrice,
             discountPrice: inputValues.discountPrice,
             image: inputValues.image,
@@ -70,7 +71,7 @@ const AddProductDetail = (props) => {
                 ["height"]: '',
                 ["description"]: '',
                 ["sizeId"]: '',
-               
+                ["romId"]: '',
                 ["originalPrice"]: '',
                 ["discountPrice"]: '',
                 ["image"]: '',
@@ -84,7 +85,7 @@ const AddProductDetail = (props) => {
     }
     return (
         <div className="container-fluid px-4">
-            <h1 className="mt-4">Quản lý chi tiết sản phẩm 1</h1>
+            <h1 className="mt-4">Quản lý chi tiết sản phẩm</h1>
 
 
             <div className="card mb-4">
@@ -128,18 +129,18 @@ const AddProductDetail = (props) => {
                         </div>
                         <div className="form-row">
                             
-                            {/* <div className="form-group col-md-4">
-                                <label htmlFor="inputPassword4">Kích thước</label>
-                                <select value={inputValues.sizeId} name="sizeId" onChange={(event) => handleOnChange(event)} id="inputState" className="form-control">
-                                    {dataSize && dataSize.length > 0 &&
-                                        dataSize.map((item, index) => {
+                            <div className="form-group col-md-4">
+                                <label htmlFor="inputPassword4">Bộ nhớ</label>
+                                <select value={inputValues.romId} name="romId" onChange={(event) => handleOnChange(event)} id="inputState" className="form-control">
+                                    {dataRom && dataRom.length > 0 &&
+                                        dataRom.map((item, index) => {
                                             return (
                                                 <option key={index} value={item.code}>{item.value}</option>
                                             )
                                         })
                                     }
                                 </select>
-                            </div> */}
+                            </div>
                             <div className="form-group col-md-3">
                                 <label htmlFor="inputPassword4">Chọn hình ảnh</label>
                                 <input type="file" id="previewImg" accept=".jpg,.png"

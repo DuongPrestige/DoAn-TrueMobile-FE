@@ -23,7 +23,7 @@ const AddSizeModal = (props) => {
     const { data: dataRom } = useFetchAllcode('ROM')
     const { data: dataColor } = useFetchAllcode('COLOR')
     const [inputValues, setInputValues] = useState({
-        colorId:'',romId:'', screen: '', os: '', isActionUpdate: false, id: '', backcam: '',frontcam:'', cpu: '', ram:'', sim: '', battery:''
+        colorId:'',romId:'', screen: '', os: '', isActionUpdate: false, id: '', backcam: '',frontcam:'', cpu: '', ram:'', sim: '', battery:'',design: ''
     });
     const handleOnChange = event => {
         const { name, value } = event.target;
@@ -69,6 +69,7 @@ const AddSizeModal = (props) => {
             ram: inputValues.ram,
             sim: inputValues.sim,
             battery: inputValues.battery,
+            design: inputValues.design,
         })
         setInputValues({ ...inputValues,["colorId"]: '', ["romId"]: '',  ["screen"]: '', ["os"]: '', ["backcam"]: '', ["frontcam"]: '', ["cpu"]: '', ["ram"]: '',["sim"]: '', ["battery"]: '', ["isActionUpdate"]: false })
     }
@@ -113,6 +114,11 @@ const AddSizeModal = (props) => {
                                     })
                                 }
                             </select>
+                        </div>
+                        <div className="col-12 form-group">
+                            <label>Giá tiền thêm</label>
+                            <input value={inputValues.design} name="design" onChange={(event) => handleOnChange(event)} type="text" className="form-control"
+                            />
                         </div>
                         <div className="col-12 form-group">
                             <label>Màn hình</label>
@@ -163,6 +169,7 @@ const AddSizeModal = (props) => {
                             <input value={inputValues.battery} name="battery" onChange={(event) => handleOnChange(event)} type="text" className="form-control"
                             />
                         </div>
+                        
                         
                     </div>
                 </ModalBody>

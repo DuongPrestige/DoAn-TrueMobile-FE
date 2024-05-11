@@ -140,6 +140,7 @@ const ManageProductImage = () => {
                 ram: data.ram,
                 sim: data.sim,
                 battery: data.battery,
+                design: data.design,
             })
             if (response && response.errCode === 0) {
                 toast.success("Thêm kích thước thành công !")
@@ -332,6 +333,7 @@ const ManageProductImage = () => {
                     onPageChange={handleChangePage}
                 />
             </div>
+            {console.log('xxccc :',dataProductDetailSize)}
 
             <div>
                 <div className="card mb-4">
@@ -346,7 +348,8 @@ const ManageProductImage = () => {
                                 <thead>
                                     <tr>
                                         <th>STT</th>
-                                        <th>Màu sắc</th>
+                                        <th>Rom</th>
+                                        <th>Giá tiền thêm</th>
                                         <th>Màn hình</th>
                                         <th>Hệ điều hành</th>
                                         <th>Camera sau</th>
@@ -365,7 +368,8 @@ const ManageProductImage = () => {
                                             return (
                                                 <tr key={index}>
                                                     <td>{index + 1}</td>
-                                                    <td>{item.colorData.value}</td>
+                                                    <td>{item.romData.value}</td>
+                                                    <td>{item.design}</td>
                                                     <td>{item.screen}</td>
                                                     <td>{item.os}</td>
                                                     <td>{item.backcam}</td>
