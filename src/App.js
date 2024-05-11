@@ -1,31 +1,25 @@
-
-import React, { Component, Fragment, useEffect, useState } from 'react';
-import './css/App.css';
-import Header from './container/Header/Header';
-import Footer from './container/Footer/Footer';
-import HomePage from './container/Home/HomePage';
-// import ShopPage from './container/Shop/ShopPage';
-import DetailProductPage from './container/DetailProduct/DetailProductPage';
+import React, { Component, Fragment, useEffect, useState } from "react";
+import "./css/App.css";
+import Header from "./container/Header/Header";
+import Footer from "./container/Footer/Footer";
+import HomePage from "./container/Home/HomePage";
+import ShopPage from "./container/Shop/ShopPage";
+import DetailProductPage from "./container/DetailProduct/DetailProductPage";
 // import ShopCartPage from './container/ShopCart/ShopCartPage';
-// import BlogPage from './container/Blog/BlogPage';
-// import DetailBlog from './container/Blog/DetailBlog';
+import BlogPage from "./container/Blog/BlogPage";
+import DetailBlog from "./container/Blog/DetailBlog";
 
-import HomePageAdmin from './container/System/HomePageAdmin';
+import HomePageAdmin from "./container/System/HomePageAdmin";
 // import { path } from '../src/utils/constant'
-import { ToastContainer } from 'react-toastify';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import { Redirect } from 'react-router';
+import { Redirect } from "react-router";
 // import VerifyEmail from './container/System/Email/VerifyEmail';
-import LoginWebPage from './container/Login/LoginWebPage';
+import LoginWebPage from "./container/Login/LoginWebPage";
 // import UserHomePage from './container/User/UseHomePage';
 // import CustomScrollbars from './component/input/CustomScrollbars';
-// import VoucherHomePage from './container/Voucher/VoucherHomePage';
+import VoucherHomePage from "./container/Voucher/VoucherHomePage";
 // import OrderHomePage from './container/Order/OrderHomePage';
 // import TopMenu from './container/Header/TopMenu';
 // import PaymentSuccess from './container/User/PaymentSuccess';
@@ -34,7 +28,6 @@ import LoginWebPage from './container/Login/LoginWebPage';
 // import VnpayPaymentSuccess from './container/Order/VnpayPaymentSuccess';
 
 function App() {
-
   return (
     <Router>
       <Switch>
@@ -44,14 +37,17 @@ function App() {
             <HomePage />
             <Footer />
           </Route>
+
           <Route exact path="/admin">
             <HomePageAdmin />
           </Route>
+
           <Route path="/detail-product/:id">
             <Header />
             <DetailProductPage />
             <Footer />
           </Route>
+
           {/* <Route path="/admin/" render={() => {
             if (JSON.parse(localStorage.getItem("userData")) && (JSON.parse(localStorage.getItem("userData")).roleId === "R1" || JSON.parse(localStorage.getItem("userData")).roleId === "R4")) {
               return <HomePageAdmin />
@@ -60,24 +56,31 @@ function App() {
 
           }}>
           </Route> */}
-          {/* <Route path="/shop">
+
+          <Route path="/shop">
             <Header />
             <ShopPage />
             <Footer />
           </Route>
+
           <Route path="/detail-product/:id">
             <Header />
             <DetailProductPage />
             <Footer />
           </Route>
-          <Route path="/admin/" render={() => {
-            if (JSON.parse(localStorage.getItem("userData")) && (JSON.parse(localStorage.getItem("userData")).roleId === "R1" || JSON.parse(localStorage.getItem("userData")).roleId === "R4")) {
-              return <HomePageAdmin />
-              return 
-            } else return <Redirect to={"/login"} />
-
-          }}>
-          </Route> */}
+          {/* <Route
+            path="/admin/"
+            render={() => {
+              if (
+                JSON.parse(localStorage.getItem("userData")) &&
+                (JSON.parse(localStorage.getItem("userData")).roleId === "R1" ||
+                  JSON.parse(localStorage.getItem("userData")).roleId === "R4")
+              ) {
+                return <HomePageAdmin />;
+                return;
+              } else return <Redirect to={"/login"} />;
+            }}
+          ></Route> */}
           {/* <Route path="/user/" render={() => {
             return JSON.parse(localStorage.getItem("userData")) && JSON.parse(localStorage.getItem("userData")) ? <div>
               <Header />
@@ -111,27 +114,30 @@ function App() {
             <LoginWebPage />
             <Footer />
           </Route>
-          {/* <Route path="/voucher">
+          <Route path="/voucher">
             <Header />
             <VoucherHomePage />
             <Footer />
           </Route>
+
+          {/* blog */}
           <Route path="/blog">
             <Header />
             <BlogPage />
             <Footer />
           </Route>
+
           <Route path="/blog-detail/:id">
             <Header />
             <DetailBlog />
             <Footer />
           </Route>
+
           <Route path="/about">
             <Header />
-
             <Footer />
-          </Route> */}
-          
+          </Route>
+
           {/* <Route path="/verify-email">
             <Header />
             <VerifyEmail />
@@ -156,7 +162,6 @@ function App() {
         </div>
       </Switch>
     </Router>
-
   );
 }
 

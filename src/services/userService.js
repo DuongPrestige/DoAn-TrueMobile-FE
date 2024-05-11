@@ -20,6 +20,11 @@ export const getAllCategoryBlogService = (type) => {
 export const getAllCodeService = (type) => {
   return axios.get(`/api/v1/all-code/get-list-allcode?type=${type}`);
 };
+//bang get all code by type -- new
+export const getAllnewCodeService = (type) => {
+  return axios.get(`/api/v1/all-code/get-all-code?type=${type}`);
+};
+
 export const getAllCodeServiceByType = (type) => {
   return axios.get(`/api/v1/all-code/get-all-category-blog?type=${type}`);
 };
@@ -169,7 +174,7 @@ export const CreateNewProduct = (data) => {
 };
 export const getAllProductUser = (data) => {
   return axios.get(
-    `/api/get-all-product-user?limit=${data.limit}&offset=${data.offset}&sortPrice=${data.sortPrice}&sortName=${data.sortName}&categoryId=${data.categoryId}&brandId=${data.brandId}&keyword=${data.keyword}`
+    `/api/v1/product/get-all-product-user?limit=${data.limit}&offset=${data.offset}&sortPrice=${data.sortPrice}&sortName=${data.sortName}&categoryId=${data.categoryId}&brandId=${data.brandId}&keyword=${data.keyword}`
   );
 };
 export const getAllProductAdmin = (data) => {
@@ -327,17 +332,17 @@ export const getAllBanner = (data) => {
 };
 //========================REVIEW======================//
 export const createNewReviewService = (data) => {
-  return axios.post(`/api/v1/review/create-new-review`, data)
-}
+  return axios.post(`/api/v1/review/create-new-review`, data);
+};
 export const getAllReviewByProductIdService = (id) => {
-  return axios.get(`/api/v1/review/get-all-review-by-productId?id=${id}`)
-}
+  return axios.get(`/api/v1/review/get-all-review-by-productId?id=${id}`);
+};
 export const ReplyReviewService = (data) => {
-  return axios.post(`/api/v1/review/reply-review`, data)
-}
+  return axios.post(`/api/v1/review/reply-review`, data);
+};
 export const deleteReviewService = (data) => {
-  return axios.delete(`/api/v1/review/delete-review`, data)
-}
+  return axios.delete(`/api/v1/review/delete-review`, data);
+};
 
 //=======================RECEIPT==========================//
 export const createNewReceiptService = (data) => {
