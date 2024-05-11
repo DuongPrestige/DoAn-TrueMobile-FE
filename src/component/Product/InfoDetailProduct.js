@@ -21,7 +21,6 @@ function InfoDetailProduct(props) {
 
         let { productDetail } = dataProduct ? dataProduct : []
         if (productDetail) {
-            console.log('productDetail :',productDetail[0]);
             setproductDetail(productDetail)
             setarrDetail(productDetail[0])
             setNewPrice(productDetail[0].discountPrice + Number(productDetail[0].productDetailConfig[0].design))
@@ -43,9 +42,6 @@ function InfoDetailProduct(props) {
 
     }
     let handleClickColor = (event,index) => {
-        console.log('event', event);
-        console.log('index', index);
-        console.log('2233333333333', productDetail[index]);
         setarrDetail(productDetail[index])
         setactiveLinkId(productDetail[index].productDetailConfig[0].id)
         setactiveLinkColor(productDetail[index].id)
@@ -159,8 +155,6 @@ function InfoDetailProduct(props) {
                                 <a href="#"> <span>Màu sắc</span></a>
                                 {dataProduct && productDetail && productDetail.length > 0 &&
                                     productDetail.map((item, index) => {
-                                        {console.log(item, "item")}
-                                        console.log('activeLinkColor :',activeLinkColor);
                                         return (
                                             <div onClick={(event) => handleClickColor(event,index)} key={index} className={item.id === activeLinkColor ? 'product-size active' : 'product-size'}>
                                                 {item.nameDetail}
@@ -207,7 +201,7 @@ function InfoDetailProduct(props) {
                             <input type="number" value={quantityProduct} onChange={(event) => setquantityProduct(event.target.value)} min="1" />
 
                         </div>
-                        <div className="form-group">
+                        {/* <div className="form-group">
                             <label style={{ fontSize: '14px', color: '#797979', fontFamily: '"Roboto",sans-serif', marginLeft: '16px' }} htmlFor="type">Loại sản phẩm</label>
                             <select onChange={(event) => handleSelectDetail(event)} className="sorting" name="type" style={{ outline: 'none', border: '1px solid #eee', marginLeft: '16px' }}>
                                 {dataProduct && productDetail && productDetail.length > 0 &&
@@ -218,7 +212,7 @@ function InfoDetailProduct(props) {
                                     })
                                 }
                             </select>
-                        </div>
+                        </div> */}
                     </div>
 
 
