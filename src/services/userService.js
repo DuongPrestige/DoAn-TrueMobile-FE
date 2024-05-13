@@ -314,13 +314,13 @@ export const getAllVoucherByUserIdService = (data) => {
 
 //========================SHOPCART===================//
 export const addShopCartService = (data) => {
-  return axios.post(`/api/add-shopcart`, data);
+  return axios.post(`/api/v1/shopcart/add-shopcart`, data);
 };
 export const getAllShopCartByUserIdService = (id) => {
-  return axios.get(`/api/get-all-shopcart-by-userId?id=${id}`);
+  return axios.get(`/api/v1/shopcart/get-all-shopcart-by-userId?id=${id}`);
 };
 export const deleteItemShopCartService = (data) => {
-  return axios.delete(`/api/delete-item-shopcart`, data);
+  return axios.delete(`/api/v1/shopcart/delete-item-shopcart`, data);
 };
 //===============BANNER======================//
 export const createNewBannerService = (data) => {

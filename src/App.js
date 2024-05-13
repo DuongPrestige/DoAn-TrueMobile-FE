@@ -5,7 +5,7 @@ import Footer from "./container/Footer/Footer";
 import HomePage from "./container/Home/HomePage";
 import ShopPage from "./container/Shop/ShopPage";
 import DetailProductPage from "./container/DetailProduct/DetailProductPage";
-// import ShopCartPage from './container/ShopCart/ShopCartPage';
+import ShopCartPage from "./container/ShopCart/ShopCartPage";
 import BlogPage from "./container/Blog/BlogPage";
 import DetailBlog from "./container/Blog/DetailBlog";
 
@@ -17,7 +17,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Redirect } from "react-router";
 // import VerifyEmail from './container/System/Email/VerifyEmail';
 import LoginWebPage from "./container/Login/LoginWebPage";
-import UserHomePage from './container/User/UseHomePage';
+import UserHomePage from "./container/User/UseHomePage";
 // import CustomScrollbars from './component/input/CustomScrollbars';
 import VoucherHomePage from "./container/Voucher/VoucherHomePage";
 // import OrderHomePage from './container/Order/OrderHomePage';
@@ -68,15 +68,21 @@ function App() {
             <DetailProductPage />
             <Footer />
           </Route>
-          <Route path="/user/" render={() => {
-          
-            return JSON.parse(localStorage.getItem("userData")) && JSON.parse(localStorage.getItem("userData")) ? <div>
-              <Header />
-              <UserHomePage />
-              <Footer />
-            </div> : <Redirect to={"/login"} />
-          }}>
-          </Route>
+          <Route
+            path="/user/"
+            render={() => {
+              return JSON.parse(localStorage.getItem("userData")) &&
+                JSON.parse(localStorage.getItem("userData")) ? (
+                <div>
+                  <Header />
+                  <UserHomePage />
+                  <Footer />
+                </div>
+              ) : (
+                <Redirect to={"/login"} />
+              );
+            }}
+          ></Route>
           {/* <Route
             path="/admin/"
             render={() => {
@@ -98,11 +104,11 @@ function App() {
             </div> : <Redirect to={"/login"} />
           }}>
           </Route> */}
-          {/* <Route path="/shopcart">
+          <Route path="/shopcart">
             <Header />
             <ShopCartPage />
             <Footer />
-          </Route> */}
+          </Route>
           {/* <Route exact path="/payment/success">
             <Header />
             <PaymentSuccess />
