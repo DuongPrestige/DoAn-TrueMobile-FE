@@ -65,14 +65,14 @@ export const getDetailUserById = (id) => {
 };
 
 export const handleSendVerifyEmail = (data) => {
-  return axios.post(`/api/send-verify-email`, data)
-}
+  return axios.post(`/api/send-verify-email`, data);
+};
 export const handleVerifyEmail = (data) => {
-  return axios.post(`/api/verify-email`, data)
-}
+  return axios.post(`/api/verify-email`, data);
+};
 export const handleChangePassword = (data) => {
-  return axios.post(`/api/changepassword`, data)
-}
+  return axios.post(`/api/v1/user/change-password`, data);
+};
 //==================CATEGORY==========================//
 //show category
 export const getListAllCodeService = (data) => {
@@ -377,56 +377,54 @@ export const createNewReceiptDetailService = (data) => {
 };
 //=========================ADDRESS USER==============//
 export const createNewAddressUserrService = (data) => {
-  return axios.post(`/api/create-new-address-user`, data)
-}
+  return axios.post(`/api/v1/addressuser/create-new-address-user`, data);
+};
 export const deleteAddressUserService = (data) => {
-  return axios.delete(`/api/delete-address-user`, data)
-}
+  return axios.delete(`/api/v1/addressuser/delete-address-user`, data);
+};
 export const editAddressUserService = (data) => {
-  return axios.put(`/api/edit-address-user`, data)
-}
+  return axios.put(`/api/v1/addressuser/edit-address-user`, data);
+};
 export const getAllAddressUserByUserIdService = (userId) => {
-  return axios.get(`/api/get-all-address-user?userId=${userId}`)
-}
+  return axios.get(`/api/v1/addressuser/get-all-address-user?userId=${userId}`);
+};
 export const getDetailAddressUserByIdService = (id) => {
-  return axios.get(`/api/get-detail-address-user-by-id?id=${id}`)
-
-}
+  return axios.get(
+    `/api/v1/addressuser/get-detail-address-user-by-id?id=${id}`
+  );
+};
 
 //==========================ORDER====================//
 export const createNewOrderService = (data) => {
-  return axios.post(`/api/create-new-order`, data)
-
-}
+  return axios.post(`/api/create-new-order`, data);
+};
 export const getAllOrder = (data) => {
-  return axios.get(`/api/get-all-order?limit=${data.limit}&offset=${data.offset}&statusId=${data.statusId}`)
-}
+  return axios.get(
+    `/api/get-all-order?limit=${data.limit}&offset=${data.offset}&statusId=${data.statusId}`
+  );
+};
 export const getDetailOrder = (id) => {
-  return axios.get(`/api/get-detail-order?id=${id}`)
-}
+  return axios.get(`/api/get-detail-order?id=${id}`);
+};
 export const updateStatusOrderService = (data) => {
-  return axios.put(`/api/update-status-order`, data)
-}
+  return axios.put(`/api/update-status-order`, data);
+};
 
 export const getAllOrdersByUser = (userId) => {
-  return axios.get(`/api/get-all-order-by-user?userId=${userId}`)
-}
+  return axios.get(`/api/get-all-order-by-user?userId=${userId}`);
+};
 export const paymentOrderService = (data) => {
-  return axios.post(`/api/payment-order`, data)
-
-}
+  return axios.post(`/api/payment-order`, data);
+};
 export const paymentOrderSuccessService = (data) => {
-  return axios.post(`/api/payment-order-success`, data)
-
-}
+  return axios.post(`/api/payment-order-success`, data);
+};
 export const paymentOrderVnpaySuccessService = (data) => {
-  return axios.post(`/api/payment-order-vnpay-success`, data)
-
-}
+  return axios.post(`/api/payment-order-vnpay-success`, data);
+};
 export const paymentOrderVnpayService = (data) => {
-  return axios.post(`/api/payment-order-vnpay`, data)
-
-}
+  return axios.post(`/api/payment-order-vnpay`, data);
+};
 export const confirmOrderVnpay = (data) => {
-  return axios.post(`/api/vnpay_return`, data)
-}
+  return axios.post(`/api/vnpay_return`, data);
+};
