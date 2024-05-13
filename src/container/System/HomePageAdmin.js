@@ -36,6 +36,8 @@ import AddReceipt from "./Receipt/AddReceipt";
 import ManageReceipt from "./Receipt/ManageReceipt";
 import DetailReceipt from "./Receipt/DetailReceipt";
 
+import ManageOrder from "./Order/ManageOrder";
+import DetailOrder from "./Order/DetailOrder";
 // import ManageCategory from './Category/ManageCategory';
 // import AddCategory from './Category/AddCategory';
 // import ManageBrand from './Brand/ManageBrand';
@@ -45,8 +47,6 @@ import DetailReceipt from "./Receipt/DetailReceipt";
 // import ManageProduct from './Product/ManageProduct';
 // import AddBanner from './Banner/AddBanner';
 
-// import ManageOrder from './Order/ManageOrder';
-// import DetailOrder from './Order/DetailOrder';
 // import Message from './Message/Message';
 
 // import Turnover from './Statistic/Turnover';
@@ -201,6 +201,15 @@ function HomePageAdmin(props) {
                     <Route exact path="/admin/detail-receipt/:id">
                       <DetailReceipt />
                     </Route>
+                    {/*Quản lý order */}
+
+                    <Route exact path="/admin/list-order">
+                      <ManageOrder />
+                    </Route>
+                    <Route exact path="/admin/order-detail/:id">
+                      <DetailOrder />
+                    </Route>
+
                     {/* <Route exact path="/admin/list-user">
                                     <ManageUser />
                                 </Route>
@@ -321,12 +330,7 @@ function HomePageAdmin(props) {
                                 <Route exact path="/admin/list-voucher">
                                     <ManageVoucher />
                                 </Route>
-                                <Route exact path="/admin/list-order">
-                                    <ManageOrder />
-                                </Route>
-                                <Route exact path="/admin/order-detail/:id">
-                                    <DetailOrder />
-                                </Route>
+                                
                                 <Route exact path="/admin/chat">
                                     <Message />
                                 </Route>

@@ -396,35 +396,41 @@ export const getDetailAddressUserByIdService = (id) => {
 
 //==========================ORDER====================//
 export const createNewOrderService = (data) => {
-  return axios.post(`/api/create-new-order`, data);
+  return axios.post(`/api/v1/order/create-new-order`, data);
 };
 export const getAllOrder = (data) => {
   return axios.get(
-    `/api/get-all-order?limit=${data.limit}&offset=${data.offset}&statusId=${data.statusId}`
+    `/api/v1/order/get-all-order?limit=${data.limit}&offset=${data.offset}&statusId=${data.statusId}`
   );
 };
 export const getDetailOrder = (id) => {
-  return axios.get(`/api/get-detail-order?id=${id}`);
+  return axios.get(`/api/v1/order/get-detail-order?id=${id}`);
 };
 export const updateStatusOrderService = (data) => {
-  return axios.put(`/api/update-status-order`, data);
+  return axios.put(`/api/v1/order/update-status-order`, data);
 };
 
 export const getAllOrdersByUser = (userId) => {
-  return axios.get(`/api/get-all-order-by-user?userId=${userId}`);
+  return axios.get(`/api/v1/order/get-all-order-by-user?userId=${userId}`);
 };
 export const paymentOrderService = (data) => {
-  return axios.post(`/api/payment-order`, data);
+  return axios.post(`/api/v1/order/payment-order`, data);
 };
 export const paymentOrderSuccessService = (data) => {
-  return axios.post(`/api/payment-order-success`, data);
+  return axios.post(`/api/v1/order/payment-order-success`, data);
 };
 export const paymentOrderVnpaySuccessService = (data) => {
-  return axios.post(`/api/payment-order-vnpay-success`, data);
+  return axios.post(`/api/v1/order/payment-order-vnpay-success`, data);
 };
 export const paymentOrderVnpayService = (data) => {
-  return axios.post(`/api/payment-order-vnpay`, data);
+  return axios.post(`/api/v1/order/payment-order-vnpay`, data);
 };
 export const confirmOrderVnpay = (data) => {
-  return axios.post(`/api/vnpay_return`, data);
+  return axios.post(`/api/v1/order/vnpay_return`, data);
+};
+//======================THIRTY SERVICE==========================//
+export const getExchangeRate = () => {
+  return axios.get(
+    `https://tygia.com/json.php?ran=0&gold=0&bank=VIETCOM&date=now`
+  );
 };

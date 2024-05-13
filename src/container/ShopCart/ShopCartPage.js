@@ -143,8 +143,10 @@ function ShopCartPage(props) {
                 {dataCart &&
                   dataCart.length > 0 &&
                   dataCart.map((item, index) => {
-                    price += item.quantity * item.productDetail.discountPrice;
-                    console.log("item :", item);
+                    price +=
+                      item.quantity *
+                      (item.productDetail.discountPrice +
+                        Number(item.productdetailconfigData.design));
                     let name = `${item.productData.name} - ${item.productDetail.nameDetail} - ${item.productdetailconfigData.romData.value}`;
                     return (
                       <ShopCartItem
@@ -200,7 +202,7 @@ function ShopCartPage(props) {
                 style={{ marginLeft: "-3px" }}
                 src={storeVoucherLogo}
               ></img>
-              <span className="name-easier">Easier voucher</span>
+              <span className="name-easier">True Mobile voucher</span>
               <span
                 onClick={() => handleOpenModal()}
                 className="choose-voucher"

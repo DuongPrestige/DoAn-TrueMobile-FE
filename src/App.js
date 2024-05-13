@@ -20,12 +20,12 @@ import LoginWebPage from "./container/Login/LoginWebPage";
 import UserHomePage from "./container/User/UseHomePage";
 // import CustomScrollbars from './component/input/CustomScrollbars';
 import VoucherHomePage from "./container/Voucher/VoucherHomePage";
-// import OrderHomePage from './container/Order/OrderHomePage';
-// import TopMenu from './container/Header/TopMenu';
-// import PaymentSuccess from './container/User/PaymentSuccess';
+import OrderHomePage from "./container/Order/OrderHomePage";
+import TopMenu from "./container/Header/TopMenu";
+import PaymentSuccess from "./container/User/PaymentSuccess";
 // import MessagePage from './container/Message/MessagePage';
-// import VnpayPaymentPage from './container/Order/VnpayPaymentPage';
-// import VnpayPaymentSuccess from './container/Order/VnpayPaymentSuccess';
+import VnpayPaymentPage from "./container/Order/VnpayPaymentPage";
+import VnpayPaymentSuccess from "./container/Order/VnpayPaymentSuccess";
 
 function App() {
   return (
@@ -109,21 +109,33 @@ function App() {
             <ShopCartPage />
             <Footer />
           </Route>
-          {/* <Route exact path="/payment/success">
+          <Route exact path="/payment/success">
             <Header />
             <PaymentSuccess />
             <Footer />
-          </Route> */}
-          {/* <Route exact path="/payment/vnpay">
-            <TopMenu user={JSON.parse(localStorage.getItem("userData")) ? JSON.parse(localStorage.getItem("userData")) : ''} />
-              <VnpayPaymentPage />
-              <Footer />
-            </Route>
-            <Route exact path="/payment/vnpay_return">
-            <TopMenu user={JSON.parse(localStorage.getItem("userData")) ? JSON.parse(localStorage.getItem("userData")) : ''} />
-              <VnpayPaymentSuccess />
-              <Footer />
-            </Route> */}
+          </Route>
+          <Route exact path="/payment/vnpay">
+            <TopMenu
+              user={
+                JSON.parse(localStorage.getItem("userData"))
+                  ? JSON.parse(localStorage.getItem("userData"))
+                  : ""
+              }
+            />
+            <VnpayPaymentPage />
+            <Footer />
+          </Route>
+          <Route exact path="/payment/vnpay_return">
+            <TopMenu
+              user={
+                JSON.parse(localStorage.getItem("userData"))
+                  ? JSON.parse(localStorage.getItem("userData"))
+                  : ""
+              }
+            />
+            <VnpayPaymentSuccess />
+            <Footer />
+          </Route>
           <Route path="/login">
             <Header />
             <LoginWebPage />
@@ -158,11 +170,17 @@ function App() {
             <VerifyEmail />
             <Footer />
           </Route> */}
-          {/* <Route path="/order/:userId">
-            <TopMenu user={JSON.parse(localStorage.getItem("userData")) ? JSON.parse(localStorage.getItem("userData")) : ''} />
+          <Route path="/order/:userId">
+            <TopMenu
+              user={
+                JSON.parse(localStorage.getItem("userData"))
+                  ? JSON.parse(localStorage.getItem("userData"))
+                  : ""
+              }
+            />
             <OrderHomePage />
             <Footer />
-          </Route> */}
+          </Route>
           <ToastContainer
             position="top-right"
             autoClose={4000}

@@ -79,7 +79,6 @@ function InfoDetailProduct(props) {
           quantity: quantityProduct,
         })
       );
-      toast.success("Đã thêm sản phẩm vào giỏ hàng!");
     } else {
       toast.error("Đăng nhập để thêm vào giỏ hàng");
     }

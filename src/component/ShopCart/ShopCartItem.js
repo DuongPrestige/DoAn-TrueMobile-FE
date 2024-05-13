@@ -14,7 +14,6 @@ function ShopCartItem(props) {
   const dispatch = useDispatch();
   let handleOnChange = async (event) => {
     setquantity(event.target.value);
-
     if (event.target.value === "0") {
       setisOpenModal(true);
     } else {
@@ -28,6 +27,7 @@ function ShopCartItem(props) {
         });
         if (res && res.errCode === 0) {
           dispatch(getItemCartStart(props.userId));
+          toast.success("Cập nhật số lượng thành công");
         } else {
           toast.error(res.errMessage);
           setquantity(res.quantity);

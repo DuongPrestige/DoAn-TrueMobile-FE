@@ -40,14 +40,11 @@ function StoreVoucher(props) {
           offset: 0,
           id: props.id,
         });
-        console.log("dfđf", arrData);
         let arrTemp = [];
         if (arrData && arrData.errCode === 0) {
           let nowDate = moment.unix(Date.now() / 1000).format("DD/MM/YYYY");
           console.log("1111111111111111");
           for (let i = 0; i < arrData.data.length; i++) {
-            console.log("2222222222222");
-            console.log("jhjhjhjhj");
             let fromDate = moment
               .unix(arrData.data[i].voucherData.fromDate / 1000)
               .format("DD/MM/YYYY");
