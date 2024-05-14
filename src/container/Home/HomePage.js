@@ -98,7 +98,7 @@ function HomePage(props) {
         description="Những sản phẩm vừa ra mắt mới lạ cuốn hút người xem"
         data={dataNewProductFeature}
       ></NewProductFeature>
-      {/* <HomeBlog data={dataNewBlog} />  */}
+      {/* <HomeBlog data={dataNewBlog} /> */}
     </div>
   );
 }

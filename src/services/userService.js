@@ -15,7 +15,7 @@ export const createNewUser = (data) => {
 //===============ALL CODE========================//
 
 export const getAllCategoryBlogService = (type) => {
-  return axios.get(`/api/get-all-category-blog?type=${type}`);
+  return axios.get(`/api/v1/all-code/get-all-category-blog?type=${type}`);
 };
 export const getAllCodeService = (type) => {
   return axios.get(`/api/v1/all-code/get-list-allcode?type=${type}`);
@@ -167,12 +167,17 @@ export const getAllSupplier = (data) => {
 };
 //========================COMMENT=======================
 export const createNewcommentService = (data) => {
-  return axios.post(`/api/create-new-comment`, data);
+  return axios.post(`/api/v1/review/create-new-comment`, data);
 };
 export const getAllcommentByBlogIdService = (id) => {
-  return axios.get(`/api/get-all-comment-by-blogId?id=${id}`);
+  return axios.get(`/api/v1/review/get-all-comment-by-blogId?id=${id}`);
 };
-
+export const ReplycommentService = (data) => {
+  return axios.post(`/api/v1/review/reply-comment`, data);
+};
+export const deletecommentService = (data) => {
+  return axios.delete(`/api/v1/review/delete-comment`, data);
+};
 //==================PRODUCT======================//
 export const getProductRecommendService = (data) => {
   return axios.get(

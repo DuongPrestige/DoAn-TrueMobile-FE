@@ -18,7 +18,7 @@ const ManageOrder = () => {
   const [dataOrder, setdataOrder] = useState([]);
   const [count, setCount] = useState("");
   const [numberPage, setnumberPage] = useState("");
-  const { data: dataStatusOrder } = useFetchAllcode("STATUS-ORDER");
+  const { data: dataStatusOrder } = useFetchAllcode("ORDERSTATUS");
   const [StatusId, setStatusId] = useState("ALL");
   useEffect(() => {
     loadOrderData("ALL");
