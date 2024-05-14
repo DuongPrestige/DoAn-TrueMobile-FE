@@ -428,6 +428,38 @@ export const paymentOrderVnpayService = (data) => {
 export const confirmOrderVnpay = (data) => {
   return axios.post(`/api/v1/order/vnpay_return`, data);
 };
+//======================STATISTIC========================//
+export const getCountCardStatistic = () => {
+  return axios.get(`/api/get-count-card-statistic`);
+};
+export const getCountStatusOrder = (data) => {
+  return axios.get(
+    `/api/get-count-status-order?oneDate=${data.oneDate}&twoDate=${data.twoDate}&type=${data.type}`
+  );
+};
+export const getStatisticByMonth = (year) => {
+  return axios.get(`/api/get-statistic-by-month?year=${year}`);
+};
+export const getStatisticByDay = (data) => {
+  return axios.get(
+    `/api/get-statistic-by-day?year=${data.year}&month=${data.month}`
+  );
+};
+export const getStatisticOverturn = (data) => {
+  return axios.get(
+    `/api/get-statistic-overturn?oneDate=${data.oneDate}&twoDate=${data.twoDate}&type=${data.type}`
+  );
+};
+export const getStatisticProfit = (data) => {
+  return axios.get(
+    `/api/get-statistic-profit?oneDate=${data.oneDate}&twoDate=${data.twoDate}&type=${data.type}`
+  );
+};
+export const getStatisticStockProduct = (data) => {
+  return axios.get(
+    `/api/get-statistic-stock-product?limit=${data.limit}&offset=${data.offset}`
+  );
+};
 //======================THIRTY SERVICE==========================//
 export const getExchangeRate = () => {
   return axios.get(

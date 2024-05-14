@@ -38,20 +38,14 @@ import DetailReceipt from "./Receipt/DetailReceipt";
 
 import ManageOrder from "./Order/ManageOrder";
 import DetailOrder from "./Order/DetailOrder";
-// import ManageCategory from './Category/ManageCategory';
-// import AddCategory from './Category/AddCategory';
-// import ManageBrand from './Brand/ManageBrand';
-// import AddBrand from './Brand/AddBrand';
 // import Information from './User/Information';
 // import ChangePassword from './User/ChangePassword';
-// import ManageProduct from './Product/ManageProduct';
-// import AddBanner from './Banner/AddBanner';
 
 // import Message from './Message/Message';
 
-// import Turnover from './Statistic/Turnover';
-// import Profit from './Statistic/Profit';
-// import StockProduct from './Statistic/StockProduct';
+import Turnover from "./Statistic/Turnover";
+import Profit from "./Statistic/Profit";
+import StockProduct from "./Statistic/StockProduct";
 
 function HomePageAdmin(props) {
   return (
@@ -210,6 +204,18 @@ function HomePageAdmin(props) {
                       <DetailOrder />
                     </Route>
 
+                    {/*Quản lý thống kê */}
+
+                    <Route exact path="/admin/turnover">
+                      <Turnover />
+                    </Route>
+                    <Route exact path="/admin/profit">
+                      <Profit />
+                    </Route>
+                    <Route exact path="/admin/stock-product">
+                      <StockProduct />
+                    </Route>
+
                     {/* <Route exact path="/admin/list-user">
                                     <ManageUser />
                                 </Route>
@@ -334,15 +340,7 @@ function HomePageAdmin(props) {
                                 <Route exact path="/admin/chat">
                                     <Message />
                                 </Route>
-                                <Route exact path="/admin/turnover">
-                                    <Turnover />
-                                </Route>
-                                <Route exact path="/admin/profit">
-                                    <Profit />
-                                </Route>
-                                <Route exact path="/admin/stock-product">
-                                    <StockProduct />
-                                </Route> */}
+                                */}
                   </main>
                   <Footer />
                 </div>
