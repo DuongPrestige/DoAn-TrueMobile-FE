@@ -38,18 +38,19 @@ function HomePage(props) {
       fetchProductRecommend(userData.id);
     }
     fetchBlogFeature();
+    fetchProductFeature();
     fetchDataBrand();
 
     window.scrollTo(0, 0);
   }, []);
   let fetchBlogFeature = async () => {
-    let res = await getNewBlog(3);
+    let res = await getNewBlog(4);
     if (res && res.errCode === 0) {
       setdataNewBlog(res.data);
     }
   };
   let fetchProductFeature = async () => {
-    let res = await getProductFeatureService(6);
+    let res = await getProductFeatureService(4);
     if (res && res.errCode === 0) {
       setDataProductFeature(res.data);
     }
@@ -92,13 +93,16 @@ function HomePage(props) {
       </Slider>
       <MainFeature></MainFeature>
       {/* <ProductFeature title={"Gợi ý sản phẩm"} data={dataProductRecommend}></ProductFeature> */}
-      {/* <ProductFeature title={"Sản phẩm đặc trưng"} data={dataProductFeature}></ProductFeature> */}
+      <ProductFeature
+        title={"Sản phẩm được yêu thích nhất"}
+        data={dataProductFeature}
+      ></ProductFeature>
       <NewProductFeature
         title="Sản phẩm mới"
         description="Những sản phẩm vừa ra mắt mới lạ cuốn hút người xem"
         data={dataNewProductFeature}
       ></NewProductFeature>
-      {/* <HomeBlog data={dataNewBlog} /> */}
+      <HomeBlog data={dataNewBlog} />
     </div>
   );
 }

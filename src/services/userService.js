@@ -264,7 +264,7 @@ export const DeleteProductDetailSizeService = (data) => {
   return axios.delete(`/api/v1/product/delete-product-detail-config`, data);
 };
 export const getProductFeatureService = (limit) => {
-  return axios.get(`/api/get-product-feature?limit=${limit}`);
+  return axios.get(`/api/v1/product/get-product-feature?limit=${limit}`);
 };
 export const getProductNewService = (limit) => {
   return axios.get(`/api/v1/product/get-product-new?limit=${limit}`);

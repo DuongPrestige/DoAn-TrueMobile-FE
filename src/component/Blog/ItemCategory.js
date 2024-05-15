@@ -16,6 +16,7 @@ function ItemCategory(props) {
         }
       >
         <p>{props.data.value}</p>
+        {console.log(props.data, "232323")}
         <p>({props.data.countPost})</p>
       </a>
     </li>
