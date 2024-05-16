@@ -100,9 +100,24 @@ export const getDetailAllcodeById = (id) => {
 };
 
 //======================MESSSAGE==========================//
+export const createNewRoom = (data) => {
+  return axios.post(`/api/v1/message/create-new-room`, data)
+}
+export const sendMessage = (data) => {
+  return axios.post(`/api/v1/message/sendMessage`, data)
+}
+export const loadMessage = (roomId, userId) => {
+  return axios.get(`/api/v1/message/loadMessage?roomId=${roomId}&userId=${userId}`)
+
+}
 export const listRoomOfUser = (userId) => {
-  return axios.get(`/api/listRoomOfUser?userId=${userId}`);
-};
+  return axios.get(`/api/v1/message/listRoomOfUser?userId=${userId}`)
+
+}
+export const listRoomOfAdmin = () => {
+  return axios.get(`/api/v1/message/listRoomOfAdmin`)
+
+}
 
 //=================BLOG=========================//
 export const createNewBlogrService = (data) => {

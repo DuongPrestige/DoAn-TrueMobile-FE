@@ -12,7 +12,7 @@ import StoreVoucher from './StoreVoucher';
 import AddressUser from './AddressUser';
 import ChangePassword from '../System/User/ChangePassword';
 import OrderUser from './OrderUser';
-// import MessagePage from '../Message/MessagePage';
+import MessagePage from '../Message/MessagePage';
 
 function UserHomePage(props) {
     const [user, setUser] = useState({})
@@ -26,7 +26,7 @@ function UserHomePage(props) {
          
             <Switch>
                 <Route exact path="/user/messenger">
-                 {/* <MessagePage /> */}
+                 <MessagePage />
                 </Route>
                 <div style={{ display: 'flex' }} className="container rounded bg-white mt-5 mb-5">
 
