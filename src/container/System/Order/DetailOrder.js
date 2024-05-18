@@ -202,7 +202,7 @@ function DetailOrder(props) {
                       style={{ marginLeft: "-3px" }}
                       src={storeVoucherLogo}
                     ></img>
-                    <span className="name-easier">Easier voucher</span>
+                    <span className="name-easier">True Mobile voucher</span>
 
                     <span className="choose-voucher">
                       Mã voucher:{" "}

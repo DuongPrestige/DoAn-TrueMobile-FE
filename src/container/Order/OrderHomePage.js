@@ -30,6 +30,7 @@ function OrderHomePage(props) {
   const [ratesData, setratesData] = useState([]);
   const [priceShip, setpriceShip] = useState(0);
   let price = 0;
+  let soluong = 0;
   let total = 0;
   const [stt, setstt] = useState(0);
   let dataCart = useSelector((state) => state.shopcart.listCartItem);
@@ -144,7 +145,9 @@ function OrderHomePage(props) {
         let object = {};
         object.productId = item.productdetailconfigId;
         object.quantity = item.quantity;
-        object.realPrice = item.productDetail.discountPrice;
+        object.realPrice =
+          item.productDetail.discountPrice +
+          Number(item.productdetailconfigData.design);
         result.push(object);
       });
 
@@ -351,9 +354,9 @@ function OrderHomePage(props) {
                         dataCart.length > 0 &&
                         dataCart.map((item, index) => {
                           price +=
-                            item.quantity * item.productDetail.discountPrice;
-                          console.log("item", item);
-                          console.log("dataCart", dataCart);
+                            item.quantity *
+                            (item.productDetail.discountPrice +
+                              Number(item.productdetailconfigData.design));
                           let name = `${item.productData.name} - ${item.productDetail.nameDetail} - ${item.productdetailconfigData.romData.value}`;
                           return (
                             <ShopCartItem
@@ -365,7 +368,10 @@ function OrderHomePage(props) {
                               }
                               key={index}
                               name={name}
-                              price={item.productDetail.discountPrice}
+                              price={
+                                item.productDetail.discountPrice +
+                                Number(item.productdetailconfigData.design)
+                              }
                               quantity={item.quantity}
                               image={item.productDetailImage[0].image}
                             />
@@ -412,7 +418,7 @@ function OrderHomePage(props) {
                       style={{ marginLeft: "-3px" }}
                       src={storeVoucherLogo}
                     ></img>
-                    <span className="name-easier">Easier voucher</span>
+                    <span className="name-easier">True Mobile voucher</span>
                     <span
                       onClick={() => handleOpenModal()}
                       className="choose-voucher"
@@ -437,8 +443,16 @@ function OrderHomePage(props) {
                 </div>
                 <div className="content-right">
                   <div className="wrap-price">
+                    {dataCart &&
+                      dataCart.length > 0 &&
+                      dataCart.map((item, index) => {
+                        // update thêm ở đây
+                        soluong += item.quantity;
+                      })}
                     <span className="text-total">
-                      Tổng thanh toán ({dataCart && dataCart.length} sản phẩm):{" "}
+                      Tổng thanh toán ({soluong} sản phẩm):{" "}
+                      {console.log("dataCart:---------", dataCart)}
+                      {/* tính số lượng sản phẩm sai */}
                     </span>
 
                     <span className="text-price">

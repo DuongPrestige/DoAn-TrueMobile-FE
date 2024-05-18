@@ -117,8 +117,7 @@ function OrderUser(props) {
                     {item.orderDetail &&
                       item.orderDetail.length > 0 &&
                       item.orderDetail.map((item, index) => {
-                        price +=
-                          item.quantity * item.productDetail.discountPrice;
+                        price += item.quantity * item.realPrice;
                         return (
                           <div className="content-center">
                             <div className="box-item-order">
@@ -136,9 +135,7 @@ function OrderUser(props) {
                                 <span>x{item.quantity}</span>
                               </div>
                               <div className="box-price">
-                                {CommonUtils.formatter.format(
-                                  item.productDetail.discountPrice
-                                )}
+                                {CommonUtils.formatter.format(item.realPrice)}
                               </div>
                             </div>
                           </div>
