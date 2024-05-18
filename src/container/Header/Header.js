@@ -19,43 +19,44 @@ const Header = props => {
 
 
 
+    useEffect(() => {
+        socketRef.current = socketIOClient.connect(host)
+        const userData = JSON.parse(localStorage.getItem('userData'));
+        console.log('userData :', userData);
+        setUser(userData)
+        if (userData) {
+            dispatch(getItemCartStart(userData.id))
+            socketRef.current.on('getId', data => {
+                setId(data)
+              }) 
+              // phần này đơn giản để gán id cho mỗi phiên kết nối vào page. Mục đích chính là để phân biệt đoạn nào là của mình đang chat.
+            fetchListRoom(userData.id)
+    
+            socketRef.current.on('sendDataServer', dataGot => {
+               
+                fetchListRoom(userData.id)
+    
+                })  
+             socketRef.current.on('loadRoomServer', dataGot => {
+                    
+                    fetchListRoom(userData.id)
+        
+                    })  
+              return () => {
+                socketRef.current.disconnect();
+              };
+        }
+       
+    }, [])
     // useEffect(() => {
-    //     socketRef.current = socketIOClient.connect(host)
     //     const userData = JSON.parse(localStorage.getItem('userData'));
     //     setUser(userData)
     //     if (userData) {
     //         dispatch(getItemCartStart(userData.id))
-    //         socketRef.current.on('getId', data => {
-    //             setId(data)
-    //           }) 
-    //           // phần này đơn giản để gán id cho mỗi phiên kết nối vào page. Mục đích chính là để phân biệt đoạn nào là của mình đang chat.
     //         fetchListRoom(userData.id)
-    
-    //         socketRef.current.on('sendDataServer', dataGot => {
-               
-    //             fetchListRoom(userData.id)
-    
-    //             })  
-    //          socketRef.current.on('loadRoomServer', dataGot => {
-                    
-    //                 fetchListRoom(userData.id)
-        
-    //                 })  
-    //           return () => {
-    //             socketRef.current.disconnect();
-    //           };
     //     }
        
     // }, [])
-    useEffect(() => {
-        const userData = JSON.parse(localStorage.getItem('userData'));
-        setUser(userData)
-        if (userData) {
-            dispatch(getItemCartStart(userData.id))
-            fetchListRoom(userData.id)
-        }
-       
-    }, [])
     let scrollHeader = () => {
         window.addEventListener("scroll", function () {
             var header = document.querySelector(".main_menu");
