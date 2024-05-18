@@ -116,6 +116,7 @@ const AddSizeModal = (props) => {
       ["cpu"]: "",
       ["ram"]: "",
       ["sim"]: "",
+      ["design"]: "",
       ["battery"]: "",
       ["isActionUpdate"]: false,
     });
