@@ -55,6 +55,7 @@ function ShopCartPage(props) {
   }, []);
 
   let price = 0;
+  let soluong = 0;
   let closeModal = () => {
     setisOpenModal(false);
   };
@@ -218,9 +219,18 @@ function ShopCartPage(props) {
           </div>
           <div className="content-right">
             <div className="wrap-price">
+              {dataCart &&
+                dataCart.length > 0 &&
+                dataCart.map((item, index) => {
+                  // update thêm ở đây
+                  soluong += item.quantity;
+                })}
               <span className="text-total">
-                Tổng thanh toán ({dataCart && dataCart.length} sản phẩm):{" "}
+                Tổng thanh toán ({soluong} sản phẩm):{" "}
+                {console.log("dataCart:---------", dataCart)}
+                {/* tính số lượng sản phẩm sai */}
               </span>
+
               <span className="text-price">
                 {dataVoucher && dataVoucher.voucherData
                   ? CommonUtils.formatter.format(
