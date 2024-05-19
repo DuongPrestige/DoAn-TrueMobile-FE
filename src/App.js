@@ -8,6 +8,7 @@ import DetailProductPage from "./container/DetailProduct/DetailProductPage";
 import ShopCartPage from "./container/ShopCart/ShopCartPage";
 import BlogPage from "./container/Blog/BlogPage";
 import DetailBlog from "./container/Blog/DetailBlog";
+import Warranty from "./container/Warranty/Warranty";
 
 import HomePageAdmin from "./container/System/HomePageAdmin";
 // import { path } from '../src/utils/constant'
@@ -38,9 +39,9 @@ function App() {
             <Footer />
           </Route>
 
-          <Route exact path="/admin">
+          {/* <Route exact path="/admin">
             <HomePageAdmin />
-          </Route>
+          </Route> */}
 
           <Route path="/detail-product/:id">
             <Header />
@@ -83,7 +84,7 @@ function App() {
               );
             }}
           ></Route>
-          {/* <Route
+          <Route
             path="/admin/"
             render={() => {
               if (
@@ -95,15 +96,7 @@ function App() {
                 return;
               } else return <Redirect to={"/login"} />;
             }}
-          ></Route> */}
-          {/* <Route path="/user/" render={() => {
-            return JSON.parse(localStorage.getItem("userData")) && JSON.parse(localStorage.getItem("userData")) ? <div>
-              <Header />
-              <UserHomePage />
-              <Footer />
-            </div> : <Redirect to={"/login"} />
-          }}>
-          </Route> */}
+          ></Route>
           <Route path="/shopcart">
             <Header />
             <ShopCartPage />
@@ -114,6 +107,7 @@ function App() {
             <PaymentSuccess />
             <Footer />
           </Route>
+      
           <Route exact path="/payment/vnpay">
             <TopMenu
               user={
@@ -160,8 +154,9 @@ function App() {
             <Footer />
           </Route>
 
-          <Route path="/about">
+          <Route path="/check-warranty">
             <Header />
+            <Warranty />
             <Footer />
           </Route>
 

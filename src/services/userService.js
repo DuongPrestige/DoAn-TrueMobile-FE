@@ -485,3 +485,10 @@ export const getExchangeRate = () => {
     `https://tygia.com/json.php?ran=0&gold=0&bank=VIETCOM&date=now`
   );
 };
+
+//======================WARRANTY==========================//
+export const getWarranty = (warranty) => {
+  return axios.get(
+    `/api/v1/product/check-warranty?warranty=${warranty}`
+  );
+};

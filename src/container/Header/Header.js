@@ -130,8 +130,8 @@ const Header = props => {
                                             </NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <NavLink to="/about" className="nav-link" activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
-                                            Giới thiệu
+                                            <NavLink to="/check-warranty" className="nav-link" activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
+                                            Bảo hành
                                             </NavLink>
                                         </li>
                                     </ul>
