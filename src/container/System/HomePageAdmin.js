@@ -38,10 +38,10 @@ import DetailReceipt from "./Receipt/DetailReceipt";
 
 import ManageOrder from "./Order/ManageOrder";
 import DetailOrder from "./Order/DetailOrder";
-// import Information from './User/Information';
+import Information from './User/Information';
 // import ChangePassword from './User/ChangePassword';
 
-// import Message from './Message/Message';
+import Message from './Message/Message';
 
 import Turnover from "./Statistic/Turnover";
 import Profit from "./Statistic/Profit";
@@ -71,6 +71,9 @@ function HomePageAdmin(props) {
                     </Route>
                     <Route exact path="/admin/add-user">
                       <Adduser />
+                    </Route>
+                    <Route exact path="/admin/infor/:id">
+                      <Information />
                     </Route>
                     {/* quản lý danh mục */}
                     <Route exact path="/admin/list-category">
@@ -214,6 +217,10 @@ function HomePageAdmin(props) {
                     </Route>
                     <Route exact path="/admin/stock-product">
                       <StockProduct />
+                    </Route>
+                    {/* message */}
+                    <Route exact path="/admin/chat">
+                      <Message />
                     </Route>
 
                     {/* <Route exact path="/admin/list-user">
