@@ -79,7 +79,13 @@ function DetailProductPage(props) {
       <section className="product_description_area">
         <div className="container">
           <ul className="nav nav-tabs" id="myTab" role="tablist">
+            {/* {dataDetailSize && dataDetailSize.romData.code === "none" ? (
+              <></>
+            ) : (
+              
+            )} */}
             <li className="nav-item">
+              {/* {console.log("dataDetailSize: 123", dataDetailSize)} */}
               <a
                 className="nav-link active"
                 id="profile-tab"
@@ -89,7 +95,7 @@ function DetailProductPage(props) {
                 aria-controls="profile"
                 aria-selected="false"
               >
-                Thông số chi tiết
+                Thông số kỹ thuật
               </a>
             </li>
             <li className="nav-item">

@@ -218,30 +218,38 @@ function InfoDetailProduct(props) {
               </div>
             </li>
             <li>
-              <div className="box-size">
-                <a href="#">
-                  {" "}
-                  <span>Bộ nhớ</span>
-                </a>
-                {arrDetail &&
-                  arrDetail.productDetailConfig &&
-                  arrDetail.productDetailConfig.length > 0 &&
-                  arrDetail.productDetailConfig.map((item, index) => {
-                    return (
-                      <div
-                        onClick={() => handleClickBoxSize(item)}
-                        key={index}
-                        className={
-                          item.id === activeLinkId
-                            ? "product-size active"
-                            : "product-size"
-                        }
-                      >
-                        {item.romData.value}
-                      </div>
-                    );
-                  })}
-              </div>
+              {/* add them */}
+              {arrDetail &&
+              arrDetail.productDetailConfig &&
+              arrDetail.productDetailConfig.length > 0 &&
+              arrDetail.productDetailConfig[0].romData?.code === "none" ? (
+                <></>
+              ) : (
+                <div className="box-size">
+                  <a href="#">
+                    {" "}
+                    <span>Bộ nhớ</span>
+                  </a>
+                  {arrDetail &&
+                    arrDetail.productDetailConfig &&
+                    arrDetail.productDetailConfig.length > 0 &&
+                    arrDetail.productDetailConfig.map((item, index) => {
+                      return (
+                        <div
+                          onClick={() => handleClickBoxSize(item)}
+                          key={index}
+                          className={
+                            item.id === activeLinkId
+                              ? "product-size active"
+                              : "product-size"
+                          }
+                        >
+                          {item.romData.value}
+                        </div>
+                      );
+                    })}
+                </div>
+              )}
             </li>
 
             <li>

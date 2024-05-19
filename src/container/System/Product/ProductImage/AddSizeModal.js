@@ -231,7 +231,7 @@ const AddSizeModal = (props) => {
                 value={inputValues.design}
                 name="design"
                 onChange={(event) => handleOnChange(event)}
-                type="text"
+                type="number"
                 className="form-control"
               />
             </div>

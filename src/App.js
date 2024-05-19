@@ -63,11 +63,11 @@ function App() {
             <Footer />
           </Route>
 
-          <Route path="/detail-product/:id">
+          {/* <Route path="/detail-product/:id">
             <Header />
             <DetailProductPage />
             <Footer />
-          </Route>
+          </Route> */}
           <Route
             path="/user/"
             render={() => {
