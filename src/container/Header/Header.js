@@ -48,15 +48,6 @@ const Header = props => {
         }
        
     }, [])
-    // useEffect(() => {
-    //     const userData = JSON.parse(localStorage.getItem('userData'));
-    //     setUser(userData)
-    //     if (userData) {
-    //         dispatch(getItemCartStart(userData.id))
-    //         fetchListRoom(userData.id)
-    //     }
-       
-    // }, [])
     let scrollHeader = () => {
         window.addEventListener("scroll", function () {
             var header = document.querySelector(".main_menu");
@@ -140,7 +131,7 @@ const Header = props => {
                                             </NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <NavLink style={{color: 'white'}} to="/about" className="nav-link" activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
+                                            <NavLink style={{color: 'white'}} to="/check-warranty" className="nav-link" activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
                                             Bảo hành
                                             </NavLink>
                                         </li>
@@ -149,6 +140,9 @@ const Header = props => {
                                 <div className="col-lg-3 pr-0">
                                     <ul className="nav navbar-nav navbar-right right_nav pull-right">
                                         <li className="nav-item">
+                                        <Link style={{color: 'white'}} to={"/user/messenger"} className="icons">
+                                            <i class="fa-brands fa-facebook-messenger"></i>
+                                            </Link>
                                             {quantityMessage>0 && 
                                              <span className="box-message-quantity">{quantityMessage}</span>
                                             }
