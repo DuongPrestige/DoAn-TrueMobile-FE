@@ -101,37 +101,47 @@ const Header = props => {
                             <span className="icon-bar" />
                         </button>
                         {/* Collect the nav links, forms, and other content for toggling */}
-                        <div className="collapse navbar-collapse offset w-100" id="navbarSupportedContent">
+                        <div style={{background: '#38393b', color: 'white'}} className="collapse navbar-collapse offset w-100" id="navbarSupportedContent">
                             <div className="row w-100 mr-0">
                                 <div className="col-lg-9 pr-0">
                                     <ul className="nav navbar-nav center_nav pull-right">
                                         <li className="nav-item">
-                                            <NavLink exact to="/" className="nav-link"
+                                            <NavLink style={{color: 'white'}} exact to="/" className="nav-link"
                                                 activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
-                                                Trang chủ
+                                                Điện thoại
                                             </NavLink>
                                         </li>
                                         <li className="nav-item ">
-                                            <NavLink to="/shop" className="nav-link"
+                                            <NavLink style={{color: 'white'}} to="/shop" className="nav-link"
+                                                activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
+                                                Phụ kiện
+                                            </NavLink>
+                                        </li>
+                                        <li className="nav-item ">
+                                            <NavLink style={{color: 'white'}} to="/blog" className="nav-link"
+                                                activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
+                                                Máy tính
+                                            </NavLink>
+                                        </li>
+                                        <li className="nav-item">
+                                            <NavLink style={{color: 'white'}} to="/voucher" className="nav-link"
                                                 activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
                                                 Cửa hàng
                                             </NavLink>
                                         </li>
-                                        <li className="nav-item ">
-                                            <NavLink to="/blog" className="nav-link"
-                                                activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
-                                                Tin tức
+                                        <li className="nav-item">
+                                            <NavLink style={{color: 'white'}} to="/about" className="nav-link" activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
+                                            Tin tức
                                             </NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <NavLink to="/voucher" className="nav-link"
-                                                activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
-                                                Giảm giá
+                                            <NavLink style={{color: 'white'}} to="/about" className="nav-link" activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
+                                            Giảm giá
                                             </NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <NavLink to="/about" className="nav-link" activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
-                                            Giới thiệu
+                                            <NavLink style={{color: 'white'}} to="/about" className="nav-link" activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
+                                            Bảo hành
                                             </NavLink>
                                         </li>
                                     </ul>
@@ -139,23 +149,20 @@ const Header = props => {
                                 <div className="col-lg-3 pr-0">
                                     <ul className="nav navbar-nav navbar-right right_nav pull-right">
                                         <li className="nav-item">
-                                        <Link to={"/user/messenger"} className="icons">
-                                            <i class="fa-brands fa-facebook-messenger"></i>
-                                            </Link>
                                             {quantityMessage>0 && 
                                              <span className="box-message-quantity">{quantityMessage}</span>
                                             }
                                            
                                         </li>
                                         <li className="nav-item">
-                                            <Link to={"/shopcart"} className="icons">
+                                            <Link style={{color: 'white'}} to={"/shopcart"} className="icons">
                                                 <i className="ti-shopping-cart" />
 
                                             </Link>
                                             <span className="box-quantity-cart">{dataCart && dataCart.length}</span>
                                         </li>
                                         <li className="nav-item">
-                                            <Link to={`/user/detail/${user && user.id ? user.id : ''}`} className="icons">
+                                            <Link style={{color: 'white'}} to={`/user/detail/${user && user.id ? user.id : ''}`} className="icons">
                                                 <i className="ti-user" aria-hidden="true" />
                                             </Link>
                                         </li>

@@ -194,6 +194,12 @@ function App() {
           />
         </div>
       </Switch>
+      <img style={{
+        position: "fixed",
+        bottom: 25,
+        right: 25,
+        cursor: "pointer"
+      }} width={70} src="https://vcdn.subiz-cdn.com/widget-v4/public/assets/img/bubble_default.7d5e4ab.svg"/>
     </Router>
   );
 }

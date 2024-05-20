@@ -147,17 +147,18 @@ function MainShop(props) {
           </div>
         </div>
       </div>
-      <div style={{ marginBottom: "10px" }} className="latest_product_inner">
-        <div className="row">
+      <div style={{ marginBottom: "10px", background: '#F5F5F7' }} className="latest_product_inner">
+        <div style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-around",
+        }}>
           {dataProduct &&
             dataProduct.length > 0 &&
             dataProduct.map((item, index) => {
               return (
                 <ItemProduct
                   id={item.id}
-                  width={"255px"}
-                  height={"254px"}
-                  type="col-lg-4 col-md-6"
                   name={item.name}
                   img={item.productDetail[0].productImage[0].image}
                   discountPrice={item.productDetail[0].discountPrice}
