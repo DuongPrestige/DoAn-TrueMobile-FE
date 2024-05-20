@@ -35,7 +35,6 @@ function MessageDisscution(props) {
   }
   let handleSearchRoom = (roomList) => {
     dataRoom.forEach((item) => {
-      console.log("item :",item)
       let name = ''
       if(props.isAdmin === true){
         name = item.userOneData.firstName + " "+item.userOneData.lastName
@@ -66,7 +65,6 @@ handleSearchRoom(roomList)
             <div className="jspPane" style={{padding: '0px', top: '0px', width: '329px'}}>
               <ul className="ks-items">
               
-                
              {roomList && roomList.length > 0 && 
               roomList.map((item,index) =>{
                 let userData = {}
