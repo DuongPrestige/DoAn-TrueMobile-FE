@@ -212,6 +212,10 @@ function OrderUser(props) {
                 </div>
               );
             })}
+                      {
+            DataOrder.length == 0 &&
+          <span>Bạn chưa có đơn hàng nào</span>
+          }
         </div>
       </div>
     </div>

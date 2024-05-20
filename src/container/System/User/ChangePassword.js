@@ -42,24 +42,24 @@ const ChangePassword = () => {
 
 
                 <div className="card mb-4">
-                    <div className="card-header">
-                        <i className="fas fa-table me-1" />
+                    <div className="card-header"  style={{fontWeight: 'bold'}}>
+                        <i className="fas fa-table me-1 mr-2" />
                         Đổi mật khẩu
                     </div>
                     <div className="card-body">
                         <form>
                             <div className="form-group col-6">
-                                <label htmlFor="exampleInputEmail1">Mật khẩu cũ</label>
+                                <label htmlFor="exampleInputEmail1" style={{fontWeight: 'bold'}}>Mật khẩu cũ</label>
                                 <input type="password" value={inputValues.oldpassword} name="oldpassword" onChange={(event) => handleOnChange(event)} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
 
                             </div>
                             <div className="form-group col-6">
-                                <label htmlFor="exampleInputEmail1">Mật khẩu mới</label>
+                                <label htmlFor="exampleInputEmail1" style={{fontWeight: 'bold'}}>Mật khẩu mới</label>
                                 <input type="password" value={inputValues.newpassword} name="newpassword" onChange={(event) => handleOnChange(event)} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
 
                             </div>
                             <div className="form-group col-6">
-                                <label htmlFor="exampleInputPassword1">Nhập lại mật khẩu</label>
+                                <label htmlFor="exampleInputPassword1" style={{fontWeight: 'bold'}}>Nhập lại mật khẩu</label>
                                 <input type="password" value={inputValues.confirmpassword} name="confirmpassword" onChange={(event) => handleOnChange(event)} className="form-control" id="exampleInputPassword1" />
                             </div>
 

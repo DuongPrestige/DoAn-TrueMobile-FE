@@ -125,6 +125,10 @@ function StoreVoucher(props) {
                 );
               })}
           </div>
+          {
+            dataVoucher.length == 0 &&
+          <span>Bạn chưa có voucher nào</span>
+          }
         </div>
       </div>
     </div>
