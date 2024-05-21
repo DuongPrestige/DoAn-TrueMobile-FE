@@ -104,12 +104,12 @@
 .banner_area {
     position: relative;
     z-index: 1;
-    min-height: 200px;
+    min-height: 100px;
     .banner_inner {
         position: relative;
         overflow: hidden;
         width: 100%;
-        min-height: 200px;
+        min-height: 100px;
         background: $offwhite;
         z-index: 1;
         .banner_content {

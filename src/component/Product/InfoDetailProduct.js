@@ -85,14 +85,24 @@ function InfoDetailProduct(props) {
   };
   return (
     <div className="row s_product_inner">
-      <div className="col-lg-6">
-        <div className="s_product_img">
-          <div
+      <div style={{
+            position: 'relative',
+          }} className="col-lg-6">
+        <div style={{
+            position: 'unset',
+          }} className="s_product_img">
+          <div style={{
+            position: 'unset',
+          }}
             id="carouselExampleIndicators"
             className="carousel slide"
             data-ride="carousel"
           >
-            <div>
+            <div style={{
+              position: 'absolute',
+              bottom: 0,
+              left: '50%',
+            }}>
               <ol className="carousel-indicators">
                 {arrDetail &&
                   arrDetail.productImage &&
@@ -101,6 +111,10 @@ function InfoDetailProduct(props) {
                     if (index === 0) {
                       return (
                         <li
+                          style={{
+                            border: '1px solid black',
+                            height: 65
+                          }}
                           data-target="#carouselExampleIndicators"
                           data-slide-to={index}
                           className="active"
@@ -116,6 +130,10 @@ function InfoDetailProduct(props) {
                     } else {
                       return (
                         <li
+                        style={{
+                          border: '1px solid black',
+                          height: 65
+                        }}
                           data-target="#carouselExampleIndicators"
                           data-slide-to={index}
                           className=""
@@ -132,7 +150,14 @@ function InfoDetailProduct(props) {
                   })}
               </ol>
             </div>
-            <div className="carousel-inner">
+            <div style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              border: "1px solid black",
+              borderRadius: "15px",
+              padding: "10px",
+            }} className="carousel-inner">
               {arrDetail &&
                 arrDetail.productImage &&
                 arrDetail.productImage.length > 0 &&
@@ -171,31 +196,31 @@ function InfoDetailProduct(props) {
           </div>
         </div>
       </div>
-      <div className="col-lg-5 offset-lg-1">
+      <div className="col-lg-5">
         <div className="s_product_text">
           <h3>{dataProduct.name}</h3>
-          <h2>{CommonUtils.formatter.format(newPrice)}</h2>
+          <h2 style={{color: '#0066CC'}}>{CommonUtils.formatter.format(newPrice)}</h2>
           <ul className="list">
-            <li>
-              <a className="active" href="#">
-                <span>Loại</span> :{" "}
+            <li className="py-2">
+              <a className="active" href="#" style={{color: '#0066CC'}}>
+                <span style={{color: 'black', fontWeight: 'bold'}}>Loại</span> :{" "}
                 {dataProduct && dataProduct.categoryData
                   ? dataProduct.categoryData.value
                   : ""}
               </a>
             </li>
-            <li>
-              <a href="#">
+            <li className="py-2">
+              <a href="#" style={{color: quantity > 0 ? "#0066CC" : "red"}}>
                 {" "}
-                <span>Trạng thái</span> :{" "}
+                <span  style={{color: 'black', fontWeight: 'bold'}} >Trạng thái</span> :{" "}
                 {quantity > 0 ? "Còn hàng" : "Hết hàng"}
               </a>
             </li>
             <li>
-              <div className="box-size">
+              <div className="box-size mb-4">
                 <a href="#">
                   {" "}
-                  <span>Màu sắc</span>
+                  <span style={{color: 'black', fontWeight: 'bold'}}>Màu sắc</span>
                 </a>
                 {dataProduct &&
                   productDetail &&
@@ -228,7 +253,7 @@ function InfoDetailProduct(props) {
                 <div className="box-size">
                   <a href="#">
                     {" "}
-                    <span>Bộ nhớ</span>
+                    <span style={{color: 'black', fontWeight: 'bold'}}>Bộ nhớ</span>
                   </a>
                   {arrDetail &&
                     arrDetail.productDetailConfig &&
@@ -256,7 +281,9 @@ function InfoDetailProduct(props) {
               <a href="#">{quantity} sản phẩm có sẵn</a>
             </li>
           </ul>
-          <p>{arrDetail.description}</p>
+          <p style={{
+            marginBottom: 30
+          }}>{arrDetail.description}</p>
           <div style={{ display: "flex" }}>
             <div className="product_count">
               <label htmlFor="qty">Số lượng</label>

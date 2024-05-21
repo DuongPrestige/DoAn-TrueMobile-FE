@@ -26,8 +26,12 @@ function ShopPage(props) {
     }
     return (
         <div>
-            <section ref={myRef} className="banner_area">
-                <div className="banner_inner d-flex align-items-center">
+            <section style={{
+                minHeight: 120
+            }} ref={myRef} className="banner_area">
+                <div style={{
+                minHeight: 120
+            }} className="banner_inner d-flex align-items-center">
                     <div className="container">
                         <div className="banner_content d-md-flex justify-content-between align-items-center">
                             <div className="mb-3 mb-md-0">
@@ -43,7 +47,9 @@ function ShopPage(props) {
                     </div>
                 </div>
             </section>
-            <section className="cat_product_area section_gap">
+            <section style={{
+                padding: "50px 0"
+            }} className="cat_product_area section_gap">
                 <div className="container">
                     <div className="row flex-row-reverse">
                         <MainShop categoryId={categoryId} brandId={brandId} myRef={myRef} />
