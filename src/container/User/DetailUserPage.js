@@ -141,31 +141,34 @@ function DetailUserPage(props) {
           <div className="d-flex flex-column align-items-center text-center p-3 py-5">
             <img
               onClick={() => openPreviewImage(inputValues.image)}
-              className="rounded-circle mt-5"
-              height="170px"
+              className="rounded-circle mt-5 mr-5"
+              height="180px"
               style={{ objectFit: "cover", cursor: "pointer" }}
-              width="150px"
+              width="180px"
               src={inputValues.image}
             />
             <span className="font-weight-bold">{inputValues.lastName}</span>
-            <div className="box-email-verify">
-              <span className="text-black-50">{inputValues.email}</span>
+            <div className="box-email-verify mr-5 mt-2">
+              <span className="text-black" style={{
+                fontSize: 16,
+                fontWeight: 'bold',
+              }}>{inputValues.email}</span>
               {inputValues.isActiveEmail === 0 && (
                 <i
-                  style={{ color: "#dc0707" }}
+                  style={{ color: "#dc0707", marginLeft: 7 }}
                   className="fas fa-times-circle"
                 ></i>
               )}
               {inputValues.isActiveEmail === 1 && (
                 <i
-                  style={{ color: "green" }}
+                  style={{ color: "green", marginLeft: 7 }}
                   className="fas fa-check-circle"
                 ></i>
               )}
             </div>
 
             {inputValues.isActiveEmail === 0 && (
-              <span onClick={() => handleSendEmail()} className="text-verify">
+              <span onClick={() => handleSendEmail()} className="text-verify mr-5 mt-2">
                 xác thực
               </span>
             )}
@@ -178,7 +181,7 @@ function DetailUserPage(props) {
             </div>
             <div className="row mt-2">
               <div className="col-md-6">
-                <label className="labels">Họ</label>
+                <label className="labels" style={{ fontWeight: 'bold' }}>Họ</label>
                 <input
                   name="firstName"
                   onChange={(event) => handleOnChange(event)}
@@ -188,7 +191,7 @@ function DetailUserPage(props) {
                 />
               </div>
               <div className="col-md-6">
-                <label className="labels">Tên</label>
+                <label className="labels" style={{ fontWeight: 'bold' }}>Tên</label>
                 <input
                   name="lastName"
                   onChange={(event) => handleOnChange(event)}
@@ -200,7 +203,7 @@ function DetailUserPage(props) {
             </div>
             <div className="row mt-3">
               <div className="col-md-12">
-                <label className="labels">Số điện thoại</label>
+                <label className="labels" style={{ fontWeight: 'bold' }}>Số điện thoại</label>
                 <input
                   name="phonenumber"
                   onChange={(event) => handleOnChange(event)}
@@ -209,8 +212,8 @@ function DetailUserPage(props) {
                   value={inputValues.phonenumber}
                 />
               </div>
-              <div className="col-md-12">
-                <label className="labels">Địa chỉ</label>
+              <div className="col-md-12 mt-3">
+                <label className="labels" style={{ fontWeight: 'bold' }}>Địa chỉ</label>
                 <input
                   name="address"
                   onChange={(event) => handleOnChange(event)}
@@ -222,7 +225,7 @@ function DetailUserPage(props) {
             </div>
             <div className="row mt-3">
               <div className="col-md-6">
-                <label className="labels">Giới tính</label>
+                <label className="labels" style={{ fontWeight: 'bold' }}>Giới tính</label>
                 <select
                   value={inputValues.genderId}
                   name="genderId"
@@ -242,7 +245,7 @@ function DetailUserPage(props) {
                 </select>
               </div>
               <div className="col-md-6">
-                <label className="labels">Ngày sinh</label>{" "}
+                <label className="labels" style={{ fontWeight: 'bold' }}>Ngày sinh</label>{" "}
                 <DatePicker
                   className="form-control"
                   onChange={handleOnChangeDatePicker}
@@ -250,9 +253,9 @@ function DetailUserPage(props) {
                 />
               </div>
             </div>
-            <div className="row mt-2">
+            <div className="row mt-3">
               <div className="col-md-3">
-                <label className="labels">Chọn ảnh</label>
+                <label className="labels" style={{ fontWeight: 'bold' }}>Chọn ảnh</label>
                 <input
                   type="file"
                   id="previewImg"
@@ -264,7 +267,7 @@ function DetailUserPage(props) {
                   style={{
                     backgroundColor: "#eee",
                     borderRadius: "5px",
-                    padding: "6px",
+                    padding: "6px 15px",
                     cursor: "pointer",
                   }}
                   className="label-upload"

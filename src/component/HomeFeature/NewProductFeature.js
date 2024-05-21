@@ -17,7 +17,10 @@ function NewProductFeature(props) {
         </HeaderContent>
         <div className="row">
           <div className="col-lg-12 mt-5 mt-lg-0">
-            <div className="row">
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-around',
+            }}>
               {props.data &&
                 props.data.length > 0 &&
                 props.data?.map((item, index) => {

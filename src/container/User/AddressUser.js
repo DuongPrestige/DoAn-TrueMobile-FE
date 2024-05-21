@@ -105,7 +105,7 @@ function AddressUser(props) {
         <div className="col-md-12 border-right border-left">
           <div className="box-heading">
             <div className="content-left">
-              <span>Địa chỉ của tôi</span>
+              <span style={{ fontWeight: 'bold', color: 'black' }}>Địa chỉ của tôi</span>
             </div>
             <div className="content-right">
               <div
@@ -125,9 +125,9 @@ function AddressUser(props) {
                   <div className="content-left">
                     <div className="box-label">
                       <div className="label">
-                        <div>Họ Và Tên</div>
-                        <div>Số Điện Thoại</div>
-                        <div>Địa Chỉ</div>
+                        <div style={{ fontWeight: 'bold', color: 'black' }}>Họ Và Tên:</div>
+                        <div style={{ fontWeight: 'bold', color: 'black' }}>Số Điện Thoại:</div>
+                        <div style={{ fontWeight: 'bold', color: 'black' }}>Địa Chỉ:</div>
                       </div>
                       <div className="content">
                         <div>{item.shipName}</div>
@@ -137,18 +137,43 @@ function AddressUser(props) {
                     </div>
                   </div>
                   <div className="content-right">
-                    <span
+                    <button
                       onClick={() => handleEditAddress(item.id)}
-                      className="text-underline"
+                      style={{
+                        textDecoration: 'underline',
+                        color: 'white',                  // Changed to white for better visibility
+                        padding: '8px 16px',
+                        border: 'none',
+                        borderRadius: '8px',             // Rounded corners
+                        backgroundColor: '#007BFF',      // Bootstrap primary button color
+                        cursor: 'pointer',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.2)', // Adds shadow for depth
+                        outline: 'none'                  // Removes outline
+                      }}
+                      onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#0056b3'}  // Darker on hover
+                      onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#007BFF'}    // Back to normal
                     >
                       Sửa
-                    </span>
-                    <span
+                    </button>
+                    <button
                       onClick={() => handleDeleteAddress(item.id)}
-                      className="text-underline"
+                      style={{
+                        textDecoration: 'underline',
+                        color: 'white',
+                        padding: '8px 16px',
+                        border: 'none',
+                        borderRadius: '8px',
+                        backgroundColor: '#DC3545',      // Bootstrap danger button color
+                        cursor: 'pointer',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+                        outline: 'none',
+                        marginLeft: 30
+                      }}
+                      onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#c82333'}  // Darker on hover
+                      onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#DC3545'}    // Back to normal
                     >
                       Xóa
-                    </span>
+                    </button>
                   </div>
                 </div>
               );
