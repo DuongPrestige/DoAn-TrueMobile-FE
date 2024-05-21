@@ -8,7 +8,7 @@ function MainShop(props) {
   const [dataProduct, setdataProduct] = useState([]);
   const [count, setCount] = useState("");
   const [numberPage, setnumberPage] = useState("");
-  const [limitPage, setlimitPage] = useState(PAGINATION.pagerow);
+  const [limitPage, setlimitPage] = useState(6);
   const [sortPrice, setsortPrice] = useState("");
   const [sortName, setsortName] = useState("");
   const [offset, setoffset] = useState(0);

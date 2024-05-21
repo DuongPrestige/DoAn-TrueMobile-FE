@@ -49,8 +49,12 @@ function DetailProductPage(props) {
   };
   return (
     <div>
-      <section className="banner_area">
-        <div className="banner_inner d-flex align-items-center">
+      <section style={{
+                minHeight: 110
+            }} className="banner_area">
+        <div style={{
+                minHeight: 110
+            }} className="banner_inner d-flex align-items-center">
           <div className="container">
             <div className="banner_content d-md-flex justify-content-between align-items-center">
               <div className="mb-3 mb-md-0">
@@ -65,7 +69,9 @@ function DetailProductPage(props) {
           </div>
         </div>
       </section>
-      <div className="product_image_area">
+      <div style={{
+        paddingTop: 10,
+      }} className="product_image_area">
         <div className="container">
           <InfoDetailProduct
             userId={user && user.id ? user.id : ""}
@@ -79,7 +85,13 @@ function DetailProductPage(props) {
       <section className="product_description_area">
         <div className="container">
           <ul className="nav nav-tabs" id="myTab" role="tablist">
+            {/* {dataDetailSize && dataDetailSize.romData.code === "none" ? (
+              <></>
+            ) : (
+              
+            )} */}
             <li className="nav-item">
+              {/* {console.log("dataDetailSize: 123", dataDetailSize)} */}
               <a
                 className="nav-link active"
                 id="profile-tab"
@@ -89,7 +101,7 @@ function DetailProductPage(props) {
                 aria-controls="profile"
                 aria-selected="false"
               >
-                Thông số chi tiết
+                Thông số kỹ thuật
               </a>
             </li>
             <li className="nav-item">
