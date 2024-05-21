@@ -116,35 +116,35 @@ const Header = props => {
                                             </NavLink>
                                         </li>
                                         <li className="nav-item ">
-                                            <NavLink style={{ color: '#d2d2d7', lineHeight: "72px", fontSize: 16, textTransform: "capitalize" }} to="/shop" className="nav-link"
+                                            <NavLink style={{ color: '#d2d2d7', lineHeight: "72px", fontSize: 16, textTransform: "capitalize" }} to="/about" className="nav-link"
                                                 activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
                                                 Phụ kiện
                                             </NavLink>
                                         </li>
                                         <li className="nav-item ">
-                                            <NavLink style={{ color: '#d2d2d7', lineHeight: "72px", fontSize: 16, textTransform: "capitalize" }} to="/blog" className="nav-link"
+                                            <NavLink style={{ color: '#d2d2d7', lineHeight: "72px", fontSize: 16, textTransform: "capitalize" }} to="/about" className="nav-link"
                                                 activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
                                                 Máy tính
                                             </NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <NavLink style={{ color: '#d2d2d7', lineHeight: "72px", fontSize: 16, textTransform: "capitalize" }} to="/voucher" className="nav-link"
+                                            <NavLink style={{ color: '#d2d2d7', lineHeight: "72px", fontSize: 16, textTransform: "capitalize" }} to="/shop"  className="nav-link"
                                                 activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
                                                 Cửa hàng
                                             </NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <NavLink style={{ color: '#d2d2d7', lineHeight: "72px", fontSize: 16, textTransform: "capitalize" }} to="/about" className="nav-link" activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
+                                            <NavLink style={{ color: '#d2d2d7', lineHeight: "72px", fontSize: 16, textTransform: "capitalize" }} to="/blog" className="nav-link" activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
                                                 Tin tức
                                             </NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <NavLink style={{ color: '#d2d2d7', lineHeight: "72px", fontSize: 16, textTransform: "capitalize" }} to="/about" className="nav-link" activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
+                                            <NavLink style={{ color: '#d2d2d7', lineHeight: "72px", fontSize: 16, textTransform: "capitalize" }} to="/voucher" className="nav-link" activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
                                                 Giảm giá
                                             </NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <NavLink style={{ color: '#d2d2d7', lineHeight: "72px", fontSize: 16, textTransform: "capitalize" }} to="/about" className="nav-link" activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
+                                            <NavLink style={{ color: '#d2d2d7', lineHeight: "72px", fontSize: 16, textTransform: "capitalize" }} to="/check-warranty" className="nav-link" activeClassName="selected" activeStyle={{ color: '#71cd14' }}>
                                                 Bảo hành
                                             </NavLink>
                                         </li>
@@ -152,15 +152,16 @@ const Header = props => {
                                 </div>
                                 <div className="col-lg-3 pr-5">
                                     <ul className="nav navbar-nav navbar-right right_nav pull-right">
-                                        <Link style={{ color: 'white', lineHeight: "72px" }} to={"/user/messenger"} className="icons">
-                                            <li className="nav-item">
+                                        <li className="nav-item">
+                                            <Link style={{ color: 'white', lineHeight: "72px" }} to={"/user/messenger"} className="icons">
+                                                <i style={{ fontSize: "22px" }} class="fa-brands fa-facebook-messenger"></i>
                                                 {quantityMessage > 0 &&
                                                     <span className="box-message-quantity">{quantityMessage}</span>
                                                 }
 
-                                            </li>
-                                        </Link>
-                                        <li className="nav-item pr-3">
+                                            </Link>
+                                        </li>
+                                        <li className="nav-item">
                                             <Link style={{ color: 'white', lineHeight: "72px" }} to={"/shopcart"} className="icons">
                                                 <i style={{ fontSize: "22px" }} className="ti-shopping-cart" />
 

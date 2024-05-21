@@ -30,10 +30,9 @@ function MessagePage(props) {
         setId(data)
       }) // phần này đơn giản để gán id cho mỗi phiên kết nối vào page. Mục đích chính là để phân biệt đoạn nào là của mình đang chat.
       createRoom()
-  
-  
+      //vì hàm này phải đợi async nên bị chạy sau, hàm dưới chạy trc
       
-      fetchListRoom(userData.id)
+      // fetchListRoom(userData.id)
   
    socketRef.current.on('sendDataServer', dataGot => {
       fetchListRoom(userData.id)
