@@ -245,17 +245,24 @@ function InfoDetailProduct(props) {
                   productDetail &&
                   productDetail.length > 0 &&
                   productDetail.map((item, index) => {
+                    console.log(item)
                     return (
                       <div
                         onClick={(event) => handleClickColor(event, index)}
                         key={index}
+                        style={{
+                          backgroundColor: item.nameDetail.toLowerCase(),
+                          maxWidth: 31,
+                          height: 33,
+                          borderRadius: '50%',
+                          padding: '10px 15px'
+                        }}
                         className={
                           item.id === activeLinkColor
                             ? "product-size active"
                             : "product-size"
                         }
                       >
-                        {item.nameDetail}
                       </div>
                     );
                   })}
