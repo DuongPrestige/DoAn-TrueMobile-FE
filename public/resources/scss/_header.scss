@@ -24,8 +24,14 @@
       }
     }
     .icons {
-      font-size: 16px;
-      line-height: 80px;
+      // style={{
+      //   color: "#d2d2d7",
+      //   lineHeight: "72px",
+      //   fontSize: 16,
+      //   textTransform: "capitalize",
+      // }}
+      font-size: 18px;
+      line-height: 72px;
       display: inline-block;
       color: #4a4a4a;
       margin-left: 20px;
@@ -114,7 +120,7 @@
               }
               &:hover {
                 .nav-link {
-                  background: $primary-color;
+                  background: #ea0000;
                   color: #fff;
                 }
               }

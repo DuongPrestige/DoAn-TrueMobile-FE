@@ -147,12 +147,17 @@ function MainShop(props) {
           </div>
         </div>
       </div>
-      <div style={{ marginBottom: "10px", background: '#F5F5F7' }} className="latest_product_inner">
-        <div style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-around",
-        }}>
+      <div
+        style={{ marginBottom: "10px", background: "#F5F5F7" }}
+        className="latest_product_inner"
+      >
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-around",
+          }}
+        >
           {dataProduct &&
             dataProduct.length > 0 &&
             dataProduct.map((item, index) => {

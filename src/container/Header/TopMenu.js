@@ -24,7 +24,7 @@ const TopMenu = (props) => {
           <div className="col-lg-7">
             <div className="float-left">
               <p>phone: 0367965606 </p>
-              <p>email: duong.prestige86@gmail.com</p>
+              <p>email: True@mobile.com</p>
             </div>
           </div>
           <div className="col-lg-5">
