@@ -487,8 +487,6 @@ export const getExchangeRate = () => {
 };
 
 //======================WARRANTY==========================//
-export const getWarranty = (warranty) => {
-  return axios.get(
-    `/api/v1/product/check-warranty?warranty=${warranty}`
-  );
+export const getWarranty = (seriNumber) => {
+  return axios.get(`/api/v1/product/check-warranty?seriNumber=${seriNumber}`);
 };
