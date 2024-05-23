@@ -48,7 +48,7 @@ function ItemProduct(props) {
               <p style={{ fontSize: 21, color: "black" }}>{props.name}</p>
             </a>
             <div className="mt-3">
-              <span className="mr-4" style={{ color: "#0066CC", fontSize: 18 }}>
+              <span className="mr-4" style={{ color: "#71cd14", fontSize: 18 }}>
                 {CommonUtils.formatter.format(props.discountPrice)}
               </span>
               <del>{CommonUtils.formatter.format(props.price)}</del>
