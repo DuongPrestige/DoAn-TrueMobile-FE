@@ -54,7 +54,7 @@ function HomePageAdmin(props) {
         <>
           <Switch>
             <div className="sb-nav-fixed">
-              {/* <Header /> */}
+              <Header />
               <div id="layoutSidenav">
                 <SideBar />
                 <div id="layoutSidenav_content">
