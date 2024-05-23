@@ -46,7 +46,6 @@ function OrderUser(props) {
       statusId: "S7",
       dataOrder: data,
     });
-    console.log("data front True mobile", data);
     if (res && res.errCode == 0) {
       toast.success("Hủy đơn hàng thành công");
       loadDataOrder();
@@ -109,9 +108,20 @@ function OrderUser(props) {
                           </a>
                         </div>
                       </div>
-                      <div className="content-right">
-                        {item.statusOrderData && item.statusOrderData.value}{" "}
-                        {item.isPaymentOnlien == 1 && " | Đã thanh toán"}
+                      <div>
+                        <div className="content-right">
+                          {item.statusOrderData && item.statusOrderData.value}{" "}
+                          {item.isPaymentOnlien == 1 && " | Đã thanh toán"}
+                        </div>
+                        <div>
+                          {item.statusOrderData && item.statusOrderData.code == "S3" &&
+                            <div className="content-right d-flex justify-content-end">
+                              <a style={{ color: "primary" }} href={`/order-detail/${item.id}`}>
+                                Xem chi tiết
+                              </a>
+                            </div>
+                          }
+                        </div>
                       </div>
                     </div>
                     {item.orderDetail &&
@@ -121,7 +131,6 @@ function OrderUser(props) {
                         return (
                           <div className="content-center">
                             <div className="box-item-order">
-                              {console.log("iem,", item)}
                               <img src={item.productImage[0].image}></img>
                               <div className="box-des">
                                 <span className="name">
@@ -180,12 +189,12 @@ function OrderUser(props) {
                       <span className="name">
                         {item && item.voucherData && item.voucherData.id
                           ? CommonUtils.formatter.format(
-                              totalPriceDiscount(price, item.voucherData) +
-                                item.typeShipData.price
-                            )
+                            totalPriceDiscount(price, item.voucherData) +
+                            item.typeShipData.price
+                          )
                           : CommonUtils.formatter.format(
-                              price + +item.typeShipData.price
-                            )}
+                            price + +item.typeShipData.price
+                          )}
                       </span>
                       <div style={{ display: "none" }}>{(price = 0)}</div>
                     </div>
@@ -212,9 +221,9 @@ function OrderUser(props) {
                 </div>
               );
             })}
-                      {
+          {
             DataOrder.length == 0 &&
-          <span>Bạn chưa có đơn hàng nào</span>
+            <span>Bạn chưa có đơn hàng nào</span>
           }
         </div>
       </div>

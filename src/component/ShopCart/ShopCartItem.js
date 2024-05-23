@@ -69,6 +69,21 @@ function ShopCartItem(props) {
           <div className="media-body">
             <p className="text-justify">{props.name} </p>
           </div>
+
+        </div>
+      </td>
+      <td>
+        <div className="media-body">
+          {
+            props.seriNumber.length > 0 &&
+            props.seriNumber.map((item) => {
+              return (
+                <p className="text-justify">{item.seriNumber} </p>
+              )
+            })
+
+          }
+
         </div>
       </td>
       <td>

@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, useHistory, useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { NavLink, useParams } from "react-router-dom";
 import {
   getDetailOrder,
-  updateStatusOrderService,
 } from "../../../services/userService";
 import "./../../Order/OrderHomePage.scss";
-import { toast } from "react-toastify";
 import storeVoucherLogo from "../../../../src/resources/img/storeVoucher.png";
 import ShopCartItem from "../../../component/ShopCart/ShopCartItem";
 import CommonUtils from "../../../utils/CommonUtils";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
-function DetailOrder(props) {
+function DetailOrderUser(props) {
   const { id } = useParams();
   const [DataOrder, setDataOrder] = useState({});
   const [imgPreview, setimgPreview] = useState("");
@@ -56,54 +53,11 @@ function DetailOrder(props) {
       }
     } catch (error) { }
   };
-  let handleAcceptOrder = async () => {
-    let res = await updateStatusOrderService({
-      id: DataOrder.id,
-      statusId: "S4",
-    });
-    if (res && res.errCode == 0) {
-      toast.success("Xác nhận đơn hàng thành công");
-      loadDataOrder();
-    }
-  };
-  let handleSendProduct = async () => {
-    let res = await updateStatusOrderService({
-      id: DataOrder.id,
-      statusId: "S5",
-    });
-    if (res && res.errCode == 0) {
-      toast.success("Xác nhận gửi hàng thành công");
-      loadDataOrder();
-    }
-  };
-  let handleSuccessShip = async () => {
-    let res = await updateStatusOrderService({
-      id: DataOrder.id,
-      statusId: "S6",
-    });
-    if (res && res.errCode == 0) {
-      toast.success("Đã giao hàng thành công");
-      loadDataOrder();
-    }
-  };
-  let handleCancelOrder = async (data) => {
-    let res = await updateStatusOrderService({
-      id: DataOrder.id,
-      statusId: "S7",
-      dataOrder: data,
-    });
-    if (res && res.errCode == 0) {
-      toast.success("Hủy đơn hàng thành công");
-      loadDataOrder();
-    }
-  };
   return (
+
     <>
       <div className="wrap-order">
         <div className="wrap-heading-order">
-          <NavLink to="/" className="navbar-brand logo_h">
-            <img src="/resources/img/logo.png" alt="" />
-          </NavLink>
           <span>Chi tiết đơn hàng</span>
         </div>
         <div className="wrap-address-order">
@@ -157,7 +111,6 @@ function DetailOrder(props) {
                         DataOrder.orderDetail.map((item, index) => {
                           price +=
                             item.quantity * item.productDetail.discountPrice;
-                        
                           let name = `${item.product.name} - ${item.productDetail.nameDetail} - ${item.productDetailSize.romData.value}`;
                           return (
                             <ShopCartItem
@@ -209,14 +162,6 @@ function DetailOrder(props) {
                         DataOrder.voucherData &&
                         DataOrder.voucherData.codeVoucher}
                     </span>
-                  </div>
-                  <div className="wrap-note">
-                    <span>Lời Nhắn:</span>
-                    <input
-                      value={DataOrder.note}
-                      type="text"
-                      placeholder="Lưu ý cho Người bán..."
-                    />
                   </div>
                 </div>
 
@@ -320,7 +265,7 @@ function DetailOrder(props) {
                     : CommonUtils.formatter.format(price + +priceShip)}
                 </div>
               </div>
-              <div className="box-flex">
+              {/* <div className="box-flex">
                 {DataOrder && DataOrder.statusId == "S3" && (
                   <a onClick={() => handleAcceptOrder()} className="main_btn">
                     Xác nhận đơn
@@ -352,7 +297,7 @@ function DetailOrder(props) {
                   >
                     Hủy đơn
                   </a>
-                )}
+                )} */}
             </div>
           </div>
         </div>
@@ -371,4 +316,4 @@ function DetailOrder(props) {
   );
 }
 
-export default DetailOrder;
+export default DetailOrderUser;

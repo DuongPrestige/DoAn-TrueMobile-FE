@@ -27,6 +27,7 @@ import PaymentSuccess from "./container/User/PaymentSuccess";
 // import MessagePage from './container/Message/MessagePage';
 import VnpayPaymentPage from "./container/Order/VnpayPaymentPage";
 import VnpayPaymentSuccess from "./container/Order/VnpayPaymentSuccess";
+import DetailOrderUser from "./container/System/Order/DetailOrderUser";
 
 function App() {
   return (
@@ -174,6 +175,11 @@ function App() {
               }
             />
             <OrderHomePage />
+            <Footer />
+          </Route>
+          <Route path="/order-detail/:id">
+            <Header />
+            <DetailOrderUser />
             <Footer />
           </Route>
           <ToastContainer
