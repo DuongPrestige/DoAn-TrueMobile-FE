@@ -374,6 +374,7 @@ function OrderHomePage(props) {
                               }
                               quantity={item.quantity}
                               image={item.productDetailImage[0].image}
+                              seriNumber={item.seri}
                             />
                           );
                         })}

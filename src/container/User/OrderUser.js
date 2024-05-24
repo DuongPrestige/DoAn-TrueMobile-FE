@@ -114,13 +114,17 @@ function OrderUser(props) {
                           {item.isPaymentOnlien == 1 && " | Đã thanh toán"}
                         </div>
                         <div>
-                          {item.statusOrderData && item.statusOrderData.code == "S3" &&
-                            <div className="content-right d-flex justify-content-end">
-                              <a style={{ color: "primary" }} href={`/order-detail/${item.id}`}>
-                                Xem chi tiết
-                              </a>
-                            </div>
-                          }
+                          {item.statusOrderData &&
+                            item.statusOrderData.code != "S7" && (
+                              <div className="content-right d-flex justify-content-end">
+                                <a
+                                  style={{ color: "primary" }}
+                                  href={`/order-detail/${item.id}`}
+                                >
+                                  Xem chi tiết
+                                </a>
+                              </div>
+                            )}
                         </div>
                       </div>
                     </div>
@@ -189,12 +193,12 @@ function OrderUser(props) {
                       <span className="name">
                         {item && item.voucherData && item.voucherData.id
                           ? CommonUtils.formatter.format(
-                            totalPriceDiscount(price, item.voucherData) +
-                            item.typeShipData.price
-                          )
+                              totalPriceDiscount(price, item.voucherData) +
+                                item.typeShipData.price
+                            )
                           : CommonUtils.formatter.format(
-                            price + +item.typeShipData.price
-                          )}
+                              price + +item.typeShipData.price
+                            )}
                       </span>
                       <div style={{ display: "none" }}>{(price = 0)}</div>
                     </div>
@@ -221,10 +225,7 @@ function OrderUser(props) {
                 </div>
               );
             })}
-          {
-            DataOrder.length == 0 &&
-            <span>Bạn chưa có đơn hàng nào</span>
-          }
+          {DataOrder.length == 0 && <span>Bạn chưa có đơn hàng nào</span>}
         </div>
       </div>
     </div>

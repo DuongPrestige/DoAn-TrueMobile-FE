@@ -49,12 +49,18 @@ function DetailProductPage(props) {
   };
   return (
     <div>
-      <section style={{
-                minHeight: 110
-            }} className="banner_area">
-        <div style={{
-                minHeight: 110
-            }} className="banner_inner d-flex align-items-center">
+      <section
+        style={{
+          minHeight: 110,
+        }}
+        className="banner_area"
+      >
+        <div
+          style={{
+            minHeight: 110,
+          }}
+          className="banner_inner d-flex align-items-center"
+        >
           <div className="container">
             <div className="banner_content d-md-flex justify-content-between align-items-center">
               <div className="mb-3 mb-md-0">
@@ -69,9 +75,12 @@ function DetailProductPage(props) {
           </div>
         </div>
       </section>
-      <div style={{
-        paddingTop: 10,
-      }} className="product_image_area">
+      <div
+        style={{
+          paddingTop: 10,
+        }}
+        className="product_image_area"
+      >
         <div className="container">
           <InfoDetailProduct
             userId={user && user.id ? user.id : ""}
@@ -84,29 +93,33 @@ function DetailProductPage(props) {
       </div>
       <section className="product_description_area">
         <div className="container">
+          {console.log("dataDetailSize: 123", dataDetailSize)}
+
           <ul className="nav nav-tabs" id="myTab" role="tablist">
-            {/* {dataDetailSize && dataDetailSize.romData.code === "none" ? (
+            {dataDetailSize?.id && dataDetailSize?.romData?.code === "none" ? (
               <></>
             ) : (
-              
-            )} */}
-            <li className="nav-item">
-              {/* {console.log("dataDetailSize: 123", dataDetailSize)} */}
-              <a
-                className="nav-link active"
-                id="profile-tab"
-                data-toggle="tab"
-                href="#profile"
-                role="tab"
-                aria-controls="profile"
-                aria-selected="false"
-              >
-                Thông số kỹ thuật
-              </a>
-            </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link active"
+                  id="profile-tab"
+                  data-toggle="tab"
+                  href="#profile"
+                  role="tab"
+                  aria-controls="profile"
+                  aria-selected="false"
+                >
+                  Thông số kỹ thuật
+                </a>
+              </li>
+            )}
             <li className="nav-item">
               <a
-                className="nav-link "
+                className={
+                  dataDetailSize?.id && dataDetailSize?.romData?.code === "none"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
                 id="home-tab"
                 data-toggle="tab"
                 href="#home"
@@ -133,16 +146,22 @@ function DetailProductPage(props) {
             </li>
           </ul>
           <div className="tab-content" id="myTabContent">
+            {dataDetailSize?.id && dataDetailSize?.romData?.code !== "none" && (
+              <div
+                className="tab-pane fade show active"
+                id="profile"
+                role="tabpanel"
+                aria-labelledby="profile-tab"
+              >
+                <ProfileProduct data={dataDetailSize} />
+              </div>
+            )}
             <div
-              className="tab-pane fade show active"
-              id="profile"
-              role="tabpanel"
-              aria-labelledby="profile-tab"
-            >
-              <ProfileProduct data={dataDetailSize} />
-            </div>
-            <div
-              className="tab-pane fade "
+              className={
+                dataDetailSize?.id && dataDetailSize?.romData?.code === "none"
+                  ? "tab-pane fade show active"
+                  : "tab-pane fade"
+              }
               id="home"
               role="tabpanel"
               aria-labelledby="home-tab"

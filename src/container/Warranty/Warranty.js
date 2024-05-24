@@ -43,7 +43,6 @@ const Warranty = () => {
           </button>
         </div>
       </div>
-
       {dataWarranty ? (
         <>
           <div className="d-flex">
@@ -62,6 +61,7 @@ const Warranty = () => {
           </div>
 
           <h2>Phạm vi bảo hành</h2>
+          <br></br>
           <div style={{ border: "1px solid #ced4da" }}>
             <div className="p-4">
               <h3>Bảo hành giới hạn</h3>
@@ -96,6 +96,7 @@ const Warranty = () => {
       ) : (
         <></>
       )}
+      <div style={{ height: "300px" }}></div>
     </div>
   );
 };

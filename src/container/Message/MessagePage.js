@@ -69,7 +69,7 @@ function MessagePage(props) {
               <ChatWindow userId={dataUser.id} roomId={selectedRoom} />
             ) : (
               <div>
-                <span className="title">Chưa chọn phòng 23</span>
+                <h3 className="title">Qúy khách chưa chọn phòng</h3>
               </div>
             )}
           </div>

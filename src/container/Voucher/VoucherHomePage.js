@@ -96,9 +96,9 @@ function VoucherHomePage(props) {
   return (
     <div className="voucher-container">
       <div className="voucher-banner">
-        <img className="photo-banner" src={bannerPhoto}></img>
+        {/* <img className="photo-banner" src={bannerPhoto}></img> */}
         <img src={voucherTodayPhoto}></img>
-        <img src={voucherAllPhoto}></img>
+        {/* <img src={voucherAllPhoto}></img> */}
         <img src={applyVoucherPhoto}></img>
       </div>
       <div className="voucher-list">

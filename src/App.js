@@ -196,14 +196,17 @@ function App() {
         </div>
       </Switch>
       <Link to={"/user/messenger"} className="icons">
-        <img style={{
-          position: "fixed",
-          bottom: 25,
-          right: 25,
-          cursor: "pointer"
-        }} width={70} src="https://vcdn.subiz-cdn.com/widget-v4/public/assets/img/bubble_default.7d5e4ab.svg" />
+        <img
+          style={{
+            position: "fixed",
+            bottom: 25,
+            right: 25,
+            cursor: "pointer",
+          }}
+          width={70}
+          src="https://vcdn.subiz-cdn.com/widget-v4/public/assets/img/bubble_default.7d5e4ab.svg"
+        />
       </Link>
-
     </Router>
   );
 }

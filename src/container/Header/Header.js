@@ -88,7 +88,7 @@ const Header = (props) => {
             <NavLink
               style={{
                 background: "#ffffff",
-                padding: "10px 0 10px 30px",
+                padding: "10px 0 10px 100px",
                 margin: 0,
               }}
               to="/"
@@ -116,7 +116,7 @@ const Header = (props) => {
               id="navbarSupportedContent"
             >
               <div className="row w-100 mr-0">
-                <div className="col-lg-9 pr-0">
+                <div className="col-lg-7 pr-0">
                   <ul className="nav navbar-nav center_nav pull-right">
                     <li className="nav-item">
                       <NavLink

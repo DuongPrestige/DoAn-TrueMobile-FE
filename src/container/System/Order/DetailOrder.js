@@ -54,7 +54,7 @@ function DetailOrder(props) {
       } else {
         return price - discount.typeVoucherOfVoucherData.maxValue;
       }
-    } catch (error) { }
+    } catch (error) {}
   };
   let handleAcceptOrder = async () => {
     let res = await updateStatusOrderService({
@@ -157,7 +157,7 @@ function DetailOrder(props) {
                         DataOrder.orderDetail.map((item, index) => {
                           price +=
                             item.quantity * item.productDetail.discountPrice;
-                        
+
                           let name = `${item.product.name} - ${item.productDetail.nameDetail} - ${item.productDetailSize.romData.value}`;
                           return (
                             <ShopCartItem
@@ -232,9 +232,9 @@ function DetailOrder(props) {
                     <span className="text-price">
                       {DataOrder && DataOrder.voucherData && DataOrder.voucherId
                         ? CommonUtils.formatter.format(
-                          totalPriceDiscount(price, DataOrder.voucherData) +
-                          priceShip
-                        )
+                            totalPriceDiscount(price, DataOrder.voucherData) +
+                              priceShip
+                          )
                         : CommonUtils.formatter.format(price + +priceShip)}
                     </span>
                   </div>
@@ -258,7 +258,10 @@ function DetailOrder(props) {
               {DataOrder.statusOrderData && DataOrder.statusOrderData.value}
             </div>
           </div>
-          <div className="content-top d-none" style={{ display: "flex", gap: "10px" }}>
+          <div
+            className="content-top d-none"
+            style={{ display: "flex", gap: "10px" }}
+          >
             <span>Hình ảnh giao hàng</span>
             <div
               onClick={() => openPreviewImage(DataOrder.image)}
@@ -299,8 +302,8 @@ function DetailOrder(props) {
                 <div>
                   {DataOrder && DataOrder.voucherData && DataOrder.voucherId
                     ? CommonUtils.formatter.format(
-                      price - totalPriceDiscount(price, DataOrder.voucherData)
-                    )
+                        price - totalPriceDiscount(price, DataOrder.voucherData)
+                      )
                     : CommonUtils.formatter.format(0)}
                 </div>
               </div>
@@ -314,9 +317,9 @@ function DetailOrder(props) {
                 <div className="money">
                   {DataOrder && DataOrder.voucherData && DataOrder.voucherId
                     ? CommonUtils.formatter.format(
-                      totalPriceDiscount(price, DataOrder.voucherData) +
-                      priceShip
-                    )
+                        totalPriceDiscount(price, DataOrder.voucherData) +
+                          priceShip
+                      )
                     : CommonUtils.formatter.format(price + +priceShip)}
                 </div>
               </div>
