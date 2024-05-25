@@ -901,3 +901,70 @@
         margin-bottom: 20px
     }
 }
+
+
+/* Tùy chỉnh toàn bộ thanh cuộn */
+.jspScrollable {
+    overflow: auto; /* Cho phép cuộn nếu nội dung quá dài */
+    overflow-x: hidden;
+}
+
+/* Tùy chỉnh track của thanh cuộn */
+.jspScrollable::-webkit-scrollbar {
+    width: 10px;  /* Độ rộng của thanh cuộn */
+    height: 10px; /* Độ cao, có thể tùy chỉnh cho cuộn ngang */
+    background-color: #f5f5f5; /* Màu nền của track */
+}
+
+/* Tùy chỉnh thumb (phần có thể di chuyển trên track) */
+.jspScrollable::-webkit-scrollbar-thumb {
+    background-color: #888; /* Màu của thumb */
+    border-radius: 5px; /* Bo tròn các góc của thumb */
+    border: 2px solid #f5f5f5; /* Viền cho thumb, màu sắc nên tương phản với track */
+}
+
+/* Tùy chỉnh khi hover vào thumb */
+.jspScrollable::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Màu của thumb khi hover */
+}
+
+/* Tùy chỉnh button (mũi tên ở hai đầu thanh cuộn, nếu có) */
+.jspScrollable::-webkit-scrollbar-button {
+    display: none; /* Thường thì ẩn các button đi, hoặc bạn có thể tùy chỉnh theo ý muốn */
+}
+
+/* Tùy chỉnh toàn bộ thanh cuộn */
+.ks-items {
+    overflow: auto; /* Cho phép cuộn nếu nội dung quá dài */
+    overflow-x: hidden;
+}
+
+/* Tùy chỉnh track của thanh cuộn */
+.ks-items::-webkit-scrollbar {
+    width: 10px;  /* Độ rộng của thanh cuộn */
+    height: 10px; /* Độ cao, có thể tùy chỉnh cho cuộn ngang */
+    background-color: #f5f5f5; /* Màu nền của track */
+}
+
+/* Tùy chỉnh thumb (phần có thể di chuyển trên track) */
+.ks-items::-webkit-scrollbar-thumb {
+    background-color: #888; /* Màu của thumb */
+    border-radius: 5px; /* Bo tròn các góc của thumb */
+    border: 2px solid #f5f5f5; /* Viền cho thumb, màu sắc nên tương phản với track */
+}
+
+/* Tùy chỉnh khi hover vào thumb */
+.ks-items::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Màu của thumb khi hover */
+}
+
+/* Tùy chỉnh button (mũi tên ở hai đầu thanh cuộn, nếu có) */
+.ks-items::-webkit-scrollbar-button {
+    display: none; /* Thường thì ẩn các button đi, hoặc bạn có thể tùy chỉnh theo ý muốn */
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+}

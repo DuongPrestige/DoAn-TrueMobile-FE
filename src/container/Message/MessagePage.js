@@ -69,7 +69,9 @@ function MessagePage(props) {
               <ChatWindow userId={dataUser.id} roomId={selectedRoom} />
             ) : (
               <div>
-                <h3 className="title">Qúy khách chưa chọn phòng</h3>
+                <h4 style={{
+                  marginLeft: 20
+                }} className="title">Qúy khách chưa chọn phòng nào</h4>
               </div>
             )}
           </div>

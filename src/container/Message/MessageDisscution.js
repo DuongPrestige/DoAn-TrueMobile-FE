@@ -54,7 +54,17 @@ handleSearchRoom(roomList)
         <div className="ks-discussions">
         <div className="ks-search">
           <div className="input-icon icon-right icon icon-lg icon-color-primary">
-            <input onChange={(e) => handleOnchangeSearch(e)} value={textSearch} id="input-group-icon-text" type="text" className="form-control" placeholder="Tìm kiếm theo tên" />
+            <input
+                style={{
+                  padding: '8px 12px',
+                  border: '1px solid #ccc',
+                  borderRadius: '4px',
+                  fontSize: '16px',
+                  outline: 'none'
+              }}
+              onFocus={(e) => e.target.style.borderColor = '#66afe9'}
+              onBlur={(e) => e.target.style.borderColor = '#ccc'}
+            onChange={(e) => handleOnchangeSearch(e)} value={textSearch} id="input-group-icon-text" type="text" className="form-control" placeholder="Tìm kiếm theo tên" />
             <span className="icon-addon">
               <span className="la la-search" />
             </span>
