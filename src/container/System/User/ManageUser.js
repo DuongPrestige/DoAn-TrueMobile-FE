@@ -41,21 +41,30 @@ const ManageUser = () => {
   // xóa user
   let handleBanUser = async (event, id) => {
     event.preventDefault();
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    console.log("================", userData);
+    console.log("================123", userData.roleId);
 
-    let res = await deleteUserService(id);
-    if (res && res.err === 1) {
-      toast.success("Xóa người dùng thành công");
-      let user = await getAllUsers({
-        limit: PAGINATION.pagerow,
-        offset: numberPage * PAGINATION.pagerow,
-        keyword: keyword,
-      });
-      if (user && user.errCode === 0) {
-        setdataUser(user.data);
-        setCount(Math.ceil(user.count / PAGINATION.pagerow));
-      }
+    if (userData.roleId !== "R1") {
+      toast.error("Yêu cầu vai trò admin để xóa người dùng");
+      return;
     } else {
-      toast.error("Xóa người dùng thất bại");
+      let res = await deleteUserService(id);
+      console.log("23423432", res);
+      if (res && res.err === 1) {
+        toast.success("Xóa người dùng thành công");
+        let user = await getAllUsers({
+          limit: PAGINATION.pagerow,
+          offset: numberPage * PAGINATION.pagerow,
+          keyword: keyword,
+        });
+        if (user && user.errCode === 0) {
+          setdataUser(user.data);
+          setCount(Math.ceil(user.count / PAGINATION.pagerow));
+        }
+      } else {
+        toast.error("Xóa người dùng thất bại");
+      }
     }
   };
 

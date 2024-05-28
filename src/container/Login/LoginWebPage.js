@@ -48,8 +48,7 @@ const LoginWebPage = () => {
     if (res && res.errCode === 0) {
       localStorage.setItem("userData", JSON.stringify(res.user));
       localStorage.setItem("token", JSON.stringify(res.accessToken));
-
-      if (res.user.roleId === "R1" || res.user.roleId === "R4") {
+      if (res.user.roleId === "R1" || res.user.roleId === "R3") {
         window.location.href = "/admin";
       } else {
         window.location.href = "/";
@@ -67,11 +66,11 @@ const LoginWebPage = () => {
       email: email,
       password: inputValues.password,
     });
-console.log('res :::', res);
+    console.log("res :::", res);
     if (res && res.errCode === 0) {
       localStorage.setItem("userData", JSON.stringify(res.user));
       localStorage.setItem("token", JSON.stringify(res.accessToken));
-      if (res.user.roleId === "R1" || res.user.roleId === "R4") {
+      if (res.user.roleId === "R1" || res.user.roleId === "R3") {
         window.location.href = "/admin";
       } else {
         window.location.href = "/";
@@ -244,7 +243,7 @@ console.log('res :::', res);
                         <input
                           onClick={() => handleLogin()}
                           type="submit"
-                          value="Đăng nhập 2"
+                          value="Đăng nhập"
                         />
                         <a style={{ cursor: "pointer" }} className="switch">
                           Tài khoản mới
