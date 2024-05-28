@@ -8,7 +8,7 @@ function RightBlog(props) {
   const [dataFeatureBlog, setdataFeatureBlog] = useState([]);
   useEffect(() => {
     if (props.data) {
-      console.log("props.data ::", props.data);
+      // console.log("props.data ::", props.data);
       setdataCategory(props.data);
     }
     if (props.dataFeatureBlog) {

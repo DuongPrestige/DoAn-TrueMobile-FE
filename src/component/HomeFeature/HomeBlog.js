@@ -7,7 +7,7 @@ function HomeBlog(props) {
       <div className="container">
         <HeaderContent
           mainContent="Blog mới đăng"
-          infoContent="Những bài blog về thời trang mới nhất"
+          infoContent="Những bài blog về công nghệ mới nhất"
         ></HeaderContent>
         <div className="row">
           {props.data &&

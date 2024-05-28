@@ -3,9 +3,7 @@ import { useState } from "react";
 import { getWarranty } from "../../services/userService";
 import "react-image-lightbox/style.css";
 import "./Warranty.css";
-
 const Warranty = () => {
-  //   const [warranty, setWarranty] = useState("");
   const [seriNumber, setSeriNumber] = useState("");
 
   const [dataWarranty, setDataWarranty] = useState();
@@ -31,11 +29,11 @@ const Warranty = () => {
         Kiểm tra phạm vi bảo hành của thiết bị
       </h1>
       <div className="d-flex justify-content-center mt-4">
-        <div className="mt-2">
+        <div className="mt-2  mr-2">
           <input
             id="seriNumber"
             name="seriNumber"
-            style={{ minWidth: "300px" }}
+            style={{ minWidth: "300px", height: "45px" }}
             onChange={(event) => handleOnChange(event.target.value)}
             type="text"
             required
@@ -66,8 +64,12 @@ const Warranty = () => {
               <p style={{ fontSize: "22px" }}>{dataWarranty?.messBuyDate}</p>
               <p style={{ fontSize: "22px" }}>{dataWarranty?.serialNumber}</p>
               <br />
-              <p style={{ fontSize: "22px" }}>
-                <u>{dataWarranty?.messWarranty}</u>
+              <p>
+                {" "}
+                {/* Thêm color: "#fff" */}
+                <u style={{ fontSize: "26px", color: "#0091ea" }}>
+                  {dataWarranty?.messWarranty}
+                </u>
               </p>
             </div>
           </div>
@@ -79,8 +81,10 @@ const Warranty = () => {
       )}
 
       {dataWarranty && dataWarranty.errCode === -1 ? (
-        <div class="d-flex justify-content-center mt-5 p-5">
-          <h2>Không tìm thấy thông tin bảo hành</h2>
+        <div className="d-flex justify-content-center mt-5 p-5 ">
+          <p style={{ fontSize: "22px", color: "#0091ea" }}>
+            Không tìm thấy thông tin bảo hành!
+          </p>
         </div>
       ) : (
         <></>

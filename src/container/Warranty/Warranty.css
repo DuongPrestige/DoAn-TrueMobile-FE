@@ -1,51 +1,61 @@
 /* CSS */
 .button-3 {
-    appearance: none;
-    background-color: #00BFFF;
-    border: 1px solid rgba(27, 31, 35, .15);
-    border-radius: 6px;
-    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
-    box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 20px;
-    padding: 6px 16px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: middle;
-    white-space: nowrap;
-  }
-  
-  .button-3:focus:not(:focus-visible):not(.focus-visible) {
-    box-shadow: none;
-    outline: none;
-  }
-  
-  .button-3:hover {
-    background-color: #00BFFF;
-  }
-  
-  .button-3:focus {
-    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
-    outline: none;
-  }
-  
-  .button-3:disabled {
-    background-color: #94d3a2;
-    border-color: rgba(27, 31, 35, .1);
-    color: rgba(255, 255, 255, .8);
-    cursor: default;
-  }
-  
-  .button-3:active {
-    background-color: #298e46;
-    box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
-  }
+  appearance: none;
+  background-color: #0091ea; /* Màu xanh dương nổi bật */
+  border: none; /* Loại bỏ viền mặc định */
+  border-radius: 8px; /* Bo tròn góc nhiều hơn */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng nổi */
+  box-sizing: border-box;
+  color: #fff; /* Màu chữ trắng */
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Font chữ hiện đại */
+  font-size: 16px; /* Kích thước chữ lớn hơn */
+  font-weight: 600;
+  line-height: 24px; /* Khoảng cách dòng phù hợp */
+  padding: 10px 20px; /* Khoảng cách trong lớn hơn */
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease; /* Thêm hiệu ứng chuyển tiếp mượt mà */
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-3:hover {
+  background-color: #0091ea; /* Màu xanh đậm hơn khi hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Đậm hiệu ứng nổi khi hover */
+  transform: translateY(-2px); /* Hiệu ứng di chuyển lên khi hover */
+}
+
+.button-3:focus {
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Viền focus màu xanh dương */
+  outline: none;
+}
+
+.button-3:active {
+  background-color: #0077cc; /* Màu xanh đậm nhất khi click */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Giảm hiệu ứng nổi khi click */
+  transform: translateY(1px); /* Hiệu ứng di chuyển xuống khi click */
+}
+
+.button-3:disabled {
+  background-color: #ccc; /* Màu xám khi bị vô hiệu hóa */
+  color: #666; /* Màu chữ xám khi bị vô hiệu hóa */
+  cursor: default;
+  box-shadow: none;
+}
+
+/* Màu nền đậm hơn cho thông báo */
+.alert-danger {
+  background-color: #f8d7da; /* Màu đỏ nhạt hơn */
+  color: #721c24; /* Màu chữ đỏ đậm */
+}
+
+/* Bo tròn góc cho thông báo */
+.alert {
+  border-radius: 10px; /* Hoặc giá trị khác tùy ý */
+}
