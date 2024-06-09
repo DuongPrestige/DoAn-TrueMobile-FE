@@ -25,14 +25,14 @@ function MessagePage(props) {
         fetchListRoom(userData.id);
       }
     };
+    // phần này để gán id cho mỗi phiên kết nối vào page
     if (userData) {
       socketRef.current.on("getId", (data) => {
         setId(data);
-      }); // phần này đơn giản để gán id cho mỗi phiên kết nối vào page. Mục đích chính là để phân biệt đoạn nào là của mình đang chat.
+      });
       await createRoom();
-
       fetchListRoom(userData.id);
-
+      //gửi dữ liệu real-time từ back-end
       socketRef.current.on("sendDataServer", (dataGot) => {
         fetchListRoom(userData.id);
       });
@@ -54,6 +54,7 @@ function MessagePage(props) {
       setdataRoom(res.data);
     }
   };
+
   return (
     <div className="container">
       <div className="ks-page-content">
@@ -69,9 +70,14 @@ function MessagePage(props) {
               <ChatWindow userId={dataUser.id} roomId={selectedRoom} />
             ) : (
               <div>
-                <h4 style={{
-                  marginLeft: 20
-                }} className="title">Qúy khách chưa chọn phòng nào</h4>
+                <h4
+                  style={{
+                    marginLeft: 20,
+                  }}
+                  className="title"
+                >
+                  Qúy khách chưa chọn phòng nào
+                </h4>
               </div>
             )}
           </div>
