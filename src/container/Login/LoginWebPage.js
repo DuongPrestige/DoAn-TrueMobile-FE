@@ -239,6 +239,7 @@ const LoginWebPage = () => {
                           required
                         />
                       </div>
+                      <br />
                       <div className="CTA">
                         <input
                           onClick={() => handleLogin()}
@@ -249,7 +250,7 @@ const LoginWebPage = () => {
                           Tài khoản mới
                         </a>
                       </div>
-                      <FacebookLoginButton
+                      {/* <FacebookLoginButton
                         text="Đăng nhập với Facebook"
                         iconSize="25px"
                         style={{
@@ -260,8 +261,8 @@ const LoginWebPage = () => {
                           marginBottom: "10px",
                         }}
                         onClick={() => signInwithFacebook()}
-                      />
-                      <GoogleLoginButton
+                      /> */}
+                      {/* <GoogleLoginButton
                         text="Đăng nhập với Google"
                         iconSize="25px"
                         style={{
@@ -270,7 +271,7 @@ const LoginWebPage = () => {
                           fontSize: "16px",
                         }}
                         onClick={() => signInwithGoogle()}
-                      />
+                      /> */}
                     </form>
                   </div>
                   {/* End Login Form */}

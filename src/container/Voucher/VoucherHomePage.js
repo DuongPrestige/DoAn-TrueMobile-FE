@@ -14,6 +14,8 @@ import { PAGINATION } from "../../utils/constant";
 import ReactPaginate from "react-paginate";
 import { saveUserVoucherService } from "../../services/userService";
 import CommonUtils from "../../utils/CommonUtils";
+import { Link } from "react-router-dom";
+
 function VoucherHomePage(props) {
   const [dataVoucher, setdataVoucher] = useState([]);
   const [count, setCount] = useState("");
@@ -94,66 +96,94 @@ function VoucherHomePage(props) {
     }
   };
   return (
-    <div className="voucher-container">
-      <div className="voucher-banner">
-        {/* <img className="photo-banner" src={bannerPhoto}></img> */}
-        <img src={voucherTodayPhoto}></img>
-        {/* <img src={voucherAllPhoto}></img> */}
-        <img src={applyVoucherPhoto}></img>
-      </div>
-      <div className="voucher-list">
-        {dataVoucher &&
-          dataVoucher.length > 0 &&
-          dataVoucher.map((item, index) => {
-            let percent = "";
-            if (item.typeVoucherOfVoucherData.typeVoucher === "percent") {
-              percent = item.typeVoucherOfVoucherData.value + "%";
-            }
-            if (item.typeVoucherOfVoucherData.typeVoucher === "money") {
-              percent = CommonUtils.formatter.format(
-                item.typeVoucherOfVoucherData.value
-              );
-            }
-            let MaxValue = item.typeVoucherOfVoucherData.maxValue;
+    <>
+      <section
+        style={{
+          minHeight: 120,
+        }}
+        class="banner_area"
+      >
+        <div
+          style={{
+            minHeight: 120,
+          }}
+          class="banner_inner d-flex align-items-center"
+        >
+          <div class="container">
+            <div class="banner_content d-md-flex justify-content-between align-items-center">
+              <div class="mb-3 mb-md-0">
+                <h2>Khuyến mãi</h2>
+                <p>Hãy nhanh tay lưu mã giảm giá để nhận ưu đãi hấp dẫn</p>
+              </div>
+              <div class="page_link">
+                <Link to={"/"}>Trang chủ</Link>
+                <Link to={"/voucher"}>Khuyến mãi</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div
+        style={{
+          padding: "30px 0",
+        }}
+        className="voucher-container"
+      >
+        <div className="voucher-list">
+          {dataVoucher &&
+            dataVoucher.length > 0 &&
+            dataVoucher.map((item, index) => {
+              let percent = "";
+              if (item.typeVoucherOfVoucherData.typeVoucher === "percent") {
+                percent = item.typeVoucherOfVoucherData.value + "%";
+              }
+              if (item.typeVoucherOfVoucherData.typeVoucher === "money") {
+                percent = CommonUtils.formatter.format(
+                  item.typeVoucherOfVoucherData.value
+                );
+              }
+              let MaxValue = item.typeVoucherOfVoucherData.maxValue;
 
-            return (
-              <VoucherItem
-                sendDataFromVoucherItem={sendDataFromVoucherItem}
-                id={item.id}
-                width="550px"
-                height="330px"
-                key={index}
-                name={item.codeVoucher}
-                widthPercent={(item.usedAmount * 100) / item.amount}
-                maxValue={MaxValue}
-                usedAmount={
-                  Math.round(((item.usedAmount * 100) / item.amount) * 10) / 10
-                }
-                typeVoucher={percent}
-              />
-            );
-          })}
+              return (
+                <VoucherItem
+                  sendDataFromVoucherItem={sendDataFromVoucherItem}
+                  id={item.id}
+                  width="550px"
+                  height="330px"
+                  key={index}
+                  name={item.codeVoucher}
+                  widthPercent={(item.usedAmount * 100) / item.amount}
+                  maxValue={MaxValue}
+                  usedAmount={
+                    Math.round(((item.usedAmount * 100) / item.amount) * 10) /
+                    10
+                  }
+                  typeVoucher={percent}
+                />
+              );
+            })}
+        </div>
+        <div className="box-pagination">
+          <ReactPaginate
+            previousLabel={"Quay lại"}
+            nextLabel={"Tiếp"}
+            breakLabel={"..."}
+            pageCount={count}
+            marginPagesDisplayed={3}
+            containerClassName={"pagination justify-content-center"}
+            pageClassName={"page-item"}
+            pageLinkClassName={"page-link"}
+            previousLinkClassName={"page-link"}
+            nextClassName={"page-item"}
+            nextLinkClassName={"page-link"}
+            breakLinkClassName={"page-link"}
+            breakClassName={"page-item"}
+            activeClassName={"active"}
+            onPageChange={handleChangePage}
+          />
+        </div>
       </div>
-      <div className="box-pagination">
-        <ReactPaginate
-          previousLabel={"Quay lại"}
-          nextLabel={"Tiếp"}
-          breakLabel={"..."}
-          pageCount={count}
-          marginPagesDisplayed={3}
-          containerClassName={"pagination justify-content-center"}
-          pageClassName={"page-item"}
-          pageLinkClassName={"page-link"}
-          previousLinkClassName={"page-link"}
-          nextClassName={"page-item"}
-          nextLinkClassName={"page-link"}
-          breakLinkClassName={"page-link"}
-          breakClassName={"page-item"}
-          activeClassName={"active"}
-          onPageChange={handleChangePage}
-        />
-      </div>
-    </div>
+    </>
   );
 }
 

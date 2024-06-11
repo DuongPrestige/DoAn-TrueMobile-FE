@@ -84,8 +84,18 @@ function BlogPage(props) {
   };
   return (
     <>
-      <section class="banner_area">
-        <div class="banner_inner d-flex align-items-center">
+      <section
+        style={{
+          minHeight: 120,
+        }}
+        class="banner_area"
+      >
+        <div
+          style={{
+            minHeight: 120,
+          }}
+          class="banner_inner d-flex align-items-center"
+        >
           <div class="container">
             <div class="banner_content d-md-flex justify-content-between align-items-center">
               <div class="mb-3 mb-md-0">
@@ -102,7 +112,12 @@ function BlogPage(props) {
           </div>
         </div>
       </section>
-      <section className="blog_area section_gap">
+      <section
+        style={{
+          padding: "30px 0",
+        }}
+        className="blog_area section_gap"
+      >
         <div className="container">
           <div className="row">
             <div className="col-lg-8 mb-5 mb-lg-0">

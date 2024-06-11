@@ -138,7 +138,7 @@ function DetailUserPage(props) {
     <div className="container rounded bg-white mt-5 mb-5">
       <div className="row">
         <div className="col-md-3 border-right">
-          <div className="d-flex flex-column align-items-center text-center p-3 py-5">
+          <div className="d-flex flex-column align-items-center p-3 py-5">
             <img
               onClick={() => openPreviewImage(inputValues.image)}
               className="rounded-circle mt-5 mr-5"
@@ -147,31 +147,38 @@ function DetailUserPage(props) {
               width="180px"
               src={inputValues.image}
             />
-            <span className="font-weight-bold">{inputValues.lastName}</span>
             <div className="box-email-verify mr-5 mt-2">
-              <span className="text-black" style={{
-                fontSize: 16,
-                fontWeight: 'bold',
-              }}>{inputValues.email}</span>
-              {inputValues.isActiveEmail === 0 && (
+              <span className="font-weight-bold">{inputValues.lastName}</span>
+            </div>
+            <div className="box-email-verify mr-5 mt-2">
+              <span
+                className="text-black"
+                style={{
+                  fontSize: 16,
+                  fontWeight: "bold",
+                }}
+              >
+                {inputValues.email}
+              </span>
+              {/* {inputValues.isActiveEmail === 0 && (
                 <i
                   style={{ color: "#dc0707", marginLeft: 7 }}
                   className="fas fa-times-circle"
                 ></i>
-              )}
-              {inputValues.isActiveEmail === 1 && (
+              )} */}
+              {/* {inputValues.isActiveEmail === 1 && (
                 <i
                   style={{ color: "green", marginLeft: 7 }}
                   className="fas fa-check-circle"
                 ></i>
-              )}
+              )} */}
             </div>
 
-            {inputValues.isActiveEmail === 0 && (
+            {/* {inputValues.isActiveEmail === 0 && (
               <span onClick={() => handleSendEmail()} className="text-verify mr-5 mt-2">
                 xác thực
               </span>
-            )}
+            )} */}
           </div>
         </div>
         <div className="col-md-9 border-right">
@@ -181,7 +188,9 @@ function DetailUserPage(props) {
             </div>
             <div className="row mt-2">
               <div className="col-md-6">
-                <label className="labels" style={{ fontWeight: 'bold' }}>Họ</label>
+                <label className="labels" style={{ fontWeight: "bold" }}>
+                  Họ
+                </label>
                 <input
                   name="firstName"
                   onChange={(event) => handleOnChange(event)}
@@ -191,7 +200,9 @@ function DetailUserPage(props) {
                 />
               </div>
               <div className="col-md-6">
-                <label className="labels" style={{ fontWeight: 'bold' }}>Tên</label>
+                <label className="labels" style={{ fontWeight: "bold" }}>
+                  Tên
+                </label>
                 <input
                   name="lastName"
                   onChange={(event) => handleOnChange(event)}
@@ -203,7 +214,9 @@ function DetailUserPage(props) {
             </div>
             <div className="row mt-3">
               <div className="col-md-12">
-                <label className="labels" style={{ fontWeight: 'bold' }}>Số điện thoại</label>
+                <label className="labels" style={{ fontWeight: "bold" }}>
+                  Số điện thoại
+                </label>
                 <input
                   name="phonenumber"
                   onChange={(event) => handleOnChange(event)}
@@ -213,7 +226,9 @@ function DetailUserPage(props) {
                 />
               </div>
               <div className="col-md-12 mt-3">
-                <label className="labels" style={{ fontWeight: 'bold' }}>Địa chỉ</label>
+                <label className="labels" style={{ fontWeight: "bold" }}>
+                  Địa chỉ
+                </label>
                 <input
                   name="address"
                   onChange={(event) => handleOnChange(event)}
@@ -225,7 +240,9 @@ function DetailUserPage(props) {
             </div>
             <div className="row mt-3">
               <div className="col-md-6">
-                <label className="labels" style={{ fontWeight: 'bold' }}>Giới tính</label>
+                <label className="labels" style={{ fontWeight: "bold" }}>
+                  Giới tính
+                </label>
                 <select
                   value={inputValues.genderId}
                   name="genderId"
@@ -245,7 +262,9 @@ function DetailUserPage(props) {
                 </select>
               </div>
               <div className="col-md-6">
-                <label className="labels" style={{ fontWeight: 'bold' }}>Ngày sinh</label>{" "}
+                <label className="labels" style={{ fontWeight: "bold" }}>
+                  Ngày sinh
+                </label>{" "}
                 <DatePicker
                   className="form-control"
                   onChange={handleOnChangeDatePicker}
@@ -255,7 +274,9 @@ function DetailUserPage(props) {
             </div>
             <div className="row mt-3">
               <div className="col-md-3">
-                <label className="labels" style={{ fontWeight: 'bold' }}>Chọn ảnh</label>
+                <label className="labels" style={{ fontWeight: "bold" }}>
+                  Chọn ảnh
+                </label>
                 <input
                   type="file"
                   id="previewImg"

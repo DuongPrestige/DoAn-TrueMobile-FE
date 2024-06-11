@@ -14,6 +14,7 @@ import {
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 function HomePage(props) {
   const [dataProductFeature, setDataProductFeature] = useState([]);
   const [dataNewProductFeature, setNewProductFeature] = useState([]);
@@ -32,29 +33,39 @@ function HomePage(props) {
   };
 
   useEffect(() => {
+    //call api new product
     fetchProductNew();
+
     const userData = JSON.parse(localStorage.getItem("userData"));
+
     if (userData) {
       fetchProductRecommend(userData.id);
     }
+
+    //call api blog
     fetchBlogFeature();
+    //call api product feature
     fetchProductFeature();
+    //call api banner
     fetchDataBrand();
 
     window.scrollTo(0, 0);
   }, []);
+
   let fetchBlogFeature = async () => {
     let res = await getNewBlog(4);
     if (res && res.errCode === 0) {
       setdataNewBlog(res.data);
     }
   };
+
   let fetchProductFeature = async () => {
     let res = await getProductFeatureService(4);
     if (res && res.errCode === 0) {
       setDataProductFeature(res.data);
     }
   };
+
   let fetchProductRecommend = async (userId) => {
     let res = await getProductRecommendService({
       limit: 20,
@@ -64,6 +75,7 @@ function HomePage(props) {
       setdataProductRecommend(res.data);
     }
   };
+
   let fetchDataBrand = async () => {
     let res = await getAllBanner({
       limit: 6,
@@ -74,12 +86,14 @@ function HomePage(props) {
       setdataBanner(res.data);
     }
   };
+
   let fetchProductNew = async () => {
     let res = await getProductNewService(4);
     if (res && res.errCode === 0) {
       setNewProductFeature(res.data);
     }
   };
+
   return (
     <div>
       <Slider {...settings}>
@@ -91,8 +105,9 @@ function HomePage(props) {
             );
           })}
       </Slider>
-      <MainFeature></MainFeature>
+      {/* <MainFeature></MainFeature> */}
       {/* <ProductFeature title={"Gợi ý sản phẩm"} data={dataProductRecommend}></ProductFeature> */}
+      <br />
       <ProductFeature
         title={"Sản phẩm được yêu thích nhất"}
         data={dataProductFeature}
