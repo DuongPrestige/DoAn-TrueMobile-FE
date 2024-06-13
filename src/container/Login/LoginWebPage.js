@@ -34,6 +34,7 @@ const LoginWebPage = () => {
     const { name, value } = event.target;
     setInputValues({ ...inputValues, [name]: value });
   };
+
   let handleLogin = async () => {
     const element = document.querySelector("form");
     element.addEventListener("submit", (event) => {
@@ -57,6 +58,7 @@ const LoginWebPage = () => {
       toast.error(res.errMessage);
     }
   };
+
   let handleLoginSocial = async (email) => {
     const element = document.querySelector("form");
     element.addEventListener("submit", (event) => {
@@ -279,7 +281,7 @@ const LoginWebPage = () => {
                   <div className="signup form-peice switched">
                     <form className="signup-form">
                       <div className="form-group">
-                        <label htmlFor="name">Họ và tên</label>
+                        <label htmlFor="name">Tên của bạn</label>
                         <input
                           type="text"
                           name="lastName"
@@ -334,11 +336,11 @@ const LoginWebPage = () => {
                         <input
                           onClick={() => handleSaveUser()}
                           type="submit"
-                          value="Lưu"
+                          value="Đăng ký"
                           id="submit"
                         />
                         <a style={{ cursor: "pointer" }} className="switch">
-                          Tôi có tài khoản
+                          Tôi đã có tài khoản
                         </a>
                       </div>
                     </form>

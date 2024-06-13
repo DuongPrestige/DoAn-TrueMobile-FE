@@ -72,6 +72,7 @@ function App() {
           </Route> */}
           <Route
             path="/user/"
+            //check if user is logged in
             render={() => {
               return JSON.parse(localStorage.getItem("userData")) &&
                 JSON.parse(localStorage.getItem("userData")) ? (
@@ -131,11 +132,15 @@ function App() {
             <VnpayPaymentSuccess />
             <Footer />
           </Route>
+
+          {/* login */}
           <Route path="/login">
             <Header />
             <LoginWebPage />
             <Footer />
           </Route>
+
+          {/* voucher */}
           <Route path="/voucher">
             <Header />
             <VoucherHomePage />

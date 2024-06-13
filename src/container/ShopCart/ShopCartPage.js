@@ -209,7 +209,7 @@ function ShopCartPage(props) {
                 onClick={() => handleOpenModal()}
                 className="choose-voucher"
               >
-                Chọn Hoặc Nhập Mã
+                Chọn Mã Giảm Giá
               </span>
               {dataVoucher && dataVoucher.voucherData && (
                 <span className="choose-voucher">

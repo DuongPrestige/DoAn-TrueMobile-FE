@@ -230,13 +230,14 @@ const AddProduct = (props) => {
               </div>
             </div>
             <div className="form-group">
-              <label htmlFor="inputAddress">Mô tả sản phẩm</label>
-              <MdEditor
-                style={{ height: "400px" }}
-                renderHTML={(text) => mdParser.render(text)}
-                onChange={handleEditorChange}
-                value={inputValues.contentMarkdown}
-              />
+              <label htmlFor="inputAddress">Mô tả nhanh</label>
+              <textarea
+                rows="4"
+                value={inputValues.description}
+                name="description"
+                onChange={(event) => handleOnChange(event)}
+                className="form-control"
+              ></textarea>
             </div>
 
             <div className="form-row">
@@ -324,13 +325,12 @@ const AddProduct = (props) => {
             </div>
             <div className="form-group">
               <label htmlFor="inputAddress">Mô tả chi tiết</label>
-              <textarea
-                rows="4"
-                value={inputValues.description}
-                name="description"
-                onChange={(event) => handleOnChange(event)}
-                className="form-control"
-              ></textarea>
+              <MdEditor
+                style={{ height: "400px" }}
+                renderHTML={(text) => mdParser.render(text)}
+                onChange={handleEditorChange}
+                value={inputValues.contentMarkdown}
+              />
             </div>
             <div className="form-row">
               <div className="form-group col-md-4">

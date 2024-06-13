@@ -545,7 +545,6 @@ function OrderHomePage(props) {
               <div className="box-flex">
                 <div className="head">Tổng thanh toán:</div>
                 <div className="money">
-                  $
                   {dataVoucher && dataVoucher.voucherData
                     ? CommonUtils.formatter.format(
                         totalPriceDiscount(price, dataVoucher) + priceShip

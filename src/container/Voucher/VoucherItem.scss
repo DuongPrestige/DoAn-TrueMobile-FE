@@ -1,5 +1,5 @@
 .box-voucher {
-  color: #29aafa;
+  color: #71cd14;
 
   border: 1px solid #c4c4c4;
   border-left: 0;
@@ -82,11 +82,11 @@
           overflow: hidden;
           .percent {
             height: 100%;
-            background: linear-gradient(270deg, #29aafa 0%, #29aafa 100%);
+            background: linear-gradient(270deg, #71cd14 0%, #71cd14 100%);
           }
         }
         .used-percent {
-          color: #29aafa;
+          color: #71cd14;
           font-size: 1.55rem;
           margin-left: 0.5rem;
           line-height: 1.5rem;
@@ -97,13 +97,13 @@
         outline: none;
         height: 4.8125rem;
         border-radius: 0.375rem;
-        background-color: #29aafa;
+        background-color: #71cd14;
         font-size: 2rem;
         color: #fff;
         margin-top: 30px;
 
         &:hover {
-          background-color: #037cc7;
+          background-color: #519c05;
         }
       }
     }

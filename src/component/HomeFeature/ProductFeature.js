@@ -6,13 +6,18 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./ProductFeature.scss";
 import { getProductFeatureService } from "../../services/userService";
+import { Link, useParams } from "react-router-dom";
+
 function ProductFeature(props) {
   let settings = {
     dots: false,
-    Infinity: false,
+    Infinity: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
+    autoplaySpeed: 1500,
+    autoplay: true,
+    cssEase: "linear",
   };
 
   return (

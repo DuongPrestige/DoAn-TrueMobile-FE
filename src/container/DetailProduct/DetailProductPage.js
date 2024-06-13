@@ -4,9 +4,7 @@ import {
   getDetailProductByIdService,
   getProductRecommendService,
 } from "../../services/userService";
-// import ImgDetailProduct from '../../component/Product/ImgDetailProduct';
 import InfoDetailProduct from "../../component/Product/InfoDetailProduct";
-// import CommentProduct from '../../component/Product/CommentProduct';
 import ProfileProduct from "../../component/Product/ProfileProduct";
 import ReviewProduct from "../../component/Product/ReviewProduct";
 import DescriptionProduct from "../../component/Product/DescriptionProduct";

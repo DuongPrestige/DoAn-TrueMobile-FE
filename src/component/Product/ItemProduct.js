@@ -12,7 +12,7 @@ function ItemProduct(props) {
         background: "white",
         margin: "20px 0",
         borderRadius: "8px",
-        boxShadow: "0px 1px 8px rgb(0 0 0 / 4%)",
+        boxShadow: "0px 1px 8px rgb(0 0 0 / 10%)",
         maxWidth: "260px",
       }}
     >

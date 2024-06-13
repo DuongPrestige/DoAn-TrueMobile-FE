@@ -29,11 +29,13 @@ export const addItemCartSuccess = () => {
     type: SHOP_CART.ADD_ITEM_CART_SUCCESS,
   };
 };
+
 export const addItemCartFaild = () => {
   return {
     type: SHOP_CART.ADD_ITEM_CART_FAILD,
   };
 };
+
 export const getItemCartStart = (id) => {
   return async (dispatch, getState) => {
     try {
@@ -48,12 +50,14 @@ export const getItemCartStart = (id) => {
     }
   };
 };
+
 export const getItemCartSuccess = (data) => {
   return {
     type: SHOP_CART.GET_ITEM_CART_SUCCESS,
     data: data,
   };
 };
+
 export const getItemCartFaild = () => {
   return {
     type: SHOP_CART.GET_ITEM_CART_FAILD,
@@ -66,6 +70,7 @@ export const ChooseVoucherStart = (data) => {
     data: data,
   };
 };
+
 export const ChooseTypeShipStart = (data) => {
   return {
     type: SHOP_CART.CHOOSE_TYPESHIP_START,

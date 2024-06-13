@@ -157,7 +157,7 @@ function OrderUser(props) {
                   </div>
                   <div className="content-bottom">
                     <div className="up">
-                      <svg
+                      {/* <svg
                         width="16"
                         height="17"
                         fill="none"
@@ -188,7 +188,7 @@ function OrderUser(props) {
                             <stop offset="1" stop-color="#F63"></stop>
                           </linearGradient>
                         </defs>
-                      </svg>
+                      </svg> */}
                       <span>Tổng số tiền: </span>
                       <span className="name">
                         {item && item.voucherData && item.voucherData.id

@@ -69,7 +69,7 @@ const Warranty = () => {
           <div className="ml-2">
             <button
               onClick={() => handleSearchProduct()}
-              className="button-3 mt-2"
+              className="main_btn mt-2"
               role="button"
             >
               Tìm kiếm
@@ -94,7 +94,7 @@ const Warranty = () => {
                 <p>
                   {" "}
                   {/* Thêm color: "#fff" */}
-                  <u style={{ fontSize: "26px", color: "#0091ea" }}>
+                  <u style={{ fontSize: "26px", color: "#71cd14" }}>
                     {dataWarranty?.messWarranty}
                   </u>
                 </p>

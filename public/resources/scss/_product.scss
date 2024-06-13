@@ -151,7 +151,7 @@
 
 .cat_product_area {
   .latest_product_inner {
-    padding-top: 30px;
+    padding-top: 0px;
     margin-bottom: -50px;
     .single-product {
       margin-bottom: 50px;
@@ -189,7 +189,7 @@
     line-height: 40px;
     position: relative;
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: 0px;
       left: 0px;

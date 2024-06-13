@@ -60,7 +60,7 @@ function HomePage(props) {
   };
 
   let fetchProductFeature = async () => {
-    let res = await getProductFeatureService(4);
+    let res = await getProductFeatureService(10);
     if (res && res.errCode === 0) {
       setDataProductFeature(res.data);
     }
@@ -108,6 +108,7 @@ function HomePage(props) {
       {/* <MainFeature></MainFeature> */}
       {/* <ProductFeature title={"Gợi ý sản phẩm"} data={dataProductRecommend}></ProductFeature> */}
       <br />
+      {/* title dataa laf props */}
       <ProductFeature
         title={"Sản phẩm được yêu thích nhất"}
         data={dataProductFeature}

@@ -121,7 +121,7 @@ function InfoDetailProduct(props) {
                       return (
                         <li
                           style={{
-                            border: "1px solid black",
+                            border: "1px solid #71cd14",
                             height: 65,
                           }}
                           data-target="#carouselExampleIndicators"
@@ -164,7 +164,7 @@ function InfoDetailProduct(props) {
                 position: "absolute",
                 top: 0,
                 left: 0,
-                border: "1px solid black",
+                border: "1px solid #71cd14",
                 borderRadius: "15px",
                 padding: "10px",
               }}
@@ -245,7 +245,7 @@ function InfoDetailProduct(props) {
                   productDetail &&
                   productDetail.length > 0 &&
                   productDetail.map((item, index) => {
-                    console.log(item)
+                    console.log(item);
                     return (
                       <div
                         onClick={(event) => handleClickColor(event, index)}
@@ -254,16 +254,15 @@ function InfoDetailProduct(props) {
                           backgroundColor: item.nameDetail.toLowerCase(),
                           maxWidth: 31,
                           height: 33,
-                          borderRadius: '50%',
-                          padding: '10px 15px'
+                          borderRadius: "50%",
+                          padding: "10px 15px",
                         }}
                         className={
                           item.id === activeLinkColor
                             ? "product-size active"
                             : "product-size"
                         }
-                      >
-                      </div>
+                      ></div>
                     );
                   })}
               </div>
@@ -314,6 +313,7 @@ function InfoDetailProduct(props) {
               marginBottom: 30,
             }}
           >
+            {/* fix this */}
             {arrDetail.description}
           </p>
           <div style={{ display: "flex" }}>
@@ -344,9 +344,6 @@ function InfoDetailProduct(props) {
           <div className="card_area">
             <a className="main_btn" onClick={() => handleAddShopCart()}>
               Thêm vào giỏ
-            </a>
-            <a className="icon_btn" href="#">
-              <i className="lnr lnr lnr-heart" />
             </a>
           </div>
         </div>
