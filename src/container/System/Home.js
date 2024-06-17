@@ -238,7 +238,7 @@ const Home = () => {
             onChange={(date) => handleOnChangeYear(date)}
             dateFormat="yyyy"
             showYearPicker
-            className="form-control col-md-2"
+            className="form-control ml-2"
           />
           <Line
             options={getOptions("Biểu đồ doanh thu theo từng tháng trong năm")}
@@ -334,7 +334,7 @@ const Home = () => {
             onChange={(date) => handleOnChangeDatePickerFromDate(date)}
             dateFormat="MM/yyyy"
             showMonthYearPicker
-            className="form-control col-md-2"
+            className="form-control ml-2"
           />
           <Bar
             options={getOptions("Biểu đồ doanh thu theo từng ngày trong tháng")}

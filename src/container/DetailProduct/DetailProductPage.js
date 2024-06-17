@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import {
-  getDetailProductByIdService,
-  getProductRecommendService,
-} from "../../services/userService";
+import { getDetailProductByIdService } from "../../services/userService";
 import InfoDetailProduct from "../../component/Product/InfoDetailProduct";
 import ProfileProduct from "../../component/Product/ProfileProduct";
 import ReviewProduct from "../../component/Product/ReviewProduct";
@@ -15,11 +12,9 @@ function DetailProductPage(props) {
   const [dataDetailSize, setdataDetailSize] = useState({});
   const { id } = useParams();
   const [user, setUser] = useState({});
-  const [dataProductRecommend, setdataProductRecommend] = useState([]);
   useEffect(async () => {
     const userData = JSON.parse(localStorage.getItem("userData"));
     if (userData) {
-      fetchProductFeature(userData.id);
       setUser(userData);
     }
 
@@ -36,15 +31,7 @@ function DetailProductPage(props) {
       setDataProduct(res.data);
     }
   };
-  let fetchProductFeature = async (userId) => {
-    let res = await getProductRecommendService({
-      limit: 20,
-      userId: userId,
-    });
-    if (res && res.errCode === 0) {
-      setdataProductRecommend(res.data);
-    }
-  };
+
   return (
     <div>
       <section
@@ -91,8 +78,6 @@ function DetailProductPage(props) {
       </div>
       <section className="product_description_area">
         <div className="container">
-          {console.log("dataDetailSize: 123", dataDetailSize)}
-
           <ul className="nav nav-tabs" id="myTab" role="tablist">
             {dataDetailSize?.id && dataDetailSize?.romData?.code === "none" ? (
               <></>
@@ -177,12 +162,6 @@ function DetailProductPage(props) {
             </div>
           </div>
         </div>
-        {user && dataProductRecommend && dataProductRecommend.length > 0 && (
-          <ProductFeature
-            title={"Sản phẩm bạn quan tâm"}
-            data={dataProductRecommend}
-          ></ProductFeature>
-        )}
       </section>
     </div>
   );

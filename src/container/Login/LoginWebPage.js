@@ -31,8 +31,13 @@ const LoginWebPage = () => {
   });
   let history = useHistory();
   const handleOnChange = (event) => {
-    const { name, value } = event.target;
+    const { name, value, phonenumber } = event.target;
+    console.log("phonenumber");
+    console.log(event.target, "event.target");
     setInputValues({ ...inputValues, [name]: value });
+  };
+  const isValidatePhoneNumber = (phone) => {
+    return /(((\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\b/.test(phone);
   };
 
   let handleLogin = async () => {
@@ -98,6 +103,12 @@ const LoginWebPage = () => {
       },
       ["isOpen"]: false,
     });
+    console.log("222222222222");
+    if (!isValidatePhoneNumber(inputValues.phonenumber)) {
+      toast.error("Số điện thoại không hợp lệ");
+      return;
+    }
+    isValidatePhoneNumber(inputValues.phonenumber);
     console.log("1", inputValues);
     let createUser = async () => {
       let res = await createNewUser({

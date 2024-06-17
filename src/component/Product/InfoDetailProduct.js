@@ -17,6 +17,7 @@ function InfoDetailProduct(props) {
   const [activeLinkColor, setactiveLinkColor] = useState("");
   const [quantity, setquantity] = useState("");
   const [quantityProduct, setquantityProduct] = useState(1);
+
   useEffect(() => {
     let { productDetail } = dataProduct ? dataProduct : [];
     if (productDetail) {
@@ -319,7 +320,6 @@ function InfoDetailProduct(props) {
           <div style={{ display: "flex" }}>
             <div className="product_count">
               <label htmlFor="qty">Số lượng</label>
-              {/* <input type="text" name="qty" id="sst" maxLength={12} defaultValue={1} title="Quantity:" className="input-text qty" /> */}
               <input
                 type="number"
                 value={quantityProduct}
@@ -327,18 +327,6 @@ function InfoDetailProduct(props) {
                 min="1"
               />
             </div>
-            {/* <div className="form-group">
-                            <label style={{ fontSize: '14px', color: '#797979', fontFamily: '"Roboto",sans-serif', marginLeft: '16px' }} htmlFor="type">Loại sản phẩm</label>
-                            <select onChange={(event) => handleSelectDetail(event)} className="sorting" name="type" style={{ outline: 'none', border: '1px solid #eee', marginLeft: '16px' }}>
-                                {dataProduct && productDetail && productDetail.length > 0 &&
-                                    productDetail.map((item, index) => {
-                                        return (
-                                            <option key={index} value={index}>{item.nameDetail}</option>
-                                        )
-                                    })
-                                }
-                            </select>
-                        </div> */}
           </div>
 
           <div className="card_area">

@@ -9,6 +9,14 @@ function ProfileProduct(props) {
         <tbody>
           <tr>
             <td>
+              <h5>Bảo hành</h5>
+            </td>
+            <td>
+              <h5>{data.warrantyId} tháng</h5>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <h5>Màn hình</h5>
             </td>
             <td>
@@ -69,14 +77,6 @@ function ProfileProduct(props) {
             </td>
             <td>
               <h5>{data.battery}</h5>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h5>Bảo hành</h5>
-            </td>
-            <td>
-              <h5>{data.warrantyId} tháng</h5>
             </td>
           </tr>
         </tbody>

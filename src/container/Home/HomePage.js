@@ -9,7 +9,6 @@ import {
   getProductFeatureService,
   getProductNewService,
   getNewBlog,
-  getProductRecommendService,
 } from "../../services/userService";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -20,7 +19,6 @@ function HomePage(props) {
   const [dataNewProductFeature, setNewProductFeature] = useState([]);
   const [dataNewBlog, setdataNewBlog] = useState([]);
   const [dataBanner, setdataBanner] = useState([]);
-  const [dataProductRecommend, setdataProductRecommend] = useState([]);
   let settings = {
     dots: false,
     Infinity: false,
@@ -37,10 +35,6 @@ function HomePage(props) {
     fetchProductNew();
 
     const userData = JSON.parse(localStorage.getItem("userData"));
-
-    if (userData) {
-      fetchProductRecommend(userData.id);
-    }
 
     //call api blog
     fetchBlogFeature();
@@ -63,16 +57,6 @@ function HomePage(props) {
     let res = await getProductFeatureService(10);
     if (res && res.errCode === 0) {
       setDataProductFeature(res.data);
-    }
-  };
-
-  let fetchProductRecommend = async (userId) => {
-    let res = await getProductRecommendService({
-      limit: 20,
-      userId: userId,
-    });
-    if (res && res.errCode === 0) {
-      setdataProductRecommend(res.data);
     }
   };
 
